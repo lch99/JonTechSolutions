@@ -568,13 +568,15 @@ function scrollToHash(hash, smooth) {
   const y = target.getBoundingClientRect().top + window.pageYOffset - SCROLL_OFFSET;
   window.scrollTo({ top: y, behavior: smooth ? 'smooth' : 'auto' });
 }
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', function(e) {
-    if (document.querySelector(this.getAttribute('href'))) {
-      e.preventDefault();
-      scrollToHash(this.getAttribute('href'), true);
-    }
-  });
+// Delegated, so links inside translated text keep working after a language switch
+document.addEventListener('click', (e) => {
+  const a = e.target.closest('a[href^="#"]');
+  if (!a) return;
+  const hash = a.getAttribute('href');
+  if (hash.length > 1 && document.querySelector(hash)) {
+    e.preventDefault();
+    scrollToHash(hash, true);
+  }
 });
 if (location.hash) {
   window.addEventListener('load', () => setTimeout(() => scrollToHash(location.hash, false), 50));
@@ -896,7 +898,17 @@ const enTitle = document.title;
 const i18nOriginal = new Map();
 const phOriginal = new Map();
 
-function setLanguage(lang) {
+// Soft fade on the text you can see, layered on top of any CSS animation
+function fadeInTranslated() {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const r = el.getBoundingClientRect();
+    if (!r.height || r.bottom < 0 || r.top > innerHeight) return;
+    el.animate([{ opacity: 0, filter: 'blur(3px)' }, { opacity: 1, filter: 'blur(0)' }], { duration: 450, easing: 'ease-out' });
+  });
+}
+
+function setLanguage(lang, animate) {
   if (!HTML_LANG[lang]) lang = 'en';
   const dict = TEXTS[lang] || {};
   document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -913,10 +925,11 @@ function setLanguage(lang) {
   document.querySelectorAll('.lang-switch button').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
   try { localStorage.setItem('jontech-lang', lang); } catch (e) {}
   document.dispatchEvent(new CustomEvent('jontech:lang', { detail: lang }));
+  if (animate) fadeInTranslated();
 }
 
 document.querySelectorAll('.lang-switch button').forEach(btn => {
-  btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+  btn.addEventListener('click', () => setLanguage(btn.dataset.lang, true));
 });
 
 let savedLang = null;
