@@ -1,0 +1,19 @@
+name = "jontech-ai"
+main = "src/index.js"
+compatibility_date = "2026-09-01"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+# Sites allowed to call this worker (comma-separated, exact origins).
+ALLOWED_ORIGINS = "https://jontech-solutions.com,https://www.jontech-solutions.com,http://localhost:8080"
+
+# Per-visitor limits so a public page can't run up the Claude bill.
+[[ratelimits]]
+name = "CHAT_LIMITER"
+namespace_id = "1001"
+simple = { limit = 20, period = 60 }
+
+[[ratelimits]]
+name = "AUDIT_LIMITER"
+namespace_id = "1002"
+simple = { limit = 3, period = 60 }

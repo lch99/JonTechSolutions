@@ -1,0 +1,16 @@
+{
+  "name": "jontech-ai-worker",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "0.132.1",
+    "zod": "4.6.5"
+  },
+  "devDependencies": {
+    "wrangler": "4.148.0"
+  }
+}
