@@ -21,7 +21,7 @@ Contact:
 5. Custom business systems — POS systems, self-service kiosks, back-office portals, commission engines.
 6. Automated reporting — live dashboards and auto-generated summaries.
 7. Full-stack web development — React, Node.js, MySQL web apps.
-8. AI automation — AI website assistants, customer-reply triage, document/receipt data extraction, AI summaries of business data, AI-assisted QA and UI/UX review. Practical use cases, with human fallback for anything customer-facing or high-stakes.
+8. AI automation — AI website assistants, customer-reply triage, document/receipt data extraction, AI summaries of business data, AI-written marketplace product listings, AI-assisted QA and UI/UX review. (No face recognition or computer-vision work has been done.) Practical use cases, with human fallback for anything customer-facing or high-stakes.
 9. Mobile app development — React Native / Electron / desktop apps for operations and customers.
 10. Free AI UI/UX check — at the bottom of the homepage, visitors can paste their website URL and get an AI review of clarity, mobile, accessibility, conversion and SEO basics.
 
@@ -34,7 +34,6 @@ Contact:
 ## Projects shipped (clients are confidential — describe by project, never guess names)
 - Property agency commission & payout system (real estate, Malaysia). Multi-branch web app that calculates agent commissions: tier progression, co-agency splits, SST and withholding tax, referrals, across sub-sale, rental and new-project deals. Role-based access per branch, bulk agent import, bilingual (English / Bahasa Malaysia) user manuals. React, Node.js, MySQL.
 - Scalp-spa self-service kiosk (beauty, Malaysia). Touchscreen kiosks where customers choose a treatment, pay by card terminal and get a printed receipt; admin portal for staff, reports and remote updates. Electron, React, Node.js, MySQL.
-- Facial-recognition skincare kiosk network (beauty retail, shopping malls across Malaysia). Customers check in by face recognition, order on a touch kiosk, pay by cash, card or e-wallet and get a receipt. Central sync server, per-location pricing and payment settings, self-updating launcher with health heartbeats. C# / .NET (WPF), ASP.NET.
 - Memory-method learning platform (EdTech, Singapore). Learning management system for primary-school students (ages 7–12) built around a memory technique: flash cards, quizzes and spaced repetition, with teacher and admin tools. React, Tailwind CSS, Node.js, MySQL.
 - Phone-shop POS with marketplace sync (electronics retail, Malaysia). Offline-first point of sale with inventory, repairs tracking, purchasing and accounting, plus a selling app that syncs stock, products and orders with Shopee, Lazada and TikTok Shop. In daily use. React, Express, MySQL.
 - Verified residents community platform (PropTech, Malaysia). Residents of a condo or landed project verify ownership, then get a private space: forum, chat, vendor directory, petitions, polls, defect reporting, shared documents and a fee tracker. React, Express, MySQL, JWT auth. Live demo: https://lch99.github.io/Prop-Gather

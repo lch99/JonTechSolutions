@@ -117,15 +117,15 @@
     },
     {
       keys: ['ai', 'chatbot', 'gpt', 'claude', 'llm', 'kecerdasan', '人工智能', '机器人'],
-      en: 'We use AI where it genuinely saves work: website & WhatsApp assistants (like this one), reading invoices and receipts into your system, plain-language summaries of sales or stock, AI-assisted testing, face-recognition check-in, and AI UI/UX reviews. Anything customer-facing keeps a human fallback.',
-      ms: 'Kami guna AI di tempat yang benar-benar menjimatkan kerja: pembantu web & WhatsApp (seperti ini), membaca invois dan resit ke dalam sistem, ringkasan jualan atau stok yang mudah difahami, ujian dibantu AI, daftar masuk pengecaman wajah dan semakan UI/UX AI. Semua yang berdepan pelanggan ada sandaran manusia.',
-      zh: '我们只在真正省力的地方用 AI：网站与 WhatsApp 助手（就像这个）、把发票和收据读进系统、通俗易懂的销售或库存摘要、AI 辅助测试、人脸识别签到，以及 AI UI/UX 审查。面向客户的环节都保留人工兜底。',
+      en: 'We use AI where it genuinely saves work: website & WhatsApp assistants (like this one), reading invoices and receipts into your system, plain-language summaries of sales or stock, AI-assisted testing, AI-written marketplace listings, and AI UI/UX reviews. Anything customer-facing keeps a human fallback.',
+      ms: 'Kami guna AI di tempat yang benar-benar menjimatkan kerja: pembantu web & WhatsApp (seperti ini), membaca invois dan resit ke dalam sistem, ringkasan jualan atau stok yang mudah difahami, ujian dibantu AI, penyenaraian marketplace yang ditulis AI dan semakan UI/UX AI. Semua yang berdepan pelanggan ada sandaran manusia.',
+      zh: '我们只在真正省力的地方用 AI：网站与 WhatsApp 助手（就像这个）、把发票和收据读进系统、通俗易懂的销售或库存摘要、AI 辅助测试、AI 撰写电商商品上架，以及 AI UI/UX 审查。面向客户的环节都保留人工兜底。',
     },
     {
-      keys: ['kiosk', 'self-service', 'self service', 'touchscreen', 'face recognition', 'pengecaman wajah', '终端', '自助', '人脸'],
-      en: 'We\'ve built two kiosk systems: a scalp-spa self-service kiosk (choose a treatment, pay by card terminal, printed receipt, admin portal) and a face-recognition skincare kiosk network running in shopping malls across Malaysia, with a central server syncing pricing and sales.',
-      ms: 'Kami telah membina dua sistem kiosk: kiosk layan diri spa kulit kepala (pilih rawatan, bayar dengan terminal kad, resit bercetak, portal admin) dan rangkaian kiosk penjagaan kulit dengan pengecaman wajah di pusat beli-belah seluruh Malaysia, dengan pelayan pusat yang menyelaraskan harga dan jualan.',
-      zh: '我们做过两套自助终端系统：头皮护理自助终端（选疗程、刷卡付款、打印收据、后台管理），以及部署在马来西亚多家商场的人脸识别护肤自助终端网络，由中央服务器同步定价与销售。',
+      keys: ['kiosk', 'self-service', 'self service', 'touchscreen', '终端', '自助'],
+      en: 'We built a self-service kiosk system for a scalp spa: customers choose a treatment on a touchscreen, pay by card terminal and get a printed receipt, while staff manage everything from an admin portal with reports and remote updates.',
+      ms: 'Kami membina sistem kiosk layan diri untuk spa kulit kepala: pelanggan pilih rawatan di skrin sentuh, bayar melalui terminal kad dan dapat resit bercetak, manakala staf mengurus semuanya melalui portal admin dengan laporan dan kemas kini jarak jauh.',
+      zh: '我们为一家头皮护理店打造了自助终端系统：顾客在触屏上选择疗程、刷卡付款并打印收据，员工则通过后台管理系统查看报表并远程更新。',
     },
     {
       keys: ['pos', 'shopee', 'lazada', 'tiktok', 'marketplace', 'inventory', 'stock', 'stok', 'inventori', 'retail', 'runcit', 'shop', 'kedai', '库存', '零售', '收银', '电商'],
@@ -165,9 +165,9 @@
     },
     {
       keys: ['project', 'portfolio', 'work', 'done', 'built', 'projek', 'kerja', '项目', '作品', '案例'],
-      en: 'Recent work: an agency commission system, a scalp-spa kiosk, a face-recognition kiosk network in malls, a memory-method learning platform, a phone-shop POS with Shopee/Lazada/TikTok sync, a residents community platform, a Playwright test suite, a trading research desk and an invoicing system. Ask me about any of them!',
-      ms: 'Kerja terkini: sistem komisen agensi, kiosk spa kulit kepala, rangkaian kiosk pengecaman wajah di pusat beli-belah, platform pembelajaran kaedah ingatan, POS kedai telefon dengan penyelarasan Shopee/Lazada/TikTok, platform komuniti penduduk, suite ujian Playwright, meja penyelidikan dagangan dan sistem invois. Tanya saya tentang mana-mana satu!',
-      zh: '近期项目：中介佣金系统、头皮护理自助终端、商场人脸识别终端网络、记忆法学习平台、对接 Shopee/Lazada/TikTok 的手机店 POS、住户社区平台、Playwright 测试套件、交易研究工作台以及发票系统。想了解哪个都可以问我！',
+      en: 'Recent work: an agency commission system, a scalp-spa self-service kiosk, a memory-method learning platform, a phone-shop POS with Shopee/Lazada/TikTok sync, a residents community platform, a Playwright test suite, a trading research desk and an invoicing system. Ask me about any of them!',
+      ms: 'Kerja terkini: sistem komisen agensi, kiosk layan diri spa kulit kepala, platform pembelajaran kaedah ingatan, POS kedai telefon dengan penyelarasan Shopee/Lazada/TikTok, platform komuniti penduduk, suite ujian Playwright, meja penyelidikan dagangan dan sistem invois. Tanya saya tentang mana-mana satu!',
+      zh: '近期项目：中介佣金系统、头皮护理自助终端、记忆法学习平台、对接 Shopee/Lazada/TikTok 的手机店 POS、住户社区平台、Playwright 测试套件、交易研究工作台以及发票系统。想了解哪个都可以问我！',
     },
   ];
   const QUICK_DEFAULT = {
