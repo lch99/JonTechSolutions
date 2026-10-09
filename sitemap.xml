@@ -16,7 +16,7 @@
     <xhtml:link rel="alternate" hreflang="zh" href="https://jontech-solutions.com/zh/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jontech-solutions.com/"/>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://jontech-solutions.com/zh/</loc>
@@ -25,36 +25,195 @@
     <xhtml:link rel="alternate" hreflang="zh" href="https://jontech-solutions.com/zh/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jontech-solutions.com/"/>
     <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://jontech-solutions.com/services/it-services.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jontech-solutions.com/services/it-services.html"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://jontech-solutions.com/ms/services/it-services.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://jontech-solutions.com/zh/services/it-services.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jontech-solutions.com/services/it-services.html"/>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://jontech-solutions.com/contact.html</loc>
+    <loc>https://jontech-solutions.com/ms/services/it-services.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jontech-solutions.com/services/it-services.html"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://jontech-solutions.com/ms/services/it-services.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://jontech-solutions.com/zh/services/it-services.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jontech-solutions.com/services/it-services.html"/>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://jontech-solutions.com/zh/services/it-services.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jontech-solutions.com/services/it-services.html"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://jontech-solutions.com/ms/services/it-services.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://jontech-solutions.com/zh/services/it-services.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jontech-solutions.com/services/it-services.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://jontech-solutions.com/services/pos-system.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jontech-solutions.com/services/pos-system.html"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://jontech-solutions.com/ms/services/pos-system.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://jontech-solutions.com/zh/services/pos-system.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jontech-solutions.com/services/pos-system.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://jontech-solutions.com/ms/services/pos-system.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jontech-solutions.com/services/pos-system.html"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://jontech-solutions.com/ms/services/pos-system.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://jontech-solutions.com/zh/services/pos-system.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jontech-solutions.com/services/pos-system.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://jontech-solutions.com/zh/services/pos-system.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jontech-solutions.com/services/pos-system.html"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://jontech-solutions.com/ms/services/pos-system.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://jontech-solutions.com/zh/services/pos-system.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jontech-solutions.com/services/pos-system.html"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://jontech-solutions.com/services/custom-software.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jontech-solutions.com/services/custom-software.html"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://jontech-solutions.com/ms/services/custom-software.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://jontech-solutions.com/zh/services/custom-software.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jontech-solutions.com/services/custom-software.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://jontech-solutions.com/ms/services/custom-software.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jontech-solutions.com/services/custom-software.html"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://jontech-solutions.com/ms/services/custom-software.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://jontech-solutions.com/zh/services/custom-software.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jontech-solutions.com/services/custom-software.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://jontech-solutions.com/zh/services/custom-software.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jontech-solutions.com/services/custom-software.html"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://jontech-solutions.com/ms/services/custom-software.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://jontech-solutions.com/zh/services/custom-software.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jontech-solutions.com/services/custom-software.html"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://jontech-solutions.com/services/ai-automation.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jontech-solutions.com/services/ai-automation.html"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://jontech-solutions.com/ms/services/ai-automation.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://jontech-solutions.com/zh/services/ai-automation.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jontech-solutions.com/services/ai-automation.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://jontech-solutions.com/ms/services/ai-automation.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jontech-solutions.com/services/ai-automation.html"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://jontech-solutions.com/ms/services/ai-automation.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://jontech-solutions.com/zh/services/ai-automation.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jontech-solutions.com/services/ai-automation.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://jontech-solutions.com/zh/services/ai-automation.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jontech-solutions.com/services/ai-automation.html"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://jontech-solutions.com/ms/services/ai-automation.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://jontech-solutions.com/zh/services/ai-automation.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jontech-solutions.com/services/ai-automation.html"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://jontech-solutions.com/services/web-development.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jontech-solutions.com/services/web-development.html"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://jontech-solutions.com/ms/services/web-development.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://jontech-solutions.com/zh/services/web-development.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jontech-solutions.com/services/web-development.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://jontech-solutions.com/ms/services/web-development.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jontech-solutions.com/services/web-development.html"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://jontech-solutions.com/ms/services/web-development.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://jontech-solutions.com/zh/services/web-development.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jontech-solutions.com/services/web-development.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://jontech-solutions.com/zh/services/web-development.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jontech-solutions.com/services/web-development.html"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://jontech-solutions.com/ms/services/web-development.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://jontech-solutions.com/zh/services/web-development.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jontech-solutions.com/services/web-development.html"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://jontech-solutions.com/services/mobile-app-development.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jontech-solutions.com/services/mobile-app-development.html"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://jontech-solutions.com/ms/services/mobile-app-development.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://jontech-solutions.com/zh/services/mobile-app-development.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jontech-solutions.com/services/mobile-app-development.html"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://jontech-solutions.com/ms/services/mobile-app-development.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jontech-solutions.com/services/mobile-app-development.html"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://jontech-solutions.com/ms/services/mobile-app-development.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://jontech-solutions.com/zh/services/mobile-app-development.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jontech-solutions.com/services/mobile-app-development.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://jontech-solutions.com/zh/services/mobile-app-development.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jontech-solutions.com/services/mobile-app-development.html"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://jontech-solutions.com/ms/services/mobile-app-development.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://jontech-solutions.com/zh/services/mobile-app-development.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jontech-solutions.com/services/mobile-app-development.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://jontech-solutions.com/contact.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jontech-solutions.com/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://jontech-solutions.com/ms/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://jontech-solutions.com/zh/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jontech-solutions.com/contact.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jontech-solutions.com/ms/contact.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jontech-solutions.com/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://jontech-solutions.com/ms/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://jontech-solutions.com/zh/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jontech-solutions.com/contact.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jontech-solutions.com/zh/contact.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jontech-solutions.com/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="ms" href="https://jontech-solutions.com/ms/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://jontech-solutions.com/zh/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jontech-solutions.com/contact.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>

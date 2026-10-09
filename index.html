@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>JonTech Solutions — Automation & AI Specialist in Malaysia</title>
-<meta name="description" content="Malaysia-based automation and AI studio — custom systems, POS, kiosks, web platforms and practical AI for SMEs. Try our free AI UI/UX check for your website."/>
+<title>JonTech Solutions — IT Services, Automation & AI in Malaysia</title>
+<meta name="description" content="Malaysian IT services for SMEs and startups — custom software, POS systems, web and mobile apps, automation and practical AI. Free consultation. Try our free AI UI/UX check."/>
 <link rel="canonical" href="https://jontech-solutions.com/"/>
 <link rel="alternate" hreflang="en" href="https://jontech-solutions.com/"/>
 <link rel="alternate" hreflang="ms" href="https://jontech-solutions.com/ms/"/>
@@ -12,7 +12,7 @@
 <link rel="alternate" hreflang="x-default" href="https://jontech-solutions.com/"/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://jontech-solutions.com/"/>
-<meta property="og:title" content="JonTech Solutions — Automation & AI Specialist"/>
+<meta property="og:title" content="JonTech Solutions — IT Services, Automation & AI"/>
 <meta property="og:description" content="We help startups and small businesses automate their systems and put AI to work — saving time, cutting errors, and letting your team focus on growth."/>
 <meta property="og:site_name" content="JonTech Solutions"/>
 <meta property="og:locale" content="en_MY"/>
@@ -21,7 +21,7 @@
 <meta property="og:image:height" content="630"/>
 <meta property="og:image:alt" content="JonTech Solutions — Automation &amp; AI for growing businesses"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="JonTech Solutions — Automation & AI Specialist"/>
+<meta name="twitter:title" content="JonTech Solutions — IT Services, Automation & AI"/>
 <meta name="twitter:description" content="We help startups and small businesses automate their systems and put AI to work — saving time, cutting errors, and letting your team focus on growth."/>
 <meta name="twitter:image" content="https://jontech-solutions.com/assets/og-image.png"/>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23e8320a'/%3E%3Ctext x='32' y='45' font-family='-apple-system,Arial,sans-serif' font-size='34' font-weight='700' fill='white' text-anchor='middle'%3EJ%3C/text%3E%3C/svg%3E"/>
@@ -32,7 +32,8 @@
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   "name": "JonTech Solutions",
-  "description": "Automation and AI studio helping startups and small businesses with workflow automation, custom systems, POS, kiosks, web platforms and practical AI.",
+  "description": "IT services, automation and AI studio helping startups and small businesses with custom software, POS systems, kiosks, web and mobile apps, workflow automation and practical AI.",
+  "knowsAbout": ["IT services", "Custom software development", "POS systems", "Web development", "Mobile app development", "System integration", "Workflow automation", "Test automation", "AI automation"],
   "url": "https://jontech-solutions.com/",
   "email": "jontech.information@gmail.com",
   "telephone": "+60195023897",
@@ -148,7 +149,7 @@
 <!-- SERVICES -->
 <div class="services-bg">
   <div class="section-wrap">
-    <div class="eyebrow reveal" id="services" data-i18n="servicesEyebrow">What we do</div>
+    <div class="eyebrow reveal" id="services" data-i18n="servicesEyebrow">Our IT services</div>
     <h2 class="section-h reveal" data-i18n="servicesH2">Everything your business needs<br>to run on <em>autopilot</em></h2>
     <div class="svc-grid">
 
@@ -256,6 +257,7 @@
         <div class="svc-card-inner">
           <div class="svc-cta-title" data-i18n="svcCtaTitle">Not sure<br>what you<br>need?</div>
           <button type="button" class="btn-sm" data-ask-open><span data-i18n="svcCtaBtn">Ask our AI</span></button>
+          <a class="svc-cta-link" href="services/it-services.html" data-i18n="svcAllIt">See all IT services →</a>
         </div>
       </div>
 
@@ -649,7 +651,10 @@ document.querySelectorAll('[data-ask-open]').forEach(btn => {
   btn.addEventListener('click', () => window.JonTechAI && window.JonTechAI.open());
 });
 
-/* ── LANGUAGE TOGGLE ── */
+</script>
+<script id="i18n-data">
+/* Translations for this page — the switch logic lives in assets/i18n.js.
+   ms/index.html and zh/index.html are generated from this page: run `node tools/build-i18n.mjs` after editing. */
 const zhText = {
   navServices: "服务", navProcess: "流程", navProjects: "项目案例", navAbout: "关于我们", navContact: "联系我们",
   navAi: "AI", navUx: "免费 UX 检测",
@@ -664,7 +669,7 @@ const zhText = {
   num1: "客户经理或中间人", num2: "系统全天候不间断运行", num3: "自动化后的人工错误", num4: "每位客户效率提升",
   mq1: "运营更高效", mq2: "零人工错误", mq3: "全天候稳定运行", mq4: "可扩展系统", mq5: "团队更省心",
   mq6: "真实投资回报", mq7: "经久耐用", mq8: "减少瓶颈", mq9: "数据流转顺畅", mq10: "放心发布上线", mq11: "实用的 AI",
-  servicesEyebrow: "我们提供的服务",
+  servicesEyebrow: "我们的 IT 服务", svcAllIt: "查看全部 IT 服务 →",
   servicesH2: '让业务实现<br><em>自动运转</em>所需的一切',
   svc1Title: "界面与流程自动化",
   svc1Body: "重复点击、表单填写、数据录入——我们将整个操作流程自动化，团队再也不必手动处理。",
@@ -797,7 +802,7 @@ const msText = {
   num1: "Pengurus Akaun atau Orang Tengah", num2: "Sistem Anda Berjalan Tanpa Henti", num3: "Kesilapan Manual Selepas Automasi", num4: "Peningkatan Kecekapan untuk Setiap Pelanggan",
   mq1: "Operasi Lebih Pantas", mq2: "Sifar Kesilapan Manual", mq3: "Boleh Dipercayai 24/7", mq4: "Sistem Boleh Berkembang", mq5: "Pasukan Lebih Gembira",
   mq6: "Pulangan Sebenar", mq7: "Dibina untuk Tahan Lama", mq8: "Kurang Kesesakan", mq9: "Aliran Data Lancar", mq10: "Keluaran Yakin", mq11: "AI yang Praktikal",
-  servicesEyebrow: "Apa yang kami buat",
+  servicesEyebrow: "Perkhidmatan IT kami", svcAllIt: "Lihat semua perkhidmatan IT →",
   servicesH2: 'Semua yang perniagaan anda perlukan<br>untuk berjalan secara <em>autopilot</em>',
   svc1Title: "Automasi UI & Aliran Kerja",
   svc1Body: "Klik berulang, isi borang, kemasukan data — kami automasikan keseluruhan aliran kerja supaya pasukan anda tak perlu sentuh lagi.",
@@ -916,72 +921,12 @@ const msText = {
   footerEmail: "E-mel",
 };
 
-// ms/index.html and zh/index.html are generated from this page and these texts —
-// run `node tools/build-i18n.mjs` after editing either.
-const TEXTS = { zh: zhText, ms: msText };
 const TITLES = {
-  zh: "JonTech Solutions — 马来西亚自动化与 AI 专家",
-  ms: "JonTech Solutions — Pakar Automasi & AI di Malaysia",
+  zh: "JonTech Solutions — 马来西亚 IT 服务、自动化与 AI",
+  ms: "JonTech Solutions — Perkhidmatan IT, Automasi & AI di Malaysia",
 };
-const HTML_LANG = { en: 'en', ms: 'ms', zh: 'zh-CN' };
-const enTitle = document.title;
-const i18nOriginal = new Map();
-const phOriginal = new Map();
-
-// Soft fade on the text you can see, layered on top of any CSS animation
-function fadeInTranslated() {
-  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const r = el.getBoundingClientRect();
-    if (!r.height || r.bottom < 0 || r.top > innerHeight) return;
-    el.animate([{ opacity: 0, filter: 'blur(3px)' }, { opacity: 1, filter: 'blur(0)' }], { duration: 450, easing: 'ease-out' });
-  });
-}
-
-function setLanguage(lang, animate) {
-  if (!HTML_LANG[lang]) lang = 'en';
-  const dict = TEXTS[lang] || {};
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    if (!i18nOriginal.has(el)) i18nOriginal.set(el, el.innerHTML);
-    el.innerHTML = dict[key] || i18nOriginal.get(el);
-  });
-  document.querySelectorAll('[data-i18n-ph]').forEach(el => {
-    if (!phOriginal.has(el)) phOriginal.set(el, el.placeholder);
-    el.placeholder = dict[el.getAttribute('data-i18n-ph')] || phOriginal.get(el);
-  });
-  document.documentElement.lang = HTML_LANG[lang];
-  document.title = TITLES[lang] || enTitle;
-  document.querySelectorAll('.lang-switch a').forEach(a => {
-    a.classList.toggle('active', a.dataset.lang === lang);
-    if (a.dataset.lang === lang) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
-  });
-  document.dispatchEvent(new CustomEvent('jontech:lang', { detail: lang }));
-  if (animate) fadeInTranslated();
-}
-
-// Set only on the generated pages, which are already rendered in their language
-const PAGE_LANG = document.documentElement.dataset.pageLang;
-
-// The switch is real links so search engines find each language's page. Only an explicit
-// choice is remembered. On the main page we translate in place; on a generated page we follow the link.
-document.querySelectorAll('.lang-switch a').forEach(link => {
-  link.addEventListener('click', e => {
-    if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-    try { localStorage.setItem('jontech-lang', link.dataset.lang); } catch (err) {}
-    if (PAGE_LANG) return;
-    e.preventDefault();
-    setLanguage(link.dataset.lang, true);
-  });
-});
-
-if (!PAGE_LANG) {
-  let savedLang = null;
-  try { savedLang = localStorage.getItem('jontech-lang'); } catch (e) {}
-  const browserLang = (navigator.language || '').toLowerCase();
-  setLanguage(savedLang || (browserLang.startsWith('zh') ? 'zh' : browserLang.startsWith('ms') ? 'ms' : 'en'));
-}
 </script>
+<script src="assets/i18n.js"></script>
 <script src="assets/ai.js" defer></script>
 </body>
 </html>
