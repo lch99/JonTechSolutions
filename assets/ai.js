@@ -117,9 +117,9 @@
     },
     {
       keys: ['ai', 'chatbot', 'gpt', 'claude', 'llm', 'kecerdasan', '人工智能', '机器人'],
-      en: 'We use AI where it genuinely saves work: website & WhatsApp assistants (like this one), reading invoices and receipts into your system, plain-language summaries of sales or stock, AI-assisted testing, AI-written marketplace listings, and AI UI/UX reviews. Anything customer-facing keeps a human fallback.',
-      ms: 'Kami guna AI di tempat yang benar-benar menjimatkan kerja: pembantu web & WhatsApp (seperti ini), membaca invois dan resit ke dalam sistem, ringkasan jualan atau stok yang mudah difahami, ujian dibantu AI, penyenaraian marketplace yang ditulis AI dan semakan UI/UX AI. Semua yang berdepan pelanggan ada sandaran manusia.',
-      zh: '我们只在真正省力的地方用 AI：网站与 WhatsApp 助手（就像这个）、把发票和收据读进系统、通俗易懂的销售或库存摘要、AI 辅助测试、AI 撰写电商商品上架，以及 AI UI/UX 审查。面向客户的环节都保留人工兜底。',
+      en: 'We use AI where it genuinely saves work: custom AI built for your business, such as website & WhatsApp assistants (like this one) that know your own products and documents, reading invoices and receipts into your system, plain-language summaries of sales or stock, AI-assisted testing, AI-written marketplace listings, and AI UI/UX reviews. Anything customer-facing keeps a human fallback.',
+      ms: 'Kami guna AI di tempat yang benar-benar menjimatkan kerja: AI tersuai untuk perniagaan anda, seperti pembantu web & WhatsApp (seperti ini) yang mengenali produk dan dokumen anda sendiri, membaca invois dan resit ke dalam sistem, ringkasan jualan atau stok yang mudah difahami, ujian dibantu AI, penyenaraian marketplace yang ditulis AI dan semakan UI/UX AI. Semua yang berdepan pelanggan ada sandaran manusia.',
+      zh: '我们只在真正省力的地方用 AI：为您的业务量身定制的 AI，例如熟悉您自己产品和文件的网站与 WhatsApp 助手（就像这个）、把发票和收据读进系统、通俗易懂的销售或库存摘要、AI 辅助测试、AI 撰写电商商品上架，以及 AI UI/UX 审查。面向客户的环节都保留人工兜底。',
     },
     {
       keys: ['kiosk', 'self-service', 'self service', 'touchscreen', '终端', '自助'],

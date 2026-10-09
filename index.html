@@ -363,13 +363,21 @@
     <h2 class="section-h reveal" data-i18n="projectsH2">Projects we've <em>shipped</em></h2>
     <div class="proj-filters reveal" role="group" aria-label="Filter projects">
       <button type="button" class="proj-filter active" data-filter="all" data-i18n="fAll">All</button>
+      <button type="button" class="proj-filter" data-filter="ai" data-i18n="fAi">AI</button>
       <button type="button" class="proj-filter" data-filter="retail" data-i18n="fRetail">Kiosks & Retail</button>
       <button type="button" class="proj-filter" data-filter="platform" data-i18n="fPlatform">Web Platforms</button>
       <button type="button" class="proj-filter" data-filter="qa" data-i18n="fQa">Automation & QA</button>
       <button type="button" class="proj-filter" data-filter="inhouse" data-i18n="fInhouse">In-house Tools</button>
     </div>
     <div class="proj-grid">
-      <div class="proj reveal" data-cat="platform">
+      <div class="proj reveal" data-cat="ai">
+        <div class="proj-top"><span class="proj-cat" data-i18n="proj10Cat">AI · Now booking</span><a class="proj-arrow" href="services/ai-automation.html" aria-label="AI automation service">↗</a></div>
+        <h3 class="proj-name" data-i18n="proj10Name">Custom AI Built for Your Business</h3>
+        <div class="proj-desc" data-i18n="proj10Desc">AI assistants and automations made for one client at a time — they know your own products, documents and FAQs, answer customers on your website or WhatsApp, and read invoices and forms into your system, with a human fallback for anything important.</div>
+        <span class="proj-meta" data-i18n="proj10Meta">Now taking projects · Any industry</span>
+        <div class="proj-chips"><span class="proj-chip">LLM Integration</span><span class="proj-chip">WhatsApp</span><span class="proj-chip">Your own data</span></div>
+      </div>
+      <div class="proj reveal reveal-delay-1" data-cat="platform">
         <div class="proj-top"><span class="proj-cat" data-i18n="proj1Cat">Real Estate · Malaysia</span><div class="proj-arrow">↗</div></div>
         <h3 class="proj-name" data-i18n="proj1Name">Agency Commission & Payout System</h3>
         <div class="proj-desc" data-i18n="proj1Desc">Multi-branch web app that calculates agent payouts instantly — tier progression, co-agency splits, SST and withholding tax, referrals — across sub-sale, rental and new-project deals.</div>
@@ -708,7 +716,10 @@ const zhText = {
   process4Desc: "您将获得可正常运行的软件、清晰的文档，以及一支完全熟悉系统操作的团队——没有术语堆砌，没有含糊不清。",
   projectsEyebrow: "近期项目",
   projectsH2: '我们交付的<em>项目</em>',
-  fAll: "全部", fRetail: "自助终端与零售", fPlatform: "网络平台", fQa: "自动化与测试", fInhouse: "自研工具",
+  fAll: "全部", fAi: "AI", fRetail: "自助终端与零售", fPlatform: "网络平台", fQa: "自动化与测试", fInhouse: "自研工具",
+  proj10Cat: "AI · 现正接受预约", proj10Name: "为您的业务量身定制的 AI",
+  proj10Desc: "为每位客户专门打造的 AI 助手与自动化——熟悉您自己的产品、文件和常见问题，在网站或 WhatsApp 上回复客户，把发票和表格读入您的系统，重要事项都有人工把关。",
+  proj10Meta: "现正接受项目 · 不限行业",
   proj1Cat: "房地产 · 马来西亚", proj1Name: "中介佣金与发放系统",
   proj1Desc: "多分行网页系统，即时计算经纪人佣金——等级晋升、联合代理分成、SST 与预扣税、推荐奖励——涵盖二手买卖、租赁与新盘交易。",
   proj1Meta: "多分行 · 中英马来文手册",
@@ -838,7 +849,10 @@ const msText = {
   process4Desc: "Anda dapat perisian yang berfungsi, dokumentasi yang jelas dan pasukan yang terlatih sepenuhnya — tanpa jargon, tanpa teka-teki.",
   projectsEyebrow: "Kerja terkini",
   projectsH2: 'Projek yang telah kami <em>siapkan</em>',
-  fAll: "Semua", fRetail: "Kiosk & Runcit", fPlatform: "Platform Web", fQa: "Automasi & QA", fInhouse: "Alatan Dalaman",
+  fAll: "Semua", fAi: "AI", fRetail: "Kiosk & Runcit", fPlatform: "Platform Web", fQa: "Automasi & QA", fInhouse: "Alatan Dalaman",
+  proj10Cat: "AI · Kini menerima tempahan", proj10Name: "AI Tersuai untuk Perniagaan Anda",
+  proj10Desc: "Pembantu dan automasi AI yang dibina khusus untuk setiap klien — mengenali produk, dokumen dan soalan lazim anda sendiri, menjawab pelanggan di laman web atau WhatsApp, dan membaca invois serta borang ke dalam sistem anda, dengan sandaran manusia untuk perkara penting.",
+  proj10Meta: "Kini menerima projek · Semua industri",
   proj1Cat: "Hartanah · Malaysia", proj1Name: "Sistem Komisen & Bayaran Agensi",
   proj1Desc: "Aplikasi web berbilang cawangan yang mengira bayaran ejen serta-merta — kenaikan tahap, pembahagian ko-agensi, SST dan cukai pegangan, rujukan — untuk urusan subjual, sewaan dan projek baharu.",
   proj1Meta: "Berbilang cawangan · Manual EN/BM",
