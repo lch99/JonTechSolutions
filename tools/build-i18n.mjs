@@ -213,8 +213,8 @@ function build(page, lang) {
   html = setLanguageLinks(html, page, lang);
 
   html = html.replace(/\u0000(\d+)\u0000/g, (all, i) => scripts[i]);
-  // FAQ structured data must match the visible text, which is now translated
-  return html.replace(/<script type="application\/ld\+json">[^<]*"FAQPage"[^<]*<\/script>\r?\n/g, '');
+  // FAQ and breadcrumb structured data must match the visible text, which is now translated
+  return html.replace(/<script type="application\/ld\+json">[^<]*"(?:FAQPage|BreadcrumbList)"[^<]*<\/script>\r?\n/g, '');
 }
 
 // Every page in every language, each listing all of its language versions
