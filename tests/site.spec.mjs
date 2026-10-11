@@ -61,6 +61,24 @@ test('the generated BM and 中文 pages are translated and link back to English'
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');
 });
 
+test('the product reel follows the page language, and stays on its poster with reduced motion', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await open(page, 'zh/');
+  await expect(page.locator('.reel-video'), 'generated 中文 page').toHaveAttribute('poster', /reel-zh\.webp$/);
+  await page.evaluate(() => localStorage.clear());
+
+  await open(page, 'index.html');
+  const reel = page.locator('.reel-video');
+  await expect(reel.locator('source')).toHaveAttribute('src', /reel-en\.mp4$/);
+  await page.locator('.lang-switch a[data-lang="ms"]').click();
+  await expect(reel.locator('source')).toHaveAttribute('src', /reel-ms\.mp4$/);
+  await expect(reel).toHaveAttribute('poster', /reel-ms\.webp$/);
+  await reel.scrollIntoViewIfNeeded();
+  await expect(reel).toBeInViewport();
+  await expect(reel, 'fits the screen').toHaveJSProperty('clientWidth', Math.min(440, page.viewportSize().width - 40));
+  expect(await reel.evaluate(v => v.paused), 'no motion when the visitor asked for none').toBe(true);
+});
+
 test('project filters narrow the list and "All" restores it', async ({ page }) => {
   await open(page, 'index.html', 'dark');
   const shownProjects = () => page.locator('.proj:not(.is-hidden)').count();

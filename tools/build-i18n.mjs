@@ -155,7 +155,7 @@ function translateBody(html, dict) {
 function rebaseLinks(html, page, lang) {
   const srcDir = path.posix.dirname(page);
   const outDir = path.posix.join(lang, srcDir);
-  return html.replace(/(\s(?:href|src)=")([^"]*)"/g, (all, attr, url) => {
+  return html.replace(/(\s(?:href|src|poster)=")([^"]*)"/g, (all, attr, url) => {
     if (!url || /^(#|\/|[a-z][a-z0-9+.-]*:)/i.test(url)) return all;
     const [, p, rest] = /^([^#?]*)(.*)$/.exec(url);
     const file = path.posix.normalize(path.posix.join(srcDir, p === '' || p.endsWith('/') ? p + 'index.html' : p));

@@ -461,6 +461,11 @@ footer{
 .btn-sm:hover{transform:translateY(-2px);background:#b82606}
 :focus-visible{outline:2px solid var(--red);outline-offset:2px}
 
+/* ── REEL ── a silent product loop under the hero; assets/motion.js picks its language and plays it only while on screen */
+.reel{text-align:center}
+.reel .section-h{margin-bottom:2.5rem}
+.reel-video{display:block;width:min(100%,440px);height:auto;margin:0 auto;border-radius:28px;background:#17171a;box-shadow:0 30px 80px rgba(0,0,0,0.18),0 0 0 1px var(--hairline)}
+
 /* ── HERO extras ── */
 .hero{isolation:isolate}
 .hero::before{
