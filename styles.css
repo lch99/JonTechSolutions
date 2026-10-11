@@ -635,8 +635,10 @@ a.proj-arrow{text-decoration:none}
 }
 
 @media (prefers-reduced-motion: reduce){
-  *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important;scroll-behavior:auto!important}
-  .reveal{opacity:1}
+  /* no delay either: a staggered entrance would otherwise hold its item hidden until its turn */
+  *,*::before,*::after{animation-duration:0.01ms!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:0.01ms!important;scroll-behavior:auto!important}
+  /* and no entrance at all for sections, or each would blink for a frame as it starts */
+  .reveal{opacity:1;animation:none!important}
 }
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
