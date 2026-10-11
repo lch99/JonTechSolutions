@@ -386,7 +386,7 @@
     const score = clamp(r.overall_score);
     const C = 2 * Math.PI * 56;
     const ring = h('div', { class: 'ux-ring' });
-    ring.innerHTML = `<svg width="130" height="130" viewBox="0 0 130 130" aria-hidden="true"><circle cx="65" cy="65" r="56" fill="none" stroke="#f5f5f7" stroke-width="12"/><circle cx="65" cy="65" r="56" fill="none" stroke="${colour(score)}" stroke-width="12" stroke-linecap="round" stroke-dasharray="${C}" stroke-dashoffset="${C}"/></svg>`;
+    ring.innerHTML = `<svg width="130" height="130" viewBox="0 0 130 130" aria-hidden="true"><circle class="ux-ring-track" cx="65" cy="65" r="56" fill="none" stroke="#f5f5f7" stroke-width="12"/><circle cx="65" cy="65" r="56" fill="none" stroke="${colour(score)}" stroke-width="12" stroke-linecap="round" stroke-dasharray="${C}" stroke-dashoffset="${C}"/></svg>`;
     const num = h('div', { class: 'ux-ring-num' }, String(score), h('small', { text: s.uxScore }));
     ring.appendChild(num);
 
