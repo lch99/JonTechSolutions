@@ -530,7 +530,7 @@ a.proj-arrow{text-decoration:none}
 .ux-intro{font-size:0.98rem;color:rgba(255,255,255,0.6);line-height:1.7;max-width:600px;margin:-2rem 0 2.25rem}
 .ux-form{display:grid;grid-template-columns:1fr auto auto;gap:0.65rem;max-width:820px}
 .ux-form input,.ux-form select{font-family:inherit;font-size:0.95rem;padding:0.95rem 1.1rem;border-radius:14px;border:1px solid rgba(255,255,255,0.18);background:rgba(255,255,255,0.06);color:#fff;min-width:0}
-.ux-form select option{color:var(--ink)}
+.ux-form select option{background:#1d1d1f;color:#fff}
 .ux-form input::placeholder{color:rgba(255,255,255,0.4)}
 .ux-form input:focus,.ux-form select:focus{outline:none;border-color:#ff6b52;background:rgba(255,255,255,0.1)}
 .ux-form button{font-family:inherit;font-size:0.95rem;font-weight:600;padding:0.95rem 1.6rem;border-radius:14px;border:none;background:var(--red-fill);color:#fff;cursor:pointer;transition:background 0.2s,transform 0.2s;white-space:nowrap}
