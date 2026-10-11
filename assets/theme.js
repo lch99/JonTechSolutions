@@ -30,6 +30,9 @@
     if (!e.target.closest('[data-theme-toggle]')) return;
     const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
     try { localStorage.setItem(KEY, next); } catch (err) {}
+    // styles.css cross-fades the colours while this class is on
+    root.classList.add('theme-switching');
     root.dataset.theme = next;
+    setTimeout(() => root.classList.remove('theme-switching'), 400);
   });
 })();

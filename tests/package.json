@@ -1,0 +1,15 @@
+{
+  "name": "jontech-site-tests",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node static-checks.mjs && playwright test",
+    "test:static": "node static-checks.mjs",
+    "test:browsers": "playwright test",
+    "browsers": "playwright install chromium firefox webkit"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
+    "@playwright/test": "1.64.0"
+  }
+}
