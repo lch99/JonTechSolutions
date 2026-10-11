@@ -462,9 +462,16 @@ footer{
 :focus-visible{outline:2px solid var(--red);outline-offset:2px}
 
 /* ── REEL ── a silent product loop under the hero; assets/motion.js picks its language and plays it only while on screen */
-.reel{text-align:center}
-.reel .section-h{margin-bottom:2.5rem}
-.reel-video{display:block;width:min(100%,440px);height:auto;margin:0 auto;border-radius:28px;background:#17171a;box-shadow:0 30px 80px rgba(0,0,0,0.18),0 0 0 1px var(--hairline)}
+/* The card is never taller than the window, so all of it shows at once */
+.reel{display:grid;grid-template-columns:minmax(0,1fr) min(440px,calc((100svh - 9rem)*9/11));align-items:center;gap:4rem}
+.reel .section-h{margin-bottom:1.25rem}
+.reel-sub{color:var(--muted);font-size:1.05rem;line-height:1.6;max-width:420px;margin-bottom:2rem}
+.reel-video{display:block;width:100%;max-width:min(440px,calc((100svh - 9rem)*9/11));height:auto;border-radius:28px;background:#17171a;box-shadow:0 30px 80px rgba(0,0,0,0.18),0 0 0 1px var(--hairline)}
+@media(max-width:900px){
+  .reel{display:block;text-align:center}
+  .reel-sub{margin-inline:auto}
+  .reel-video{margin:2.5rem auto 0}
+}
 
 /* ── HERO extras ── */
 .hero{isolation:isolate}

@@ -76,6 +76,9 @@ test('the product reel follows the page language, and stays on its poster with r
   await reel.scrollIntoViewIfNeeded();
   await expect(reel).toBeInViewport();
   await expect(reel, 'fits the screen').toHaveJSProperty('clientWidth', Math.min(440, page.viewportSize().width - 40));
+  const [copy, card] = await Promise.all([page.locator('.reel-copy').boundingBox(), reel.boundingBox()]);
+  if (page.viewportSize().width > 900) expect(copy.x + copy.width, 'wide screens: text beside the card').toBeLessThanOrEqual(card.x);
+  else expect(copy.y + copy.height, 'narrow screens: text above the card').toBeLessThanOrEqual(card.y);
   expect(await reel.evaluate(v => v.paused), 'no motion when the visitor asked for none').toBe(true);
 });
 
