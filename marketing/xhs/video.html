@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<title>JonTech Solutions — XHS video</title>
+<!-- 59.5s vertical spot, cut on a 96 BPM grid (one bar = 2.5s) to match soundtrack.py.
+     Open this file in a browser to preview it live (add ?format=meta-feed, ?lang=en etc.); `node render.mjs` steps it
+     frame by frame and encodes one MP4 per format.
+     Every delay (--d, --x, --in, --out) is an absolute time in seconds on one shared timeline.
+     Nothing here is client data: every screen is a mock-up with placeholder content, and there are no contact details. -->
+<script>
+for (const [key, fallback] of [['format', 'xhs'], ['lang', 'zh'], ['cut', 'full']]) document.documentElement.dataset[key] = new URLSearchParams(location.search).get(key) || fallback;
+</script>
+<style>
+@property --n{syntax:'<integer>';inherits:false;initial-value:0}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --paper:#17171a;--deep:#101012;--grey:#1f1f23;--surface:#28282d;--ink:#f5f5f7;--muted:#a1a1a6;--border:#3a3a3f;--red:#ff5a1f;
+  --ease-out:cubic-bezier(0.16,1,0.3,1);
+  --latin:'Segoe UI','Inter','Noto Sans SC',sans-serif;
+  /* Formats (?format=): --top/--bottom are the zone the platform's own UI leaves free, --z shrinks the scenes to fit
+     it, --hud places the brand row. xhs and meta-stories share a layout; meta-reels keeps text out of the top 14% and
+     bottom 35%; meta-feed is 4:5. Meta versions swap .x (XHS wording) for .m: no third-party brand names, button CTA. */
+  --h:1920px;--hud:168px;--top:310px;--bottom:340px;--z:1;
+}
+[data-format=meta-reels]{--hud:286px;--top:384px;--bottom:680px;--z:.68}
+[data-format=meta-feed]{--h:1350px;--hud:56px;--top:176px;--bottom:56px;--z:.875}
+[data-format=meta-reels] .bar{display:none}
+html:not([data-format^=meta]) .m,[data-format^=meta] .x{display:none!important}
+html,body{background:#000;overflow:hidden}
+#stage{
+  position:relative;width:1080px;height:var(--h);overflow:hidden;transform-origin:0 0;
+  background:var(--paper);color:var(--ink);
+  font-family:'Noto Sans SC','Microsoft YaHei','PingFang SC',sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+i,em,s,u{font-style:normal;text-decoration:none}
+
+/* ── backdrop ── */
+.dots{position:absolute;inset:-120px;background-image:radial-gradient(rgba(255,255,255,.085) 1.6px,transparent 2.2px);background-size:56px 56px;
+  -webkit-mask-image:radial-gradient(ellipse 70% 55% at 50% 45%,#000 20%,transparent 78%);mask-image:radial-gradient(ellipse 70% 55% at 50% 45%,#000 20%,transparent 78%);
+  animation:pan 59.5s linear both}
+@keyframes pan{to{transform:translate(-56px,-112px)}}
+.glow{position:absolute;width:1500px;height:1500px;border-radius:50%;left:-620px;top:-520px;
+  background:radial-gradient(circle,rgba(255,90,31,.22),rgba(255,90,31,0) 62%);animation:drift 59.5s linear both}
+.glow.b{left:auto;top:auto;right:-760px;bottom:-700px;background:radial-gradient(circle,rgba(255,90,31,.14),rgba(255,90,31,0) 62%);animation-name:driftB}
+@keyframes drift{to{transform:translate(520px,760px)}}
+@keyframes driftB{to{transform:translate(-420px,-560px)}}
+.grain{position:absolute;inset:0;opacity:.06;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ── brand row + progress (echoes the bar in the logo) ── */
+.hud{position:absolute;inset:0;animation:hudOut .01s forwards;animation-delay:55s}
+@keyframes hudOut{to{opacity:0}}
+.brand{position:absolute;left:72px;top:var(--hud);display:flex;align-items:center;gap:20px;font-family:var(--latin);font-size:36px;font-weight:700;letter-spacing:-.02em}
+.brand img{width:60px;height:60px;border-radius:14px;border:1px solid var(--border)}
+.brand b{color:var(--red);font-weight:700}
+.bar{position:absolute;left:72px;right:72px;top:calc(var(--hud) + 90px);height:8px;border-radius:8px;background:var(--surface);overflow:hidden}
+.bar i{display:block;height:100%;border-radius:8px;background:var(--red);transform-origin:0 50%;animation:growX 55s linear both}
+@keyframes growX{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+/* ── scenes: hard cuts hidden under an orange wipe, with a slow push-in while on screen ── */
+.scene{position:absolute;inset:0;zoom:var(--z);padding:calc(var(--top)/var(--z)) calc(72px/var(--z)) calc(var(--bottom)/var(--z));display:flex;flex-direction:column;justify-content:center;opacity:0;
+  animation:on linear;animation-duration:calc((var(--out) - var(--in))*1s);animation-delay:calc(var(--in)*1s)}
+.scene.last{animation-fill-mode:forwards}
+@keyframes on{from{opacity:1;transform:scale(1)}to{opacity:1;transform:scale(1.04)}}
+.shot{opacity:1;animation:shIn .55s var(--ease-out) both,shOut .3s ease-in forwards;animation-delay:calc(var(--in)*1s),calc((var(--out) - .3)*1s)}
+.shot.hard{animation-duration:.55s,.01s}
+@keyframes shIn{from{opacity:0;transform:translateX(140px)}to{opacity:1;transform:none}}
+@keyframes shOut{to{opacity:0;transform:translateX(-140px)}}
+.wipe{position:absolute;left:0;right:0;top:-6%;height:112%;z-index:50;background:var(--red);transform:translateY(105%);
+  animation:wipe .7s both;animation-delay:calc((var(--d) - .35)*1s)}
+.wipe::after{content:"";position:absolute;left:0;right:0;top:100%;height:90px;background:var(--ink)}
+@keyframes wipe{0%{transform:translateY(105%);animation-timing-function:cubic-bezier(.55,0,.9,.55)}50%{transform:none;animation-timing-function:cubic-bezier(.1,.45,.45,1)}100%{transform:translateY(-115%)}}
+
+/* ── motion primitives ── */
+.a{animation:up .75s var(--ease-out) both;animation-delay:calc(var(--d)*1s)}
+.a.pop{animation-name:pop;animation-duration:.55s}
+.a.fade{animation-name:fade}
+@keyframes up{from{opacity:0;transform:translateY(54px)}to{opacity:1;transform:none}}
+@keyframes pop{0%{opacity:0;transform:scale(.7)}60%{opacity:1;transform:scale(1.05)}100%{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.ln{display:block;overflow:hidden;padding:.07em 0;margin:-.07em 0}
+.ln>span{display:block;animation:rise .85s var(--ease-out) both;animation-delay:calc(var(--d)*1s)}
+@keyframes rise{from{transform:translateY(112%)}to{transform:none}}
+.swap{display:inline-grid;justify-items:end}
+.swap>*{grid-area:1/1;animation:swOut .35s var(--ease-out) both;animation-delay:calc(var(--x)*1s)}
+.swap>:last-child{animation-name:swIn}
+@keyframes swOut{to{opacity:0;transform:translateY(-70%)}}
+@keyframes swIn{from{opacity:0;transform:translateY(70%)}to{opacity:1;transform:none}}
+
+/* ── type ── */
+.kicker{font-size:36px;font-weight:700;color:var(--red);letter-spacing:.06em;margin-bottom:26px}
+h1{font-size:122px;font-weight:900;line-height:1.2;letter-spacing:-.02em}
+h2{font-size:90px;font-weight:900;line-height:1.22;letter-spacing:-.02em}
+em{color:var(--red)}
+.sub{font-size:42px;line-height:1.5;color:var(--muted);font-weight:500}
+
+/* ── scene 1 · hook ── */
+.hook h1{animation:settle 1.1s var(--ease-out) both;transform-origin:0 50%}
+@keyframes settle{from{transform:scale(1.09)}to{transform:none}}
+.chips{display:flex;flex-direction:column;align-items:flex-start;gap:24px;margin-top:64px}
+.chip{position:relative;display:inline-flex;padding:22px 38px;border-radius:999px;background:var(--surface);border:1px solid var(--border);font-size:44px;font-weight:700;box-shadow:0 18px 50px rgba(0,0,0,.35)}
+.chip:nth-child(2){margin-left:70px}.chip:nth-child(3){margin-left:24px}.chip:nth-child(4){margin-left:110px}
+.chip span{animation:dim .4s ease-out both;animation-delay:calc(var(--x)*1s)}
+.chip::after{content:"";position:absolute;left:26px;right:26px;top:50%;height:7px;margin-top:-3px;border-radius:7px;background:var(--red);
+  transform-origin:0 50%;animation:growX .4s var(--ease-out) both;animation-delay:calc(var(--x)*1s)}
+@keyframes dim{to{opacity:.36}}
+
+/* ── scene 2 · the line ── */
+.tangle{width:936px;height:280px;margin-bottom:60px;overflow:visible}
+.tangle ellipse{fill:none;stroke:var(--ink);stroke-width:15;stroke-linecap:round;stroke-dasharray:1;animation:draw .9s ease-in-out both;animation-delay:calc(var(--d)*1s)}
+@keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+.tangle .shaft{transform-box:fill-box;transform-origin:0 50%;animation:growX .7s var(--ease-out) both;animation-delay:calc(var(--d)*1s)}
+.tangle .head{fill:var(--red);transform-box:fill-box;transform-origin:0 50%;animation:pop .45s var(--ease-out) both;animation-delay:calc(var(--d)*1s)}
+
+/* ── the logo's window, used as the frame for every product shot ── */
+.meta{display:flex;align-items:center;gap:24px;margin-bottom:22px;font-size:34px;font-weight:700;color:var(--red);letter-spacing:.04em}
+.meta .num{font-family:var(--latin);font-size:34px;color:var(--ink);padding:6px 22px;border:2px solid var(--border);border-radius:999px;letter-spacing:0}
+.meta .num i{color:var(--muted)}
+.win{margin-top:44px;border:4px solid var(--ink);border-radius:46px;background:var(--deep);overflow:hidden;box-shadow:0 50px 140px rgba(0,0,0,.55),0 0 120px rgba(255,90,31,.10)}
+.win-bar{display:flex;align-items:center;gap:14px;height:84px;padding:0 32px;border-bottom:4px solid var(--ink)}
+.win-bar i{width:26px;height:26px;border-radius:50%;background:var(--ink)}
+.win-bar i:first-child{background:var(--red)}
+.win-bar span{margin-left:auto;font-family:Consolas,monospace;font-size:38px;font-weight:700;color:var(--red)}
+.win-body{position:relative;height:712px;padding:34px 34px 64px;display:flex;flex-direction:column;gap:20px}
+.demo{position:absolute;right:34px;bottom:20px;font-size:22px;color:#6b6b72;font-weight:500}
+.st{display:inline-block;white-space:nowrap;padding:12px 26px;border-radius:999px;font-size:30px;font-weight:700;background:var(--surface);color:var(--muted)}
+.st.ok{background:var(--red);color:#17171a}
+.panel{border-radius:28px;background:var(--grey);border:1px solid var(--border)}
+
+/* shot A · POS + marketplace sync */
+.prod{display:flex;align-items:center;gap:28px;padding:26px 30px}
+.thumb{flex:none;width:120px;height:120px;border-radius:24px;background:var(--surface);display:grid;place-items:center;font-size:66px}
+.prod h3{font-size:44px;font-weight:900;line-height:1.3}
+.prod p{font-size:28px;color:var(--muted);font-weight:500}
+.stock{margin-left:auto;text-align:right;font-size:26px;color:var(--muted);font-weight:700}
+.stock .swap{display:grid;font-family:var(--latin);font-size:96px;line-height:1;font-weight:700;color:var(--red);letter-spacing:-.03em}
+.toast{align-self:flex-start;padding:12px 30px;border-radius:999px;background:var(--ink);color:#17171a;font-size:32px;font-weight:900}
+.chan{display:flex;align-items:center;gap:24px;padding:0 30px;height:92px;font-family:var(--latin);font-size:40px;font-weight:700}
+.chan .qty{margin-left:auto;font-size:44px;color:var(--ink)}
+
+/* shot B · kiosk */
+.k-head{display:flex;justify-content:space-between;align-items:baseline;font-size:46px;font-weight:900}
+.k-head small{font-size:28px;color:var(--muted);font-weight:500}
+.opts{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.opt{position:relative;padding:34px 24px 30px;height:290px;display:flex;flex-direction:column;font-size:40px;font-weight:900;line-height:1.3}
+.opt small{font-size:28px;color:var(--muted);font-weight:500;margin-top:6px}
+.opt b{margin-top:auto;width:46px;height:46px;border-radius:50%;border:4px solid var(--border)}
+.opt.pick::before{content:"";position:absolute;inset:-1px;border-radius:28px;border:5px solid var(--red);background:rgba(255,90,31,.14);animation:fade .25s ease-out both;animation-delay:calc(var(--x)*1s)}
+.opt.pick b{position:relative}
+.opt.pick b::after{content:"";position:absolute;inset:-4px;border-radius:50%;background:var(--red);animation:pop .35s var(--ease-out) both;animation-delay:calc(var(--x)*1s)}
+.tap{position:absolute;left:50%;top:56%;width:120px;height:120px;margin:-60px;border-radius:50%;background:rgba(245,245,247,.5);opacity:0;animation:tap .6s ease-out;animation-delay:calc((var(--x) - .15)*1s)}
+@keyframes tap{0%{opacity:.9;transform:scale(.3)}100%{opacity:0;transform:scale(1.5)}}
+.pay{display:grid;height:130px;border-radius:28px;background:var(--surface);font-size:42px;font-weight:900;place-items:center;justify-items:center;overflow:hidden;position:relative}
+.pay::before{content:"";position:absolute;inset:0;background:var(--red);transform-origin:0 50%;animation:growX .45s var(--ease-out) both;animation-delay:calc(var(--x)*1s)}
+.pay>*{position:relative}
+.pay>:last-child{color:#17171a}
+.receipt{align-self:center;font-size:30px;font-weight:700;color:var(--muted)}
+
+/* shot C · commission */
+.c-head{font-size:40px;font-weight:900}
+.split{display:flex;height:128px;border-radius:24px;overflow:hidden;transform-origin:0 50%;animation:growX 1s var(--ease-out) both;animation-delay:calc(var(--d)*1s);font-size:32px;font-weight:900;color:#17171a}
+.split i{display:grid;place-items:center}
+.split i:nth-child(1){flex:54;background:var(--red)}
+.split i:nth-child(2){flex:26;background:var(--ink)}
+.split i:nth-child(3){flex:20;background:#8e8e93}
+.rule{display:flex;align-items:center;justify-content:space-between;padding:0 30px;height:112px;font-size:38px;font-weight:700}
+
+/* shot D · AI chat */
+.who{display:flex;align-items:center;gap:22px;padding-bottom:24px;border-bottom:1px solid var(--border);font-size:38px;font-weight:900}
+.who img{width:72px;height:72px;border-radius:50%;border:1px solid var(--border)}
+.who small{margin-left:auto;display:flex;align-items:center;gap:12px;font-family:var(--latin);font-size:28px;color:var(--muted);font-weight:700}
+.who small::before{content:"";width:16px;height:16px;border-radius:50%;background:#34c759}
+.msg{max-width:80%;padding:26px 34px;border-radius:34px;font-size:40px;font-weight:500;line-height:1.45}
+.msg.me{align-self:flex-end;background:var(--surface);border-bottom-right-radius:10px;transform-origin:100% 100%}
+.msg.ai{align-self:flex-start;background:var(--red);color:#17171a;font-weight:700;border-bottom-left-radius:10px;transform-origin:0 100%}
+.reply{position:relative;align-self:stretch;display:flex;flex-direction:column}
+.typing{position:absolute;left:0;top:0;display:flex;gap:12px;padding:30px 34px;border-radius:34px;border-bottom-left-radius:10px;background:var(--surface);
+  animation:pop .3s var(--ease-out) both,hudOut .12s forwards;animation-delay:calc(var(--d)*1s),calc(var(--x)*1s)}
+.typing i{width:18px;height:18px;border-radius:50%;background:var(--muted)}
+.note{align-self:center;padding:12px 30px;border-radius:999px;background:var(--grey);border:1px solid var(--border);font-size:28px;font-weight:700;color:var(--muted)}
+.langs{display:flex;gap:16px;margin-top:auto}
+.langs span{padding:12px 28px;border-radius:999px;border:2px solid var(--border);font-family:var(--latin);font-size:30px;font-weight:700}
+
+.gain{margin-top:30px;font-size:40px;font-weight:900;line-height:1.4}
+.gain::before{content:"✓ ";color:var(--red)}
+
+/* shot · invoicing */
+.i-head{display:flex;align-items:center;justify-content:space-between;font-family:var(--latin);font-size:42px;font-weight:700}
+.inv{padding:6px 30px}
+.inv div{display:flex;align-items:center;justify-content:space-between;height:84px;font-size:34px;font-weight:500;border-bottom:1px solid var(--border)}
+.inv b{font-family:var(--latin);font-weight:700}
+.inv .sum{border:0;font-size:40px;font-weight:900}
+.inv .sum b{color:var(--red)}
+.pms{display:flex;gap:16px}
+.pm{padding:14px 28px;border-radius:999px;border:2px solid var(--border);font-family:var(--latin);font-size:30px;font-weight:700}
+.pm.on{animation:pmOn .3s ease-out both;animation-delay:calc(var(--x)*1s)}
+@keyframes pmOn{to{background:var(--ink);color:#17171a;border-color:var(--ink)}}
+
+/* shot · reports */
+.chart{display:flex;align-items:flex-end;gap:18px;height:230px;padding:22px 30px 14px}
+.chart div{flex:1;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:8px;font-size:24px;font-weight:700;color:var(--muted)}
+.chart i{width:100%;height:var(--v);border-radius:12px 12px 4px 4px;background:var(--ink);transform-origin:50% 100%;animation:growY .7s var(--ease-out) both;animation-delay:calc(var(--d)*1s)}
+.chart .hot i{background:var(--red)}
+@keyframes growY{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.kpi{padding:18px 28px;font-size:26px;font-weight:700;color:var(--muted)}
+.kpi b{display:block;font-size:44px;font-weight:900;color:var(--ink);line-height:1.4}
+.ai-sum{padding:20px 28px;border-radius:24px;border:2px solid var(--red);background:rgba(255,90,31,.14);font-size:32px;font-weight:700}
+
+/* ── scene 4 · everything else we build ── */
+.svcs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:52px}
+.svc{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;height:196px;border-radius:32px;background:var(--surface);border:1px solid var(--border);font-size:36px;font-weight:900}
+.svc i{font-size:62px;line-height:1}
+.inds{margin-top:40px;font-size:36px}
+
+/* ── scene 5 · why ── */
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:56px 0 30px}
+.stat{padding:34px 36px 38px;border-radius:36px;background:var(--surface);border:1px solid var(--border)}
+.stat b{display:block;font-family:var(--latin);font-size:156px;font-weight:700;line-height:1.05;color:var(--red);letter-spacing:-.04em}
+.stat span{font-size:36px;font-weight:700;line-height:1.4;display:block;margin-top:6px}
+.proof{display:flex;flex-wrap:wrap;gap:16px}
+.proof span{padding:16px 30px;border-radius:999px;border:2px solid var(--border);font-size:34px;font-weight:700}
+.proof span::before{content:"✓ ";color:var(--red)}
+
+/* ── scene 6 · free check ── */
+.free{align-self:flex-start;padding:10px 32px;border-radius:999px;background:var(--red);color:#17171a;font-size:40px;font-weight:900;margin-bottom:30px}
+.url{display:flex;align-items:center;justify-content:space-between;padding:14px 14px 14px 36px;border-radius:999px;background:var(--surface);border:1px solid var(--border);font-size:38px}
+.url u{white-space:nowrap;animation:type .9s steps(14) both;animation-delay:calc(var(--d)*1s)}
+@keyframes type{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+.url s{padding:20px 36px;border-radius:999px;background:var(--ink);color:#17171a;font-size:34px;font-weight:900;animation:press .5s ease-out both;animation-delay:calc(var(--d)*1s)}
+@keyframes press{0%{transform:none}40%{transform:scale(.9);background:var(--red)}100%{transform:none;background:var(--red)}}
+.result{display:flex;align-items:center;gap:40px;padding:34px 34px}
+.ring{position:relative;flex:none;width:270px;height:270px}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:22}
+.ring .t{stroke:var(--surface)}
+.ring .v{stroke:var(--red);stroke-linecap:round;stroke-dasharray:1;animation:score 1.3s var(--ease-out) both;animation-delay:calc(var(--d)*1s)}
+@keyframes score{from{stroke-dashoffset:1}to{stroke-dashoffset:.28}}
+.ring b{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--latin);font-size:104px;font-weight:700;letter-spacing:-.03em;
+  counter-reset:n var(--n);animation:count 1.3s var(--ease-out) both;animation-delay:calc(var(--d)*1s)}
+.ring b::after{content:counter(n)}
+@keyframes count{from{--n:0}to{--n:72}}
+.rows{flex:1;display:flex;flex-direction:column;gap:20px}
+.row{font-size:30px;font-weight:700}
+.row i{display:block;height:12px;margin-top:10px;border-radius:12px;background:var(--surface);overflow:hidden}
+.row i::after{content:"";display:block;height:100%;width:var(--w);border-radius:12px;background:var(--ink);transform-origin:0 50%;animation:growX 1s var(--ease-out) both;animation-delay:calc(var(--d)*1s)}
+.check .win{margin-top:40px}
+.check .win-body{height:auto;padding-bottom:56px}
+.check .sub{margin-top:34px;font-size:38px}
+
+/* ── scene 7 · end card ── */
+.end{align-items:center;text-align:center}
+.mark{position:relative;width:360px;height:360px}
+.mark .pulse{position:absolute;inset:0;border-radius:80px;border:4px solid var(--red);opacity:0;animation:pulse 1.6s ease-out;animation-delay:calc(var(--d)*1s)}
+@keyframes pulse{0%{opacity:.8;transform:scale(.9)}100%{opacity:0;transform:scale(1.9)}}
+.mark .logo{position:relative;width:100%;height:100%;border-radius:80px;overflow:hidden;border:1px solid var(--border);box-shadow:0 40px 140px rgba(255,90,31,.32)}
+.mark .logo img{width:100%;height:100%;display:block}
+.mark .logo::after{content:"";position:absolute;top:-20%;bottom:-20%;left:0;width:45%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.34),transparent);
+  transform:translateX(-140%) skewX(-18deg);animation:shine 1s ease-in-out both;animation-delay:calc(var(--x)*1s)}
+@keyframes shine{to{transform:translateX(360%) skewX(-18deg)}}
+.end .name{font-family:var(--latin);font-size:92px;font-weight:700;letter-spacing:-.03em;margin-top:56px}
+.end .tagline{font-size:60px;font-weight:900;line-height:1.3;margin-top:22px;letter-spacing:-.01em}
+.end .sub{margin-top:20px;font-size:38px;letter-spacing:.04em}
+.cta{margin-top:64px;padding:34px 72px;border-radius:999px;background:var(--red);color:#17171a;font-size:58px;font-weight:900;box-shadow:0 24px 80px rgba(255,90,31,.4)}
+.end .site{margin-top:30px;font-family:var(--latin);font-size:40px;font-weight:700;color:var(--ink)}
+.cta span{display:block;animation:beat 1s ease-in-out 2 both;animation-delay:calc(var(--d)*1s)}
+@keyframes beat{0%,100%{transform:none}50%{transform:scale(1.045)}}
+
+/* ── web: the six product shots as a seamless loop for the website (render.mjs --format web) — no brand row,
+   no wipes, a still backdrop, and the last shot slides out like the others so the end meets the start ── */
+[data-format=web]{--h:1320px;--top:40px;--bottom:40px}
+[data-format=web] :is(.hud,.wipe){display:none}
+[data-format=web] :is(.dots,.glow){animation:none}
+[data-format=web] .shot.hard{--out:40!important;animation-duration:.55s,.3s}
+
+/* ── ?cut=short: render.mjs plays pieces of the timeline back to back (cuts.json), so whatever tracks the whole
+   spot — the progress bar, the shot counter, the drifting backdrop — is dropped ── */
+[data-cut=short] :is(.bar,.num){display:none}
+[data-cut=short] :is(.dots,.glow){animation:none}
+
+/* ── ?lang=en|ms: Latin text runs longer than Chinese ── */
+:is([data-lang=en],[data-lang=ms]) h2{font-size:64px;line-height:1.25}
+:is([data-lang=en],[data-lang=ms]) :is(.gain,.msg,.opt){font-size:34px}
+:is([data-lang=en],[data-lang=ms]) .prod h3{font-size:38px}
+:is([data-lang=en],[data-lang=ms]) .split{font-size:26px}
+:is([data-lang=en],[data-lang=ms]) .ai-sum{font-size:28px}
+</style>
+</head>
+<body>
+<div id="stage">
+  <div class="dots"></div><div class="glow"></div><div class="glow b"></div><div class="grain"></div>
+
+  <div class="hud">
+    <div class="brand"><img src="../../assets/logo-dark.png" alt=""><span>JonTech <b>Solutions</b></span></div>
+    <div class="bar"><i></i></div>
+  </div>
+
+  <!-- 1 · hook  0 → 5 -->
+  <section class="scene hook" style="--in:0;--out:5">
+    <h1>你的公司<br>还在<em>靠人手</em><br>做这些事？</h1>
+    <div class="chips">
+      <div class="chip a pop" style="--d:1.25;--x:3.75"><span>📋 Excel 复制粘贴</span></div>
+      <div class="chip a pop" style="--d:1.875;--x:3.85"><span>💬 同样的问题答一百次</span></div>
+      <div class="chip a pop" style="--d:2.5;--x:3.95"><span>🛒 每个电商平台逐个改库存</span></div>
+      <div class="chip a pop" style="--d:3.125;--x:4.05"><span>🧾 发票一张一张手打</span></div>
+    </div>
+  </section>
+
+  <!-- 2 · the line  5 → 10 -->
+  <section class="scene" style="--in:5;--out:10">
+    <svg class="tangle" viewBox="0 0 936 280" aria-hidden="true">
+      <defs><linearGradient id="g"><stop offset="0" stop-color="#ff5a1f" stop-opacity="0"/><stop offset=".3" stop-color="#ff5a1f"/></linearGradient></defs>
+      <ellipse pathLength="1" style="--d:5.15" cx="160" cy="140" rx="132" ry="60" transform="rotate(-38 160 140)"/>
+      <ellipse pathLength="1" style="--d:5.3" cx="160" cy="140" rx="126" ry="54" transform="rotate(24 160 140)"/>
+      <ellipse pathLength="1" style="--d:5.45" cx="160" cy="140" rx="112" ry="48" transform="rotate(-82 160 140)"/>
+      <ellipse pathLength="1" style="--d:5.6" cx="160" cy="140" rx="118" ry="44" transform="rotate(62 160 140)"/>
+      <rect class="shaft" style="--d:6.1" x="250" y="127" width="580" height="26" fill="url(#g)"/>
+      <polygon class="head" style="--d:6.55" points="824,84 920,140 824,196"/>
+    </svg>
+    <h2>
+      <span class="ln"><span style="--d:5.3">能交给机器的事，</span></span>
+      <span class="ln"><span style="--d:5.45">就不要再靠</span></span>
+      <span class="ln"><span style="--d:5.6"><em>人工</em>来做。</span></span>
+    </h2>
+    <p class="sub a" style="--d:6.6;margin-top:44px">为中小企业与初创公司打造<br>自动化系统，让 AI 真正派上用场。</p>
+  </section>
+
+  <!-- 3a · POS + marketplace sync  10 → 15 -->
+  <section class="scene shot" style="--in:10;--out:15">
+    <div class="meta"><span class="num">01<i> / 06</i></span>POS 收银 + 电商同步</div>
+    <h2><span class="ln"><span style="--d:10.15">店里卖出一件，</span></span><span class="ln"><span style="--d:10.27"><em>全平台</em>自动同步。</span></span></h2>
+    <div class="win a" style="--d:10.2">
+      <div class="win-bar"><i></i><i></i><i></i><span>&gt;_</span></div>
+      <div class="win-body">
+        <div class="prod panel">
+          <div class="thumb">🎧</div>
+          <div><h3>无线耳机 · 黑色</h3><p>SKU A-1024</p></div>
+          <div class="stock">门店库存<span class="swap" style="--x:11.3"><i>24</i><i>23</i></span></div>
+        </div>
+        <div class="toast a pop" style="--d:10.9">🛍️ 店内刚售出 1 件</div>
+        <div class="chan panel" style="--x:11.9"><span class="x">Shopee</span><span class="m">电商平台 A</span><span class="qty swap"><i>24</i><i>23</i></span><span class="swap"><i class="st">同步中…</i><i class="st ok">✓ 已同步</i></span></div>
+        <div class="chan panel" style="--x:12.2"><span class="x">Lazada</span><span class="m">电商平台 B</span><span class="qty swap"><i>24</i><i>23</i></span><span class="swap"><i class="st">同步中…</i><i class="st ok">✓ 已同步</i></span></div>
+        <div class="chan panel" style="--x:12.5"><span class="x">TikTok Shop</span><span class="m">直播小店</span><span class="qty swap"><i>24</i><i>23</i></span><span class="swap"><i class="st">同步中…</i><i class="st ok">✓ 已同步</i></span></div>
+        <div class="demo">界面示意</div>
+      </div>
+    </div>
+    <p class="gain a" style="--d:13.1">不超卖，不用逐个平台改库存</p>
+  </section>
+
+  <!-- 3b · kiosk  15 → 20 -->
+  <section class="scene shot" style="--in:15;--out:20">
+    <div class="meta"><span class="num">02<i> / 06</i></span>自助终端 Kiosk</div>
+    <h2><span class="ln"><span style="--d:15.15">顾客自己下单，</span></span><span class="ln"><span style="--d:15.27"><em>自己付款。</em></span></span></h2>
+    <div class="win a" style="--d:15.2">
+      <div class="win-bar"><i></i><i></i><i></i><span>&gt;_</span></div>
+      <div class="win-body">
+        <div class="k-head">请选择疗程<small>步骤 1 / 3</small></div>
+        <div class="opts">
+          <div class="opt panel">基础护理<small>30 分钟</small><b></b></div>
+          <div class="opt panel pick" style="--x:16.2">深层清洁<small>45 分钟</small><b></b><div class="tap"></div></div>
+          <div class="opt panel">舒压疗程<small>60 分钟</small><b></b></div>
+        </div>
+        <div class="pay swap" style="--x:17"><i>💳 刷卡付款</i><i>✓ 付款成功</i></div>
+        <div class="receipt a" style="--d:17.5">🧾 收据打印中…</div>
+        <div class="demo">界面示意</div>
+      </div>
+    </div>
+    <p class="gain a" style="--d:18.1">前台少排队，收据自动打印</p>
+  </section>
+
+  <!-- 3c · commission  20 → 25 -->
+  <section class="scene shot" style="--in:20;--out:25">
+    <div class="meta"><span class="num">03<i> / 06</i></span>佣金与发放系统</div>
+    <h2><span class="ln"><span style="--d:20.15">佣金怎么分，</span></span><span class="ln"><span style="--d:20.27"><em>系统即时算好。</em></span></span></h2>
+    <div class="win a" style="--d:20.2">
+      <div class="win-bar"><i></i><i></i><i></i><span>&gt;_</span></div>
+      <div class="win-body">
+        <div class="c-head">一笔成交 · 自动拆分</div>
+        <div class="split" style="--d:20.7"><i>经纪人</i><i>联合代理</i><i>公司</i></div>
+        <div class="rule panel" style="--x:21.5">等级晋升<span class="swap"><i class="st">计算中…</i><i class="st ok">✓ 已算好</i></span></div>
+        <div class="rule panel" style="--x:21.9">联合代理分成<span class="swap"><i class="st">计算中…</i><i class="st ok">✓ 已算好</i></span></div>
+        <div class="rule panel" style="--x:22.3">税费与预扣<span class="swap"><i class="st">计算中…</i><i class="st ok">✓ 已算好</i></span></div>
+        <div class="demo">界面示意</div>
+      </div>
+    </div>
+    <p class="gain a" style="--d:23.1">不用再靠 Excel 一笔一笔对佣金</p>
+  </section>
+
+  <!-- 3d · invoicing + payments  25 → 30 -->
+  <section class="scene shot" style="--in:25;--out:30">
+    <div class="meta"><span class="num">04<i> / 06</i></span>发票与收款系统</div>
+    <h2><span class="ln"><span style="--d:25.15">一收到款，</span></span><span class="ln"><span style="--d:25.27"><em>发票自动结清。</em></span></span></h2>
+    <div class="win a" style="--d:25.2">
+      <div class="win-bar"><i></i><i></i><i></i><span>&gt;_</span></div>
+      <div class="win-body" style="--x:27.2">
+        <div class="i-head">发票 INV-0042<span class="swap"><i class="st">待付款</i><i class="st ok">✓ 已付清</i></span></div>
+        <div class="inv panel">
+          <div class="a" style="--d:25.6">系统月费<b>RM 800.00</b></div>
+          <div class="a" style="--d:25.8">上门安装<b>RM 400.00</b></div>
+          <div class="sum a" style="--d:26">合计<b>RM 1,200.00</b></div>
+        </div>
+        <div class="pms"><span class="pm on" style="--x:26.6"><span class="x">DuitNow QR</span><span class="m">扫码支付</span></span><span class="pm">银行转账</span><span class="pm">现金</span></div>
+        <div class="receipt a" style="--d:27.6">📄 PDF 发票已生成</div>
+        <div class="demo">界面示意</div>
+      </div>
+    </div>
+    <p class="gain a" style="--d:28.1">谁付了、谁还没付，一眼看清</p>
+  </section>
+
+  <!-- 3e · automated reports  30 → 35 -->
+  <section class="scene shot" style="--in:30;--out:35">
+    <div class="meta"><span class="num">05<i> / 06</i></span>自动化报表</div>
+    <h2><span class="ln"><span style="--d:30.15">数据自己整理好，</span></span><span class="ln"><span style="--d:30.27"><em>每周自动出报表。</em></span></span></h2>
+    <div class="win a" style="--d:30.2">
+      <div class="win-bar"><i></i><i></i><i></i><span>&gt;_</span></div>
+      <div class="win-body">
+        <div class="k-head">本周销售<small>每周一自动生成</small></div>
+        <div class="chart panel">
+          <div><i style="--v:38%;--d:30.6"></i>一</div><div><i style="--v:46%;--d:30.67"></i>二</div><div><i style="--v:41%;--d:30.74"></i>三</div>
+          <div><i style="--v:55%;--d:30.81"></i>四</div><div><i style="--v:62%;--d:30.88"></i>五</div>
+          <div class="hot"><i style="--v:88%;--d:30.95"></i>六</div><div class="hot"><i style="--v:76%;--d:31.02"></i>日</div>
+        </div>
+        <div class="kpis">
+          <div class="kpi panel a pop" style="--d:31.4">对比上周<b>↑ 上升</b></div>
+          <div class="kpi panel a pop" style="--d:31.6">低库存提醒<b>3 项</b></div>
+        </div>
+        <div class="ai-sum a" style="--d:32.1">✦ AI 摘要：周末销量最高，耳机需要补货。</div>
+        <div class="demo">界面示意</div>
+      </div>
+    </div>
+    <p class="gain a" style="--d:33.1">不用再追着同事要数字</p>
+  </section>
+
+  <!-- 3f · AI assistant  35 → 40 -->
+  <section class="scene shot hard" style="--in:35;--out:40.3">
+    <div class="meta"><span class="num">06<i> / 06</i></span><span class="x">网站与 WhatsApp AI 助手</span><span class="m">网站与聊天软件 AI 助手</span></div>
+    <h2><span class="ln"><span style="--d:35.15">半夜的询问，</span></span><span class="ln"><span style="--d:35.27"><em>AI 帮你先回。</em></span></span></h2>
+    <div class="win a" style="--d:35.2">
+      <div class="win-bar"><i></i><i></i><i></i><span>&gt;_</span></div>
+      <div class="win-body">
+        <div class="who"><img src="../../assets/logo-dark.png" alt="">AI 助手<small>在线 · 24/7</small></div>
+        <div class="msg me a pop" style="--d:35.7">请问星期天有营业吗？</div>
+        <div class="reply">
+          <div class="typing" style="--d:36.2;--x:36.9"><i></i><i></i><i></i></div>
+          <div class="msg ai a pop" style="--d:36.95">有的 😊 星期天照常营业。<br>需要我帮您预约时间吗？</div>
+        </div>
+        <div class="note a pop" style="--d:37.6">复杂问题自动转交人工</div>
+        <div class="langs a" style="--d:37.9"><span>中文</span><span>English</span><span>Bahasa Melayu</span></div>
+        <div class="demo">界面示意</div>
+      </div>
+    </div>
+    <p class="gain a" style="--d:38.3">顾客不用等，你也不用守着手机</p>
+  </section>
+
+  <!-- 4 · everything else we build  40 → 45 -->
+  <section class="scene" style="--in:40;--out:45">
+    <div class="kicker a" style="--d:40.1">不止这些</div>
+    <h2><span class="ln"><span style="--d:40.15">你需要的系统，</span></span><span class="ln"><span style="--d:40.3"><em>我们都能做。</em></span></span></h2>
+    <div class="svcs">
+      <div class="svc a pop" style="--d:40.8"><i>🌐</i>网站开发</div>
+      <div class="svc a pop" style="--d:40.94"><i>📱</i>手机 App</div>
+      <div class="svc a pop" style="--d:41.08"><i>🖥️</i>定制业务系统</div>
+      <div class="svc a pop" style="--d:41.22"><i>🔗</i>系统对接</div>
+      <div class="svc a pop" style="--d:41.36"><i>🤖</i>流程自动化</div>
+      <div class="svc a pop" style="--d:41.5"><i>📊</i>自动化报表</div>
+      <div class="svc a pop" style="--d:41.64"><i>🧠</i>AI 自动化</div>
+      <div class="svc a pop" style="--d:41.78"><i>🧪</i>自动化测试</div>
+      <div class="svc a pop" style="--d:41.92"><i>🚀</i>自动部署</div>
+    </div>
+    <p class="sub inds a" style="--d:42.5">已服务行业：房地产 · 零售 · 教育 · 美容 · 科技</p>
+  </section>
+
+  <!-- 5 · why  45 → 50 -->
+  <section class="scene" style="--in:45;--out:50">
+    <div class="kicker a" style="--d:45.1">为什么选择我们</div>
+    <h2>
+      <span class="ln"><span style="--d:45.15">没有中间人，</span></span>
+      <span class="ln"><span style="--d:45.3">直接对话</span></span>
+      <span class="ln"><span style="--d:45.45"><em>写代码的人。</em></span></span>
+    </h2>
+    <div class="stats">
+      <div class="stat a pop" style="--d:46.1"><b>0</b><span>客户经理<br>或中间人</span></div>
+      <div class="stat a pop" style="--d:46.4"><b>24/7</b><span>系统全天候<br>不间断运行</span></div>
+    </div>
+    <div class="proof">
+      <span class="a pop" style="--d:47">先懂流程，后写代码</span>
+      <span class="a pop" style="--d:47.25">交付即可用</span>
+      <span class="a pop" style="--d:47.5">长期维护</span>
+    </div>
+  </section>
+
+  <!-- 6 · free check  50 → 55 -->
+  <section class="scene check" style="--in:50;--out:55">
+    <div class="free a pop" style="--d:50.1">免费</div>
+    <h2><span class="ln"><span style="--d:50.15">你的网站</span></span><span class="ln"><span style="--d:50.3">能拿<em>几分？</em></span></span></h2>
+    <div class="win a" style="--d:50.3">
+      <div class="win-bar"><i></i><i></i><i></i><span>&gt;_</span></div>
+      <div class="win-body">
+        <div class="url"><u style="--d:50.9">你的网站.com</u><s style="--d:51.9">检测我的网站</s></div>
+        <div class="result panel a" style="--d:52.1">
+          <div class="ring"><svg viewBox="0 0 280 280"><circle class="t" cx="140" cy="140" r="122"/><circle class="v" style="--d:52.3" pathLength="1" cx="140" cy="140" r="122"/></svg><b style="--d:52.3"></b></div>
+          <div class="rows">
+            <div class="row">清晰度与文案<i style="--w:82%;--d:52.4"></i></div>
+            <div class="row">移动端<i style="--w:64%;--d:52.5"></i></div>
+            <div class="row">无障碍<i style="--w:55%;--d:52.6"></i></div>
+            <div class="row">转化率<i style="--w:74%;--d:52.7"></i></div>
+          </div>
+        </div>
+        <div class="demo">示例结果</div>
+      </div>
+    </div>
+    <p class="sub a" style="--d:53">AI 一分钟内给出评分和改进建议，免费、无需注册。</p>
+  </section>
+
+  <!-- 7 · end card  55 → 59.5 -->
+  <section class="scene last end" style="--in:55;--out:59.5">
+    <div class="mark a pop" style="--d:55.1">
+      <div class="pulse" style="--d:55.3"></div><div class="pulse" style="--d:55.8"></div>
+      <div class="logo" style="--x:55.7"><img src="../../assets/logo-dark.png" alt=""></div>
+    </div>
+    <div class="name a" style="--d:55.4">JonTech <em>Solutions</em></div>
+    <div class="tagline a" style="--d:55.6">把重复的事，交给系统。</div>
+    <p class="sub a" style="--d:55.8">自动化 · AI · 定制系统 · 马来西亚</p>
+    <div class="cta a pop" style="--d:56.2"><span class="x" style="--d:56.8">私信我 · 免费咨询</span><span class="m" style="--d:56.8">免费咨询 · 点击下方</span></div>
+    <p class="site m a" style="--d:56.5">jontech-solutions.com</p>
+  </section>
+
+  <div class="wipe" style="--d:5"></div>
+  <div class="wipe" style="--d:10"></div>
+  <div class="wipe" style="--d:40"></div>
+  <div class="wipe" style="--d:45"></div>
+  <div class="wipe" style="--d:50"></div>
+  <div class="wipe" style="--d:55"></div>
+</div>
+
+<script>
+// Preview: fit the stage to the window. Render (?render): render.mjs sets the viewport to the stage and drives seek().
+if (!location.search.includes('render')) {
+  const fit = () => {
+    const s = Math.min(innerWidth / 1080, innerHeight / stage.offsetHeight);
+    stage.style.transform = `translate(${(innerWidth - 1080 * s) / 2}px,0) scale(${s})`;
+  };
+  addEventListener('resize', fit); fit();
+}
+// ?lang=en|ms swaps the product shots' Chinese for English or Malay: [English, Malay] keyed by the Chinese text
+// (or innerHTML, where a line mixes in markup). Only the shots are translated — the website loop needs all three
+// languages, the ad cuts are Chinese.
+const T = {
+  '界面示意': ['Illustrative UI', 'Paparan ilustrasi'],
+  'POS 收银 + 电商同步': ['POS + marketplace sync', 'POS + penyegerakan e-dagang'],
+  '店里卖出一件，': ['One sale in store,', 'Satu jualan di kedai,'],
+  '<em>全平台</em>自动同步。': ['<em>every channel</em> updates.', '<em>semua stok</em> dikemas kini.'],
+  '无线耳机 · 黑色': ['Earbuds · Black', 'Fon telinga · Hitam'],
+  '门店库存': ['In-store stock', 'Stok kedai'],
+  '🛍️ 店内刚售出 1 件': ['🛍️ 1 just sold in store', '🛍️ 1 baru terjual di kedai'],
+  '同步中…': ['Syncing…', 'Menyegerak…'],
+  '✓ 已同步': ['✓ Synced', '✓ Disegerak'],
+  '不超卖，不用逐个平台改库存': ['No overselling, no updating shop by shop', 'Tiada terlebih jual, stok dikemas kini sendiri'],
+  '自助终端 Kiosk': ['Self-service kiosk', 'Kiosk layan diri'],
+  '顾客自己下单，': ['Customers order', 'Pelanggan pesan'],
+  '自己付款。': ['and pay themselves.', 'dan bayar sendiri.'],
+  '请选择疗程': ['Choose a treatment', 'Pilih rawatan'],
+  '步骤 1 / 3': ['Step 1 / 3', 'Langkah 1 / 3'],
+  '基础护理': ['Basic care', 'Rawatan asas'],
+  '深层清洁': ['Deep cleanse', 'Cucian mendalam'],
+  '舒压疗程': ['Relax therapy', 'Terapi relaks'],
+  '30 分钟': ['30 min', '30 min'], '45 分钟': ['45 min', '45 min'], '60 分钟': ['60 min', '60 min'],
+  '💳 刷卡付款': ['💳 Pay by card', '💳 Bayar dengan kad'],
+  '✓ 付款成功': ['✓ Payment received', '✓ Bayaran diterima'],
+  '🧾 收据打印中…': ['🧾 Printing receipt…', '🧾 Mencetak resit…'],
+  '前台少排队，收据自动打印': ['Shorter queues, receipts print themselves', 'Barisan lebih pendek, resit dicetak sendiri'],
+  '佣金与发放系统': ['Commission & payouts', 'Sistem komisen & bayaran'],
+  '佣金怎么分，': ['Who gets what?', 'Komisen dibahagi?'],
+  '系统即时算好。': ['Worked out instantly.', 'Dikira serta-merta.'],
+  '一笔成交 · 自动拆分': ['One deal · split automatically', 'Satu urus niaga · dibahagi automatik'],
+  '经纪人': ['Agent', 'Ejen'], '联合代理': ['Co-broke', 'Ejen bersama'], '公司': ['Company', 'Syarikat'],
+  '等级晋升': ['Tier promotion', 'Kenaikan peringkat'],
+  '联合代理分成': ['Co-broke split', 'Bahagian ejen bersama'],
+  '税费与预扣': ['Tax & withholding', 'Cukai & potongan'],
+  '计算中…': ['Calculating…', 'Mengira…'],
+  '✓ 已算好': ['✓ Done', '✓ Siap'],
+  '不用再靠 Excel 一笔一笔对佣金': ['No more reconciling commissions in Excel', 'Tak perlu lagi semak komisen dalam Excel'],
+  '发票与收款系统': ['Invoicing & payments', 'Invois & kutipan bayaran'],
+  '一收到款，': ['Payment lands,', 'Bayaran masuk,'],
+  '发票自动结清。': ['invoice settles itself.', 'invois terus selesai.'],
+  '发票 INV-0042': ['Invoice INV-0042', 'Invois INV-0042'],
+  '待付款': ['Unpaid', 'Belum bayar'],
+  '✓ 已付清': ['✓ Paid', '✓ Dibayar'],
+  '系统月费': ['Monthly system fee', 'Yuran sistem bulanan'],
+  '上门安装': ['On-site setup', 'Pemasangan di lokasi'],
+  '合计': ['Total', 'Jumlah'],
+  '银行转账': ['Bank transfer', 'Pindahan bank'],
+  '现金': ['Cash', 'Tunai'],
+  '📄 PDF 发票已生成': ['📄 PDF invoice ready', '📄 Invois PDF sedia'],
+  '谁付了、谁还没付，一眼看清': ['See who has paid and who has not, at a glance', 'Siapa dah bayar, siapa belum: nampak terus'],
+  '自动化报表': ['Automated reports', 'Laporan automatik'],
+  '数据自己整理好，': ['Your numbers,', 'Data tersusun sendiri,'],
+  '每周自动出报表。': ['ready every week.', 'laporan setiap minggu.'],
+  '本周销售': ['Sales this week', 'Jualan minggu ini'],
+  '每周一自动生成': ['Generated every Monday', 'Dijana setiap Isnin'],
+  '一': ['M', 'I'], '二': ['T', 'S'], '三': ['W', 'R'], '四': ['T', 'K'], '五': ['F', 'J'], '六': ['S', 'S'], '日': ['S', 'A'],
+  '对比上周': ['vs last week', 'berbanding minggu lepas'],
+  '↑ 上升': ['↑ Up', '↑ Naik'],
+  '低库存提醒': ['Low-stock alerts', 'Amaran stok rendah'],
+  '3 项': ['3 items', '3 item'],
+  '✦ AI 摘要：周末销量最高，耳机需要补货。': ['✦ AI: weekends sell most, restock earbuds.', '✦ AI: hujung minggu paling laris, tambah stok.'],
+  '不用再追着同事要数字': ['No more chasing colleagues for figures', 'Tak perlu kejar rakan sekerja untuk angka'],
+  '网站与 WhatsApp AI 助手': ['AI assistant for web & WhatsApp', 'Pembantu AI laman web & WhatsApp'],
+  '半夜的询问，': ['Late-night enquiries?', 'Pertanyaan lewat malam?'],
+  'AI 帮你先回。': ['AI answers first.', 'AI jawab dahulu.'],
+  'AI 助手': ['AI assistant', 'Pembantu AI'],
+  '在线 · 24/7': ['Online · 24/7', 'Dalam talian · 24/7'],
+  '请问星期天有营业吗？': ['Are you open on Sunday?', 'Buka tak hari Ahad?'],
+  '有的 😊 星期天照常营业。<br>需要我帮您预约时间吗？': ['Yes 😊 We are open on Sunday.<br>Shall I book a time for you?', 'Ya 😊 Hari Ahad kami buka.<br>Nak saya tempahkan masa?'],
+  '复杂问题自动转交人工': ['Complex questions go to your team', 'Soalan rumit dihantar kepada pasukan anda'],
+  '顾客不用等，你也不用守着手机': ['Customers get answers, even while you sleep', 'Pelanggan dijawab, walaupun anda sedang tidur'],
+};
+const to = { en: 0, ms: 1 }[document.documentElement.dataset.lang];
+if (to !== undefined) {
+  for (const shot of document.querySelectorAll('.shot')) {
+    for (const el of shot.querySelectorAll('*')) { const t = T[el.innerHTML.trim()]; if (t) el.innerHTML = t[to]; }
+    const walk = document.createTreeWalker(shot, NodeFilter.SHOW_TEXT);
+    for (let n; (n = walk.nextNode());) { const t = T[n.nodeValue.trim()]; if (t) n.nodeValue = t[to]; }
+  }
+}
+window.prepare = async () => {
+  await document.fonts.ready;
+  await Promise.all([...document.images].map(i => i.decode()));
+  const all = document.getAnimations();
+  all.forEach(a => a.pause());
+  window.seek = ms => all.forEach(a => { a.currentTime = ms; });
+};
+</script>
+</body>
+</html>
