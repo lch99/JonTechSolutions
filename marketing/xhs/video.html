@@ -42,7 +42,7 @@ i,em,s,u{font-style:normal;text-decoration:none}
   animation:pan 59.5s linear both}
 @keyframes pan{to{transform:translate(-56px,-112px)}}
 .glow{position:absolute;width:1500px;height:1500px;border-radius:50%;left:-620px;top:-520px;
-  background:radial-gradient(circle,rgba(255,90,31,.22),rgba(255,90,31,0) 62%);animation:drift 59.5s linear both}
+  background:radial-gradient(circle,rgba(255,90,31,.3),rgba(255,90,31,0) 62%);animation:drift 59.5s linear both}
 .glow.b{left:auto;top:auto;right:-760px;bottom:-700px;background:radial-gradient(circle,rgba(255,90,31,.14),rgba(255,90,31,0) 62%);animation-name:driftB}
 @keyframes drift{to{transform:translate(520px,760px)}}
 @keyframes driftB{to{transform:translate(-420px,-560px)}}
@@ -66,8 +66,10 @@ i,em,s,u{font-style:normal;text-decoration:none}
 @keyframes on{from{opacity:1;transform:scale(1)}to{opacity:1;transform:scale(1.04)}}
 .shot{opacity:1;animation:shIn .55s var(--ease-out) both,shOut .3s ease-in forwards;animation-delay:calc(var(--in)*1s),calc((var(--out) - .3)*1s)}
 .shot.hard{animation-duration:.55s,.01s}
-@keyframes shIn{from{opacity:0;transform:translateX(140px)}to{opacity:1;transform:none}}
-@keyframes shOut{to{opacity:0;transform:translateX(-140px)}}
+@keyframes shIn{from{opacity:0;transform:translateX(140px);filter:blur(14px)}to{opacity:1;transform:none;filter:none}}
+@keyframes shOut{to{opacity:0;transform:translateX(-140px);filter:blur(14px)}}
+.shot::before{content:"";position:absolute;left:50%;top:60%;width:1300px;height:1300px;margin:-650px;border-radius:50%;z-index:-1;
+  background:radial-gradient(circle,rgba(255,90,31,.24),rgba(255,90,31,0) 60%)}
 .wipe{position:absolute;left:0;right:0;top:-6%;height:112%;z-index:50;background:var(--red);transform:translateY(105%);
   animation:wipe .7s both;animation-delay:calc((var(--d) - .35)*1s)}
 .wipe::after{content:"";position:absolute;left:0;right:0;top:100%;height:90px;background:var(--ink)}
@@ -94,14 +96,19 @@ i,em,s,u{font-style:normal;text-decoration:none}
 h1{font-size:122px;font-weight:900;line-height:1.2;letter-spacing:-.02em}
 h2{font-size:90px;font-weight:900;line-height:1.22;letter-spacing:-.02em}
 em{color:var(--red)}
+h2 em{background:linear-gradient(rgba(255,90,31,.3),rgba(255,90,31,.3)) 0 78%/0 .26em no-repeat;animation:mark .6s var(--ease-out) both;animation-delay:calc(var(--d)*1s + .45s)}
+@keyframes mark{to{background-size:100% .26em}}
 .sub{font-size:42px;line-height:1.5;color:var(--muted);font-weight:500}
 
 /* ── scene 1 · hook ── */
 .hook h1{animation:settle 1.1s var(--ease-out) both;transform-origin:0 50%}
 @keyframes settle{from{transform:scale(1.09)}to{transform:none}}
+.hook h1 em{display:inline-block;margin:.04em .08em;padding:0 .16em;border-radius:.14em;background:var(--red);color:#17171a;rotate:-3deg;
+  box-shadow:0 24px 70px rgba(255,90,31,.45);animation:stamp .5s var(--ease-out) .45s both}
+@keyframes stamp{from{opacity:0;transform:scale(1.8)}60%{opacity:1;transform:scale(.94)}to{opacity:1;transform:none}}
 .chips{display:flex;flex-direction:column;align-items:flex-start;gap:24px;margin-top:64px}
 .chip{position:relative;display:inline-flex;padding:22px 38px;border-radius:999px;background:var(--surface);border:1px solid var(--border);font-size:44px;font-weight:700;box-shadow:0 18px 50px rgba(0,0,0,.35)}
-.chip:nth-child(2){margin-left:70px}.chip:nth-child(3){margin-left:24px}.chip:nth-child(4){margin-left:110px}
+.chip:nth-child(1){rotate:-2deg}.chip:nth-child(2){margin-left:70px;rotate:1.5deg}.chip:nth-child(3){margin-left:24px;rotate:-1deg}.chip:nth-child(4){margin-left:110px;rotate:2deg}
 .chip span{animation:dim .4s ease-out both;animation-delay:calc(var(--x)*1s)}
 .chip::after{content:"";position:absolute;left:26px;right:26px;top:50%;height:7px;margin-top:-3px;border-radius:7px;background:var(--red);
   transform-origin:0 50%;animation:growX .4s var(--ease-out) both;animation-delay:calc(var(--x)*1s)}
@@ -118,15 +125,28 @@ em{color:var(--red)}
 .meta{display:flex;align-items:center;gap:24px;margin-bottom:22px;font-size:34px;font-weight:700;color:var(--red);letter-spacing:.04em}
 .meta .num{font-family:var(--latin);font-size:34px;color:var(--ink);padding:6px 22px;border:2px solid var(--border);border-radius:999px;letter-spacing:0}
 .meta .num i{color:var(--muted)}
-.win{margin-top:44px;border:4px solid var(--ink);border-radius:46px;background:var(--deep);overflow:hidden;box-shadow:0 50px 140px rgba(0,0,0,.55),0 0 120px rgba(255,90,31,.10)}
+.win{position:relative;margin-top:44px;border:4px solid var(--ink);border-radius:46px;background:var(--deep);box-shadow:0 50px 140px rgba(0,0,0,.55),0 0 160px rgba(255,90,31,.18)}
+.win.a{animation:winIn 1s var(--ease-out) both,bob 4.5s ease-in-out both,bump .45s ease-out;
+  animation-delay:calc(var(--d)*1s),calc(var(--d)*1s),calc(var(--b,-10)*1s)}
+@keyframes winIn{from{opacity:0;transform:perspective(2200px) translateY(160px) rotateX(26deg) scale(.9)}to{opacity:1;transform:perspective(2200px)}}
+@keyframes bob{to{translate:0 -18px}}
+@keyframes bump{35%{scale:1.03}}
+.win-body::after{content:"";position:absolute;top:-10%;bottom:-10%;left:0;width:40%;pointer-events:none;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.07),transparent);transform:translateX(-140%) skewX(-18deg);
+  animation:shine 1.2s ease-in-out both;animation-delay:calc(var(--d)*1s + .5s)}
+.win:has(.tag){margin-top:84px}
+.tag{position:absolute;top:-36px;right:-22px;z-index:2;padding:14px 28px;border-radius:20px;background:var(--ink);color:#17171a;
+  font-size:32px;font-weight:900;white-space:nowrap;rotate:5deg;box-shadow:0 20px 50px rgba(0,0,0,.5);animation:stamp .5s var(--ease-out) both;animation-delay:calc(var(--d)*1s)}
 .win-bar{display:flex;align-items:center;gap:14px;height:84px;padding:0 32px;border-bottom:4px solid var(--ink)}
 .win-bar i{width:26px;height:26px;border-radius:50%;background:var(--ink)}
 .win-bar i:first-child{background:var(--red)}
 .win-bar span{margin-left:auto;font-family:Consolas,monospace;font-size:38px;font-weight:700;color:var(--red)}
-.win-body{position:relative;height:712px;padding:34px 34px 64px;display:flex;flex-direction:column;gap:20px}
+.win-body{position:relative;overflow:hidden;border-radius:0 0 42px 42px;height:712px;padding:34px 34px 64px;display:flex;flex-direction:column;gap:20px}
 .demo{position:absolute;right:34px;bottom:20px;font-size:22px;color:#6b6b72;font-weight:500}
 .st{display:inline-block;white-space:nowrap;padding:12px 26px;border-radius:999px;font-size:30px;font-weight:700;background:var(--surface);color:var(--muted)}
-.st.ok{background:var(--red);color:#17171a}
+.st.ok{position:relative;background:var(--red);color:#17171a}
+.st.ok::after{content:"";position:absolute;inset:-4px;border-radius:999px;border:4px solid var(--red);opacity:0;animation:ring .7s ease-out;animation-delay:calc((var(--x) + .1)*1s)}
+@keyframes ring{from{opacity:.9;transform:none}to{opacity:0;transform:scale(1.35,1.9)}}
 .panel{border-radius:28px;background:var(--grey);border:1px solid var(--border)}
 
 /* shot A · POS + marketplace sync */
@@ -183,7 +203,7 @@ em{color:var(--red)}
 .langs{display:flex;gap:16px;margin-top:auto}
 .langs span{padding:12px 28px;border-radius:999px;border:2px solid var(--border);font-family:var(--latin);font-size:30px;font-weight:700}
 
-.gain{margin-top:30px;font-size:40px;font-weight:900;line-height:1.4}
+.gain{align-self:flex-start;margin-top:40px;padding:14px 34px;border-radius:999px;background:rgba(255,90,31,.14);border:2px solid rgba(255,90,31,.55);font-size:40px;font-weight:900;line-height:1.4}
 .gain::before{content:"✓ ";color:var(--red)}
 
 /* shot · invoicing */
@@ -253,6 +273,11 @@ em{color:var(--red)}
 /* ── scene 7 · end card ── */
 .end{align-items:center;text-align:center}
 .mark{position:relative;width:360px;height:360px}
+.mark .rays{position:absolute;left:50%;top:50%;width:1500px;height:1500px;margin:-750px;z-index:-1;
+  background:repeating-conic-gradient(rgba(255,90,31,.2) 0 5deg,transparent 5deg 15deg);
+  -webkit-mask-image:radial-gradient(circle,#000 8%,transparent 62%);mask-image:radial-gradient(circle,#000 8%,transparent 62%);
+  animation:fade 1s ease-out both,spin 4.5s linear both;animation-delay:calc(var(--d)*1s)}
+@keyframes spin{to{rotate:40deg}}
 .mark .pulse{position:absolute;inset:0;border-radius:80px;border:4px solid var(--red);opacity:0;animation:pulse 1.6s ease-out;animation-delay:calc(var(--d)*1s)}
 @keyframes pulse{0%{opacity:.8;transform:scale(.9)}100%{opacity:0;transform:scale(1.9)}}
 .mark .logo{position:relative;width:100%;height:100%;border-radius:80px;overflow:hidden;border:1px solid var(--border);box-shadow:0 40px 140px rgba(255,90,31,.32)}
@@ -263,8 +288,10 @@ em{color:var(--red)}
 .end .name{font-family:var(--latin);font-size:92px;font-weight:700;letter-spacing:-.03em;margin-top:56px}
 .end .tagline{font-size:60px;font-weight:900;line-height:1.3;margin-top:22px;letter-spacing:-.01em}
 .end .sub{margin-top:20px;font-size:38px;letter-spacing:.04em}
-.cta{margin-top:64px;padding:34px 72px;border-radius:999px;background:var(--red);color:#17171a;font-size:58px;font-weight:900;box-shadow:0 24px 80px rgba(255,90,31,.4)}
+.cta{position:relative;overflow:hidden;margin-top:64px;padding:34px 72px;border-radius:999px;background:var(--red);color:#17171a;font-size:58px;font-weight:900;box-shadow:0 24px 80px rgba(255,90,31,.4)}
 .end .site{margin-top:30px;font-family:var(--latin);font-size:40px;font-weight:700;color:var(--ink)}
+.cta::after{content:"";position:absolute;top:-20%;bottom:-20%;left:0;width:30%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);
+  transform:translateX(-140%) skewX(-18deg);animation:shine .9s ease-in-out both;animation-delay:57.6s}
 .cta span{display:block;animation:beat 1s ease-in-out 2 both;animation-delay:calc(var(--d)*1s)}
 @keyframes beat{0%,100%{transform:none}50%{transform:scale(1.045)}}
 
@@ -331,7 +358,8 @@ em{color:var(--red)}
   <section class="scene shot" style="--in:10;--out:15">
     <div class="meta"><span class="num">01<i> / 06</i></span>POS 收银 + 电商同步</div>
     <h2><span class="ln"><span style="--d:10.15">店里卖出一件，</span></span><span class="ln"><span style="--d:10.27"><em>全平台</em>自动同步。</span></span></h2>
-    <div class="win a" style="--d:10.2">
+    <div class="win a" style="--d:10.2;--b:12.6">
+      <div class="tag" style="--d:12.8">⚡ 3 个平台 · 同时更新</div>
       <div class="win-bar"><i></i><i></i><i></i><span>&gt;_</span></div>
       <div class="win-body">
         <div class="prod panel">
@@ -353,7 +381,8 @@ em{color:var(--red)}
   <section class="scene shot" style="--in:15;--out:20">
     <div class="meta"><span class="num">02<i> / 06</i></span>自助终端 Kiosk</div>
     <h2><span class="ln"><span style="--d:15.15">顾客自己下单，</span></span><span class="ln"><span style="--d:15.27"><em>自己付款。</em></span></span></h2>
-    <div class="win a" style="--d:15.2">
+    <div class="win a" style="--d:15.2;--b:17.05">
+      <div class="tag" style="--d:17.3">🙌 前台更轻松</div>
       <div class="win-bar"><i></i><i></i><i></i><span>&gt;_</span></div>
       <div class="win-body">
         <div class="k-head">请选择疗程<small>步骤 1 / 3</small></div>
@@ -374,7 +403,8 @@ em{color:var(--red)}
   <section class="scene shot" style="--in:20;--out:25">
     <div class="meta"><span class="num">03<i> / 06</i></span>佣金与发放系统</div>
     <h2><span class="ln"><span style="--d:20.15">佣金怎么分，</span></span><span class="ln"><span style="--d:20.27"><em>系统即时算好。</em></span></span></h2>
-    <div class="win a" style="--d:20.2">
+    <div class="win a" style="--d:20.2;--b:22.35">
+      <div class="tag" style="--d:22.6">🎯 分毫不差</div>
       <div class="win-bar"><i></i><i></i><i></i><span>&gt;_</span></div>
       <div class="win-body">
         <div class="c-head">一笔成交 · 自动拆分</div>
@@ -392,7 +422,8 @@ em{color:var(--red)}
   <section class="scene shot" style="--in:25;--out:30">
     <div class="meta"><span class="num">04<i> / 06</i></span>发票与收款系统</div>
     <h2><span class="ln"><span style="--d:25.15">一收到款，</span></span><span class="ln"><span style="--d:25.27"><em>发票自动结清。</em></span></span></h2>
-    <div class="win a" style="--d:25.2">
+    <div class="win a" style="--d:25.2;--b:27.25">
+      <div class="tag" style="--d:27.5">💸 自动对账</div>
       <div class="win-bar"><i></i><i></i><i></i><span>&gt;_</span></div>
       <div class="win-body" style="--x:27.2">
         <div class="i-head">发票 INV-0042<span class="swap"><i class="st">待付款</i><i class="st ok">✓ 已付清</i></span></div>
@@ -413,7 +444,8 @@ em{color:var(--red)}
   <section class="scene shot" style="--in:30;--out:35">
     <div class="meta"><span class="num">05<i> / 06</i></span>自动化报表</div>
     <h2><span class="ln"><span style="--d:30.15">数据自己整理好，</span></span><span class="ln"><span style="--d:30.27"><em>每周自动出报表。</em></span></span></h2>
-    <div class="win a" style="--d:30.2">
+    <div class="win a" style="--d:30.2;--b:32.15">
+      <div class="tag" style="--d:32.4">📬 每周一送到</div>
       <div class="win-bar"><i></i><i></i><i></i><span>&gt;_</span></div>
       <div class="win-body">
         <div class="k-head">本周销售<small>每周一自动生成</small></div>
@@ -437,7 +469,8 @@ em{color:var(--red)}
   <section class="scene shot hard" style="--in:35;--out:40.3">
     <div class="meta"><span class="num">06<i> / 06</i></span><span class="x">网站与 WhatsApp AI 助手</span><span class="m">网站与聊天软件 AI 助手</span></div>
     <h2><span class="ln"><span style="--d:35.15">半夜的询问，</span></span><span class="ln"><span style="--d:35.27"><em>AI 帮你先回。</em></span></span></h2>
-    <div class="win a" style="--d:35.2">
+    <div class="win a" style="--d:35.2;--b:37">
+      <div class="tag" style="--d:37.3">🌙 凌晨 3 点也在线</div>
       <div class="win-bar"><i></i><i></i><i></i><span>&gt;_</span></div>
       <div class="win-body">
         <div class="who"><img src="../../assets/logo-dark.png" alt="">AI 助手<small>在线 · 24/7</small></div>
@@ -517,7 +550,7 @@ em{color:var(--red)}
   <!-- 7 · end card  55 → 59.5 -->
   <section class="scene last end" style="--in:55;--out:59.5">
     <div class="mark a pop" style="--d:55.1">
-      <div class="pulse" style="--d:55.3"></div><div class="pulse" style="--d:55.8"></div>
+      <div class="rays" style="--d:55.2"></div><div class="pulse" style="--d:55.3"></div><div class="pulse" style="--d:55.8"></div>
       <div class="logo" style="--x:55.7"><img src="../../assets/logo-dark.png" alt=""></div>
     </div>
     <div class="name a" style="--d:55.4">JonTech <em>Solutions</em></div>
@@ -549,6 +582,12 @@ if (!location.search.includes('render')) {
 // languages, the ad cuts are Chinese.
 const T = {
   '界面示意': ['Illustrative UI', 'Paparan ilustrasi'],
+  '⚡ 3 个平台 · 同时更新': ['⚡ 3 channels, at once', '⚡ 3 saluran, serentak'],
+  '🙌 前台更轻松': ['🙌 Less work at the counter', '🙌 Kaunter lebih lega'],
+  '🎯 分毫不差': ['🎯 Right to the cent', '🎯 Tepat hingga sen'],
+  '💸 自动对账': ['💸 Reconciled for you', '💸 Padanan automatik'],
+  '📬 每周一送到': ['📬 In your inbox Monday', '📬 Tiba setiap Isnin'],
+  '🌙 凌晨 3 点也在线': ['🌙 Still on at 3 am', '🌙 Aktif pukul 3 pagi'],
   'POS 收银 + 电商同步': ['POS + marketplace sync', 'POS + penyegerakan e-dagang'],
   '店里卖出一件，': ['One sale in store,', 'Satu jualan di kedai,'],
   '<em>全平台</em>自动同步。': ['<em>every channel</em> updates.', '<em>semua stok</em> dikemas kini.'],
