@@ -235,7 +235,7 @@ function sitemap() {
     ...urls,
     '</urlset>',
     '',
-  ].join('\r\n').replace(/\r?\n/g, '\r\n');
+  ].join('\n');
 }
 
 const outputs = [];
