@@ -737,3 +737,81 @@ nav{view-transition-name:site-nav}
 @keyframes pageProgress{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 @keyframes heroLeave{to{opacity:0.15;transform:scale(0.95)}}
 @keyframes openOut{from{clip-path:inset(0 4% round 36px)}to{clip-path:inset(0 0 round 0)}}
+
+/* ── PRIVATE PAGES ── offers/*.html: brochures only people with the link can read (assets/offer.js).
+   On screen the brochure is a sheet of paper; printed or saved as PDF it fills one A4 page. */
+.brochure-wrap{background:var(--grey);padding:5.5rem 1.25rem 4rem}
+.brochure-actions{max-width:820px;margin:0 auto 1rem;display:flex;justify-content:flex-end;flex-wrap:wrap;gap:0.6rem}
+.brochure-actions button{font-family:inherit;cursor:pointer}
+.brochure{max-width:820px;margin:0 auto;background:var(--paper);border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.08),0 0 0 1px var(--hairline)}
+.bro-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.6rem 3rem 0;font-weight:600;letter-spacing:-0.02em}
+.bro-head em{font-style:normal;color:var(--red)}
+.bro-site{font-size:0.78rem;font-weight:500;letter-spacing:0;color:var(--muted)}
+.bro-hero{padding:2rem 3rem 1.9rem}
+.bro-hero h1{font-size:clamp(2rem,5vw,2.75rem);font-weight:600;letter-spacing:-0.03em;line-height:1.1;margin-bottom:0.75rem}
+.bro-hero h1 em{font-style:normal;color:var(--red)}
+.bro-hero p{color:var(--muted);font-size:0.98rem;max-width:580px;margin-bottom:1.2rem}
+.bro-for{display:flex;flex-wrap:wrap;align-items:center;gap:0.4rem}
+.bro-for > span:first-child{font-size:0.78rem;color:var(--muted);margin-right:0.3rem}
+.bro-chip{background:var(--grey);border:1px solid var(--border);border-radius:100px;padding:0.26rem 0.75rem;font-size:0.76rem;font-weight:500}
+.bro-block{padding:1.6rem 3rem;border-top:1px solid var(--border)}
+.bro-h{font-size:0.82rem;font-weight:600;color:var(--red);margin-bottom:1rem}
+.bro-list{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0.85rem 2rem}
+.bro-list li{display:flex;gap:0.7rem;align-items:flex-start}
+.bro-tick{flex-shrink:0;width:20px;height:20px;margin-top:0.1rem;border-radius:50%;background:var(--red-fill);color:#fff;font-size:0.68rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+.bro-list b,.bro-addon b{display:block;font-size:0.9rem;font-weight:600;letter-spacing:-0.01em;line-height:1.4}
+.bro-list li span:not(.bro-tick),.bro-addon span{display:block;font-size:0.8rem;color:var(--muted);line-height:1.5}
+.bro-plans,.bro-addons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.bro-plan{border:1px solid var(--border);border-radius:16px;padding:1.3rem 1.5rem}
+.bro-plan-name{font-size:0.85rem;font-weight:600;margin-bottom:0.4rem}
+.bro-price{display:flex;flex-wrap:wrap;align-items:baseline;gap:0.1rem 0.45rem;font-size:2.4rem;font-weight:600;letter-spacing:-0.03em;line-height:1.15}
+.bro-addon-price small{margin-left:0.3rem}
+.bro-price small,.bro-addon-price small{font-size:0.85rem;font-weight:500;letter-spacing:0;color:var(--muted)}
+.bro-terms{list-style:none;margin-top:0.8rem;font-size:0.84rem;color:var(--muted)}
+.bro-terms li{padding:0.4rem 0;border-top:1px solid var(--border)}
+.bro-note{margin-top:0.85rem;font-size:0.8rem;color:var(--muted)}
+.bro-addon{display:flex;align-items:center;justify-content:space-between;gap:1rem;background:var(--grey);border-radius:14px;padding:1rem 1.25rem}
+.bro-addon-price{font-size:1.4rem;font-weight:600;letter-spacing:-0.02em;white-space:nowrap;text-align:right}
+.bro-foot{background:var(--panel);color:#fff;padding:1.5rem 3rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem 2rem}
+.bro-foot-h{font-size:1.05rem;font-weight:600;letter-spacing:-0.01em}
+.bro-contacts{display:flex;flex-wrap:wrap;gap:0.6rem 1.75rem;font-size:0.84rem}
+.bro-contacts a{color:#fff;text-decoration:none}
+.bro-contacts a:hover{text-decoration:underline}
+.bro-contacts span{display:block;font-size:0.7rem;color:rgba(255,255,255,0.6)}
+.offer-lock{max-width:560px;min-height:100svh;margin:0 auto;padding:7rem 1.25rem 4rem;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.offer-lock-icon{font-size:2.2rem;margin-bottom:1.25rem}
+.offer-lock h1{font-size:clamp(1.9rem,5vw,2.6rem);font-weight:600;letter-spacing:-0.03em;line-height:1.15;margin-bottom:1rem}
+.offer-lock p{color:var(--muted);margin-bottom:0.5rem}
+.offer-lock .btn-main{margin-top:1.5rem}
+/* While the page unlocks the lock stays out of sight; offer.js shows it only if the key is missing or wrong */
+@media(scripting:enabled){.offer-lock:not(.show){visibility:hidden}}
+@media(max-width:700px){
+  .brochure-wrap{padding:4.25rem 0.75rem 3rem}
+  /* side by side when both labels fit on one line, otherwise one per row */
+  .brochure-actions > *{flex:1 1 auto;justify-content:center;white-space:nowrap}
+  .brochure{border-radius:16px}
+  .bro-head,.bro-hero,.bro-block,.bro-foot{padding-left:1.4rem;padding-right:1.4rem}
+  .bro-site{display:none}
+  .bro-list,.bro-plans,.bro-addons{grid-template-columns:1fr}
+}
+/* Printed, or saved as PDF: just the sheet, filling one A4 page, in the light theme (assets/theme.js) */
+@media print{
+  @page{size:A4;margin:0}
+  nav,.mobile-menu,body > footer,.brochure-actions,body::before{display:none!important}
+  body{background:#fff}
+  .brochure-wrap{padding:0;background:none}
+  /* overflow stays visible, so anything too long spills onto a second page, which the tests catch, instead of being cut off */
+  .brochure{max-width:none;width:210mm;height:296mm;overflow:visible;border-radius:0;box-shadow:none;display:flex;flex-direction:column}
+  .bro-head{padding-top:1.3rem}
+  .bro-hero{padding:1.4rem 3rem}
+  .bro-block{padding:1.1rem 3rem}
+  .bro-list{gap:0.55rem 2rem}
+  .bro-plan{padding:1rem 1.3rem}
+  .bro-price{font-size:2.1rem}
+  .bro-terms{margin-top:0.55rem}
+  .bro-terms li{padding:0.3rem 0}
+  .bro-note{margin-top:0.6rem}
+  .bro-addon{padding:0.8rem 1.1rem}
+  .bro-foot{margin-top:auto}
+  .brochure,.brochure *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}

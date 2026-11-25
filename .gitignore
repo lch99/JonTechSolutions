@@ -1,0 +1,3 @@
+# Readable sources and keys of the private pages. Only their encrypted copies (offers/) are published.
+# See tools/private-pages.mjs.
+/private/

@@ -177,7 +177,8 @@ const ids = s => [...stripScripts(s).matchAll(/\sid="([^"]+)"/g)].map(m => m[1])
 // 10. Scripts parse
 {
   const bad = [];
-  for (const f of ['assets/theme.js', 'assets/i18n.js', 'assets/ai.js', 'tools/build-i18n.mjs', 'tools/indexnow.mjs', 'worker/src/index.js', 'worker/src/knowledge.js']) {
+  const files = ['assets/theme.js', 'assets/i18n.js', 'assets/ai.js', 'assets/motion.js', 'assets/offer.js', 'tools/build-i18n.mjs', 'tools/indexnow.mjs', 'tools/private-pages.mjs', 'worker/src/index.js', 'worker/src/knowledge.js'];
+  for (const f of files) {
     try { execFileSync('node', ['--check', path.join(ROOT, f)], { stdio: 'pipe' }); } catch (e) { bad.push(`${f}: ${String(e.stderr).split('\n')[0]}`); }
   }
   let n = 0;
@@ -187,7 +188,36 @@ const ids = s => [...stripScripts(s).matchAll(/\sid="([^"]+)"/g)].map(m => m[1])
       try { new vm.Script(m[1]); } catch (e) { bad.push(`${p}: inline script: ${e.message}`); }
     }
   }
-  check('all scripts parse', bad, `7 files, ${n} inline scripts`);
+  check('all scripts parse', bad, `${files.length} files, ${n} inline scripts`);
+}
+
+// 11. Private pages (offers/*.html, see tools/private-pages.mjs) can only be read with their link
+{
+  const bad = [];
+  const dir = path.join(ROOT, 'offers');
+  const offers = fs.existsSync(dir) ? fs.readdirSync(dir).filter(f => f.endsWith('.html')).map(f => `offers/${f}`) : [];
+  const sitemap = read('sitemap.xml');
+  for (const p of offers) {
+    const s = read(p);
+    const payload = /<script type="application\/octet-stream" id="offer-data">[\s\S]*?<\/script>/;
+    const readable = s.replace(payload, '');
+    if (!payload.test(s)) bad.push(`${p}: not encrypted`);
+    if (/RM\s?\d/.test(readable)) bad.push(`${p}: a price can be read without the link`);
+    if (/data-i18n="(?!nav|foot)/.test(readable)) bad.push(`${p}: page text can be read without the link`);
+    if (!/<meta name="robots" content="noindex, nofollow"\/>/.test(s)) bad.push(`${p}: not marked noindex`);
+    if (sitemap.includes(p)) bad.push(`${p}: listed in sitemap.xml`);
+    for (const m of readable.matchAll(/<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/g)) {
+      try { new vm.Script(m[1]); } catch (e) { bad.push(`${p}: inline script: ${e.message}`); }
+    }
+  }
+  for (const p of PAGES) if (/offers\//.test(html[p])) bad.push(`${p}: links to a private page`);
+  if (/offers/.test(read('robots.txt'))) bad.push('robots.txt names the private pages, which tells everyone where they are');
+  // The readable sources are only on the computer that made them; there, the published pages must match
+  let info = `${offers.length} page${offers.length === 1 ? '' : 's'}`;
+  if (fs.existsSync(path.join(ROOT, 'private'))) {
+    try { execFileSync('node', [path.join(ROOT, 'tools/private-pages.mjs'), '--check'], { stdio: 'pipe' }); } catch (e) { bad.push(...String(e.stderr).trim().split('\n')); }
+  } else info += ', sources not on this computer';
+  check('private pages are encrypted, unlisted and not indexed', bad, info);
 }
 
 let failed = 0;
