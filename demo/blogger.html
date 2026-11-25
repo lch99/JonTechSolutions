@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!-- A made-up sample client site that shows what the JonTech website package includes. The people and
+     businesses in it aren't real, so it stays out of search results. Shared by every demo: demo.css, demo.js. -->
+<meta name="robots" content="noindex"/>
+<title>Makan Trails · Demo by JonTech Solutions</title>
+<meta name="description" content="A sample food and travel blog with Instagram, TikTok and YouTube built in."/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Makan Trails: food &amp; travel in Malaysia · Demo by JonTech Solutions"/>
+<meta property="og:description" content="A sample food and travel blog with Instagram, TikTok and YouTube built in."/>
+<meta property="og:image" content="https://jontech-solutions.com/demo/img/blog-hero.jpg"/>
+<link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="demo.css"/>
+</head>
+<body class="theme-blog">
+
+<svg style="display:none" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></symbol>
+  <symbol id="i-yt" viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></symbol>
+  <symbol id="i-tt" viewBox="0 0 24 24"><path d="M9 12a4 4 0 1 0 4 4V3c.6 2.9 2.7 5 6 5.5"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+  <symbol id="i-layout" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></symbol>
+  <symbol id="i-tool" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></symbol>
+  <symbol id="i-clip" viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></symbol>
+</svg>
+
+<div class="demo-bar">
+  <div class="demo-left">
+    <button type="button" class="demo-back" aria-label="Back to the website package" hidden><span aria-hidden="true">←</span><span class="long">Back to the website package</span><span class="short">Back</span></button>
+    <div class="demo-tag"><b>DEMO</b><span class="long">Sample website by JonTech Solutions</span><span class="short">Sample website</span></div>
+  </div>
+  <nav class="demo-tabs" aria-label="Demo websites">
+    <a href="blogger.html" aria-current="page">Blogger</a>
+    <a href="car-sales.html">Car sales</a>
+    <a href="property.html">Property</a>
+    <a href="company.html">Company</a>
+  </nav>
+  <div class="demo-right">
+    <div class="demo-lang" role="group" aria-label="Language"><button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="ms" aria-pressed="false">BM</button><button type="button" data-lang="zh" aria-pressed="false">中文</button></div>
+    <a class="demo-cta" href="https://wa.me/60195023897?text=Hi%20JonTech%2C%20I%20saw%20your%20demo%20website%20and%20I%27d%20like%20one%20like%20this." target="_blank" rel="noopener noreferrer"><span class="long">Get a website like this</span><span class="short">Get one</span></a>
+  </div>
+</div>
+
+<header class="site-head">
+  <a class="brand" href="#top"><span class="avatar">MT</span>Makan Trails</a>
+  <nav class="site-nav" aria-label="Site">
+    <a href="#stories">Stories</a>
+    <a href="#instagram">Instagram</a>
+    <a href="#videos">Videos</a>
+    <a class="btn small" href="#work">Work with me</a>
+  </nav>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div>
+    <div class="kicker">Food &amp; travel in Malaysia</div>
+    <h1>Eating my way around Malaysia, <em>one plate at a time</em></h1>
+    <p>Hi, I'm Aina. Every week I find the best hawker stalls, cafés and weekend trips, and share them here and on my socials.</p>
+    <div class="hero-actions">
+      <a class="btn" href="#stories">Read the latest stories</a>
+      <a class="btn ghost" href="#work">Work with me</a>
+    </div>
+    <div class="socials">
+      <a href="#" aria-label="Instagram" data-demo="On your website, this opens your Instagram."><svg class="ico"><use href="#i-ig"/></svg></a>
+      <a href="#" aria-label="TikTok" data-demo="On your website, this opens your TikTok."><svg class="ico"><use href="#i-tt"/></svg></a>
+      <a href="#" aria-label="YouTube" data-demo="On your website, this opens your YouTube channel."><svg class="ico"><use href="#i-yt"/></svg></a>
+      <a href="#" aria-label="Facebook" data-demo="On your website, this opens your Facebook page."><svg class="ico"><use href="#i-fb"/></svg></a>
+      <a href="#" aria-label="Xiaohongshu" data-demo="On your website, this opens your Xiaohongshu (小红书)."><span class="xhs">小红书</span></a>
+    </div>
+  </div>
+  <div class="hero-img">
+    <img src="img/blog-hero.jpg" alt="Plates of colourful dishes on a table, seen from above" width="1200" height="1000">
+    <div class="hero-badge"><i></i>New story every Friday</div>
+  </div>
+</section>
+
+<section class="sec" id="stories">
+  <div class="sec-h">
+    <div><h2>Latest stories</h2><p>Honest reviews, easy directions and exactly what to order.</p></div>
+    <a class="more" href="#" data-demo="On your website, this opens all your blog posts.">All stories <svg class="ico"><use href="#i-arrow"/></svg></a>
+  </div>
+  <div class="cards">
+    <article class="card">
+      <div class="card-img"><img src="img/blog-satay.jpg" alt="Grilled skewers with sauces on a wooden board" loading="lazy" width="720" height="540"></div>
+      <div class="card-body">
+        <div class="meta">Food · 5 min read</div>
+        <h3>10 satay spots worth the drive to Kajang</h3>
+        <p>From smoky roadside grills to family stalls that have been here for decades.</p>
+        <div class="card-foot">
+          <a class="read" href="#" data-demo="On your website, this opens the full story.">Read story</a>
+          <div class="share">
+            <button type="button" aria-label="Share on WhatsApp" data-demo="Visitors share this story to WhatsApp, with a proper title and picture."><svg class="ico fill"><use href="#i-wa"/></svg></button>
+            <button type="button" aria-label="Share on Facebook" data-demo="Visitors share this story to Facebook, with a proper title and picture."><svg class="ico"><use href="#i-fb"/></svg></button>
+            <button type="button" aria-label="Copy link" data-demo="Visitors copy the link to share it anywhere."><svg class="ico"><use href="#i-link"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="card">
+      <div class="card-img"><img src="img/blog-lake.jpg" alt="A wooden boat on a calm lake between mountains" loading="lazy" width="720" height="540"></div>
+      <div class="card-body">
+        <div class="meta">Travel · 7 min read</div>
+        <h3>A slow weekend by the lake: where to stay and eat</h3>
+        <p>Two days, one small guesthouse and the best breakfast of the year.</p>
+        <div class="card-foot">
+          <a class="read" href="#" data-demo="On your website, this opens the full story.">Read story</a>
+          <div class="share">
+            <button type="button" aria-label="Share on WhatsApp" data-demo="Visitors share this story to WhatsApp, with a proper title and picture."><svg class="ico fill"><use href="#i-wa"/></svg></button>
+            <button type="button" aria-label="Share on Facebook" data-demo="Visitors share this story to Facebook, with a proper title and picture."><svg class="ico"><use href="#i-fb"/></svg></button>
+            <button type="button" aria-label="Copy link" data-demo="Visitors copy the link to share it anywhere."><svg class="ico"><use href="#i-link"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="card">
+      <div class="card-img"><img src="img/blog-cafe.jpg" alt="A café with a lit-up CAFE sign on a brick wall" loading="lazy" width="720" height="540"></div>
+      <div class="card-body">
+        <div class="meta">Cafés · 4 min read</div>
+        <h3>Hidden cafés in Ipoh old town</h3>
+        <p>Kopi, egg tarts and quiet corners to sit and work.</p>
+        <div class="card-foot">
+          <a class="read" href="#" data-demo="On your website, this opens the full story.">Read story</a>
+          <div class="share">
+            <button type="button" aria-label="Share on WhatsApp" data-demo="Visitors share this story to WhatsApp, with a proper title and picture."><svg class="ico fill"><use href="#i-wa"/></svg></button>
+            <button type="button" aria-label="Share on Facebook" data-demo="Visitors share this story to Facebook, with a proper title and picture."><svg class="ico"><use href="#i-fb"/></svg></button>
+            <button type="button" aria-label="Copy link" data-demo="Visitors copy the link to share it anywhere."><svg class="ico"><use href="#i-link"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="band" id="instagram">
+  <div class="sec">
+    <div class="sec-h">
+      <div><h2>Fresh from my Instagram</h2><p>Daily bites, reels and travel snaps.</p></div>
+      <a class="more" href="#" data-demo="On your website, this opens your Instagram profile.">Follow on Instagram <svg class="ico"><use href="#i-arrow"/></svg></a>
+    </div>
+    <div class="grid-6">
+      <a href="#" data-demo="On your website, your Instagram posts show here and open on Instagram."><img src="img/ig-latte.jpg" alt="Two cups of latte art" loading="lazy" width="400" height="400"></a>
+      <a href="#" data-demo="On your website, your Instagram posts show here and open on Instagram."><img src="img/ig-bowl.jpg" alt="A bowl of salad and grilled chicken" loading="lazy" width="400" height="400"></a>
+      <a href="#" data-demo="On your website, your Instagram posts show here and open on Instagram."><img src="img/ig-beach.jpg" alt="A quiet beach at sunset" loading="lazy" width="400" height="400"></a>
+      <a href="#" data-demo="On your website, your Instagram posts show here and open on Instagram."><img src="img/ig-pizza.jpg" alt="A pizza fresh from the oven" loading="lazy" width="400" height="400"></a>
+      <a href="#" data-demo="On your website, your Instagram posts show here and open on Instagram."><img src="img/ig-pancakes.jpg" alt="A stack of pancakes with syrup" loading="lazy" width="400" height="400"></a>
+      <a href="#" data-demo="On your website, your Instagram posts show here and open on Instagram."><img src="img/ig-plate.jpg" alt="A plate of grilled food and bread" loading="lazy" width="400" height="400"></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="videos">
+  <div class="split">
+    <button class="video" type="button" aria-label="Play video: Road trip, 3 days on the east coast" data-demo="On your website, your YouTube or TikTok video plays right here.">
+      <img src="img/blog-video.jpg" alt="" loading="lazy" width="1100" height="620">
+      <span class="play"><svg class="ico fill"><use href="#i-play"/></svg></span>
+      <span class="video-len">12:48</span>
+    </button>
+    <div>
+      <div class="kicker">Latest video</div>
+      <h2>Road trip: 3 days on the east coast</h2>
+      <p>Beaches, night markets and the best nasi kerabu I've ever had. Watch the whole trip on YouTube, or the 60-second version on TikTok.</p>
+      <div class="hero-actions">
+        <a class="btn" href="#" data-demo="On your website, this opens your YouTube channel."><svg class="ico"><use href="#i-yt"/></svg>Watch on YouTube</a>
+        <a class="btn ghost" href="#" data-demo="On your website, this opens your TikTok."><svg class="ico"><use href="#i-tt"/></svg>TikTok</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="work">
+  <div class="sec">
+    <div class="contact">
+      <div>
+        <div class="sec-h"><div><h2>Work with me</h2><p>Restaurants, cafés, hotels and brands: let's tell your story to food lovers across Malaysia.</p></div></div>
+        <form class="form" data-demo-form="On your website, this enquiry goes straight to your email or WhatsApp.">
+          <label>Your name<input name="name" autocomplete="name" required></label>
+          <label>Email<input name="email" type="email" autocomplete="email" required></label>
+          <label class="full">Brand or business<input name="brand" autocomplete="organization"></label>
+          <label class="full">How can we work together?<textarea name="message"></textarea></label>
+          <button class="btn" type="submit">Send enquiry</button>
+        </form>
+      </div>
+      <div class="links">
+        <h3>Find me everywhere</h3>
+        <a href="#" data-demo="On your website, this opens your Instagram."><svg class="ico"><use href="#i-ig"/></svg>Instagram<small>Daily posts</small></a>
+        <a href="#" data-demo="On your website, this opens your TikTok."><svg class="ico"><use href="#i-tt"/></svg>TikTok<small>Short videos</small></a>
+        <a href="#" data-demo="On your website, this opens your YouTube channel."><svg class="ico"><use href="#i-yt"/></svg>YouTube<small>Full trips</small></a>
+        <a href="#" data-demo="On your website, this opens your Xiaohongshu (小红书)."><span class="xhs">小红书</span>Xiaohongshu<small>Guides in Chinese</small></a>
+        <a href="#" data-demo="On your website, this opens a WhatsApp chat with you."><svg class="ico fill"><use href="#i-wa"/></svg>WhatsApp<small>Collabs</small></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<section class="demo-end" aria-label="Get a website like this">
+  <div>
+    <div><h2>Like this website?</h2><p>JonTech Solutions builds one like it for you, with design, copywriting, SEO and your social media included.</p></div>
+    <a href="https://wa.me/60195023897?text=Hi%20JonTech%2C%20I%20saw%20your%20demo%20website%20and%20I%27d%20like%20one%20like%20this." target="_blank" rel="noopener noreferrer"><svg class="ico fill"><use href="#i-wa"/></svg>WhatsApp JonTech</a>
+  </div>
+</section>
+
+<footer class="site-foot">
+  <span>© 2026 Makan Trails</span>
+  <span>A sample website by <a href="../index.html">JonTech Solutions</a> · Photos from Unsplash</span>
+</footer>
+
+<button class="wa-float" type="button" aria-label="Chat on WhatsApp" data-demo="On your website, this button stays on every page and opens a WhatsApp chat with you."><svg class="ico fill"><use href="#i-wa"/></svg></button>
+
+<!-- This page's text in BM and 中文, keyed by the English. Shared words are in demo.js. -->
+<script id="demo-text" type="application/json">
+{
+  "keep": ["Makan Trails","MT","© 2026 Makan Trails"],
+  "text": {
+    "Stories": {"ms":"Cerita","zh":"文章"},
+    "Videos": {"ms":"Video","zh":"视频"},
+    "Work with me": {"ms":"Bekerjasama dengan saya","zh":"合作邀约"},
+    "Food & travel in Malaysia": {"ms":"Makanan & pengembaraan di Malaysia","zh":"马来西亚美食与旅行"},
+    "Eating my way around Malaysia,": {"ms":"Menjelajah Malaysia melalui makanan,","zh":"吃遍马来西亚，"},
+    "one plate at a time": {"ms":"sepinggan demi sepinggan","zh":"一次一盘"},
+    "Hi, I'm Aina. Every week I find the best hawker stalls, cafés and weekend trips, and share them here and on my socials.": {"ms":"Hai, saya Aina. Setiap minggu saya mencari gerai hawker, kafe dan percutian hujung minggu terbaik, dan kongsikannya di sini dan di media sosial saya.","zh":"嗨，我是 Aina。每周我都会寻找最好吃的小贩摊、咖啡馆和周末好去处，在这里和我的社交媒体上分享。"},
+    "Read the latest stories": {"ms":"Baca cerita terkini","zh":"阅读最新文章"},
+    "New story every Friday": {"ms":"Cerita baharu setiap Jumaat","zh":"每周五更新"},
+    "Latest stories": {"ms":"Cerita terkini","zh":"最新文章"},
+    "Honest reviews, easy directions and exactly what to order.": {"ms":"Ulasan jujur, arah yang mudah dan apa yang patut dipesan.","zh":"真实评价、简单路线，还有必点推荐。"},
+    "All stories": {"ms":"Semua cerita","zh":"全部文章"},
+    "On your website, this opens all your blog posts.": {"ms":"Di laman web anda, ini membuka semua hantaran blog anda.","zh":"在您的网站上，这会打开您所有的文章。"},
+    "Food · 5 min read": {"ms":"Makanan · 5 minit bacaan","zh":"美食 · 阅读 5 分钟"},
+    "10 satay spots worth the drive to Kajang": {"ms":"10 gerai sate yang berbaloi dikunjungi di Kajang","zh":"值得专程去加影吃的 10 家沙爹"},
+    "From smoky roadside grills to family stalls that have been here for decades.": {"ms":"Dari gerai bakar tepi jalan hingga gerai keluarga yang sudah berpuluh tahun.","zh":"从路边炭烤摊到经营了几十年的家族老店。"},
+    "Read story": {"ms":"Baca cerita","zh":"阅读全文"},
+    "On your website, this opens the full story.": {"ms":"Di laman web anda, ini membuka cerita penuh.","zh":"在您的网站上，这会打开整篇文章。"},
+    "Travel · 7 min read": {"ms":"Pengembaraan · 7 minit bacaan","zh":"旅行 · 阅读 7 分钟"},
+    "A slow weekend by the lake: where to stay and eat": {"ms":"Hujung minggu santai di tepi tasik: tempat menginap dan makan","zh":"湖边慢活周末：住哪里、吃什么"},
+    "Two days, one small guesthouse and the best breakfast of the year.": {"ms":"Dua hari, sebuah rumah tamu kecil dan sarapan terbaik tahun ini.","zh":"两天、一间小民宿，还有今年最好吃的早餐。"},
+    "Cafés · 4 min read": {"ms":"Kafe · 4 minit bacaan","zh":"咖啡馆 · 阅读 4 分钟"},
+    "Hidden cafés in Ipoh old town": {"ms":"Kafe tersembunyi di bandar lama Ipoh","zh":"怡保旧街场的隐藏咖啡馆"},
+    "Kopi, egg tarts and quiet corners to sit and work.": {"ms":"Kopi, tart telur dan sudut tenang untuk duduk dan bekerja.","zh":"咖啡、蛋挞，还有安静的角落可以坐下来工作。"},
+    "Fresh from my Instagram": {"ms":"Terkini dari Instagram saya","zh":"来自我的 Instagram"},
+    "Daily bites, reels and travel snaps.": {"ms":"Makanan harian, reels dan gambar pengembaraan.","zh":"每日美食、短视频和旅行照片。"},
+    "Follow on Instagram": {"ms":"Ikuti di Instagram","zh":"在 Instagram 关注"},
+    "On your website, this opens your Instagram profile.": {"ms":"Di laman web anda, ini membuka profil Instagram anda.","zh":"在您的网站上，这会打开您的 Instagram 主页。"},
+    "On your website, your Instagram posts show here and open on Instagram.": {"ms":"Di laman web anda, hantaran Instagram anda dipaparkan di sini dan dibuka di Instagram.","zh":"在您的网站上，您的 Instagram 贴文会显示在这里，点开就到 Instagram。"},
+    "Play video: Road trip, 3 days on the east coast": {"ms":"Main video: Road trip, 3 hari di pantai timur","zh":"播放视频：东海岸 3 天自驾游"},
+    "Latest video": {"ms":"Video terkini","zh":"最新视频"},
+    "Road trip: 3 days on the east coast": {"ms":"Road trip: 3 hari di pantai timur","zh":"自驾游：东海岸 3 天"},
+    "Beaches, night markets and the best nasi kerabu I've ever had. Watch the whole trip on YouTube, or the 60-second version on TikTok.": {"ms":"Pantai, pasar malam dan nasi kerabu paling sedap pernah saya rasa. Tonton perjalanan penuh di YouTube, atau versi 60 saat di TikTok.","zh":"海滩、夜市，还有我吃过最好吃的 nasi kerabu。完整旅程在 YouTube，60 秒精华版在 TikTok。"},
+    "Watch on YouTube": {"ms":"Tonton di YouTube","zh":"在 YouTube 观看"},
+    "Restaurants, cafés, hotels and brands: let's tell your story to food lovers across Malaysia.": {"ms":"Restoran, kafe, hotel dan jenama: mari kongsikan kisah anda kepada peminat makanan di seluruh Malaysia.","zh":"餐厅、咖啡馆、酒店和品牌：一起把你们的故事讲给全马来西亚的吃货听。"},
+    "Brand or business": {"ms":"Jenama atau perniagaan","zh":"品牌或商家"},
+    "How can we work together?": {"ms":"Bagaimana kita boleh bekerjasama?","zh":"想怎么合作？"},
+    "Send enquiry": {"ms":"Hantar pertanyaan","zh":"发送询问"},
+    "Find me everywhere": {"ms":"Cari saya di mana-mana","zh":"在这些平台找到我"},
+    "Daily posts": {"ms":"Hantaran harian","zh":"每日更新"},
+    "Short videos": {"ms":"Video pendek","zh":"短视频"},
+    "Full trips": {"ms":"Perjalanan penuh","zh":"完整旅程"},
+    "Guides in Chinese": {"ms":"Panduan dalam bahasa Cina","zh":"中文攻略"},
+    "Collabs": {"ms":"Kolaborasi","zh":"合作"}
+  }
+}
+</script>
+<script src="demo.js"></script>
+</body>
+</html>

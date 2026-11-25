@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!-- A made-up sample client site that shows what the JonTech website package includes. The people and
+     businesses in it aren't real, so it stays out of search results. Shared by every demo: demo.css, demo.js. -->
+<meta name="robots" content="noindex"/>
+<title>Kemas Interior Studio · Demo by JonTech Solutions</title>
+<meta name="description" content="A sample company website with services, projects, how it works and a quote form."/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Kemas Interior Studio: design &amp; renovation · Demo by JonTech Solutions"/>
+<meta property="og:description" content="A sample company website with services, projects, how it works and a quote form."/>
+<meta property="og:image" content="https://jontech-solutions.com/demo/img/studio-hero.jpg"/>
+<link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="demo.css"/>
+</head>
+<body class="theme-company">
+
+<svg style="display:none" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></symbol>
+  <symbol id="i-yt" viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></symbol>
+  <symbol id="i-tt" viewBox="0 0 24 24"><path d="M9 12a4 4 0 1 0 4 4V3c.6 2.9 2.7 5 6 5.5"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+  <symbol id="i-layout" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></symbol>
+  <symbol id="i-tool" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></symbol>
+  <symbol id="i-clip" viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></symbol>
+</svg>
+
+<div class="demo-bar">
+  <div class="demo-left">
+    <button type="button" class="demo-back" aria-label="Back to the website package" hidden><span aria-hidden="true">←</span><span class="long">Back to the website package</span><span class="short">Back</span></button>
+    <div class="demo-tag"><b>DEMO</b><span class="long">Sample website by JonTech Solutions</span><span class="short">Sample website</span></div>
+  </div>
+  <nav class="demo-tabs" aria-label="Demo websites">
+    <a href="blogger.html">Blogger</a>
+    <a href="car-sales.html">Car sales</a>
+    <a href="property.html">Property</a>
+    <a href="company.html" aria-current="page">Company</a>
+  </nav>
+  <div class="demo-right">
+    <div class="demo-lang" role="group" aria-label="Language"><button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="ms" aria-pressed="false">BM</button><button type="button" data-lang="zh" aria-pressed="false">中文</button></div>
+    <a class="demo-cta" href="https://wa.me/60195023897?text=Hi%20JonTech%2C%20I%20saw%20your%20demo%20website%20and%20I%27d%20like%20one%20like%20this." target="_blank" rel="noopener noreferrer"><span class="long">Get a website like this</span><span class="short">Get one</span></a>
+  </div>
+</div>
+
+<header class="site-head">
+  <a class="brand" href="#top"><span class="avatar">KS</span>Kemas Interior Studio</a>
+  <nav class="site-nav" aria-label="Site">
+    <a href="#services">Services</a>
+    <a href="#projects">Projects</a>
+    <a href="#process">Process</a>
+    <a class="btn small" href="#quote">Free consultation</a>
+  </nav>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div>
+    <div class="kicker">Interior design &amp; renovation · Selangor</div>
+    <h1>Homes that feel like you, <em>built without the stress</em></h1>
+    <p>Design, renovation and built-in carpentry for condos and landed homes. One team from the first sketch to the final clean-up.</p>
+    <div class="hero-actions">
+      <a class="btn" href="#quote">Get a free quote</a>
+      <a class="btn ghost" href="#projects">View projects</a>
+    </div>
+    <div class="perks"><span>3D design first</span><span>One project manager</span><span>Weekly photo updates</span></div>
+  </div>
+  <div class="hero-img">
+    <img src="img/studio-hero.jpg" alt="A warm, modern living room with wooden furniture" width="1200" height="1000">
+    <div class="hero-badge"><i></i>Free first consultation</div>
+  </div>
+</section>
+
+<section class="sec" id="services">
+  <div class="sec-h"><div><h2>What we do</h2><p>Everything your home needs, handled by one team.</p></div></div>
+  <div class="features">
+    <div class="feature"><div class="ico-box"><svg class="ico"><use href="#i-layout"/></svg></div><h3>Interior design</h3><p>Space planning and 3D designs, so you see it before we build it.</p></div>
+    <div class="feature"><div class="ico-box"><svg class="ico"><use href="#i-tool"/></svg></div><h3>Renovation</h3><p>Kitchens, bathrooms, flooring, ceilings and electrical work.</p></div>
+    <div class="feature"><div class="ico-box"><svg class="ico"><use href="#i-box"/></svg></div><h3>Built-in carpentry</h3><p>Wardrobes, kitchen cabinets, TV consoles and study areas.</p></div>
+    <div class="feature"><div class="ico-box"><svg class="ico"><use href="#i-clip"/></svg></div><h3>Project management</h3><p>One schedule, one contact person and photo updates every week.</p></div>
+  </div>
+</section>
+
+<section class="band" id="projects">
+  <div class="sec">
+    <div class="sec-h">
+      <div><h2>Recent projects</h2><p>A few homes we finished this year.</p></div>
+      <a class="more" href="#" data-demo="On your website, this opens your full portfolio.">All projects <svg class="ico"><use href="#i-arrow"/></svg></a>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <div class="card-img"><img src="img/studio-chair.jpg" alt="A yellow armchair in a bright, minimal room" loading="lazy" width="720" height="540"></div>
+        <div class="card-body">
+          <div class="meta">Condo · Petaling Jaya</div>
+          <h3>Bright Scandinavian living room</h3>
+          <p>Light oak, soft whites and a reading corner by the window.</p>
+          <div class="card-foot">
+            <a class="read" href="#" data-demo="On your website, this opens the full project with more photos.">See project</a>
+            <div class="share">
+            <button type="button" aria-label="Share on WhatsApp" data-demo="Visitors share this project to WhatsApp, with a proper title and picture."><svg class="ico fill"><use href="#i-wa"/></svg></button>
+            <button type="button" aria-label="Share on Facebook" data-demo="Visitors share this project to Facebook, with a proper title and picture."><svg class="ico"><use href="#i-fb"/></svg></button>
+            <button type="button" aria-label="Copy link" data-demo="Visitors copy the link to share it anywhere."><svg class="ico"><use href="#i-link"/></svg></button>
+          </div>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-img"><img src="img/studio-living.jpg" alt="An open living area with a gallery wall and sofas" loading="lazy" width="720" height="540"></div>
+        <div class="card-body">
+          <div class="meta">Terrace house · Subang Jaya</div>
+          <h3>Open-plan living and dining</h3>
+          <p>We removed a wall, added built-ins and opened up the whole floor.</p>
+          <div class="card-foot">
+            <a class="read" href="#" data-demo="On your website, this opens the full project with more photos.">See project</a>
+            <div class="share">
+            <button type="button" aria-label="Share on WhatsApp" data-demo="Visitors share this project to WhatsApp, with a proper title and picture."><svg class="ico fill"><use href="#i-wa"/></svg></button>
+            <button type="button" aria-label="Share on Facebook" data-demo="Visitors share this project to Facebook, with a proper title and picture."><svg class="ico"><use href="#i-fb"/></svg></button>
+            <button type="button" aria-label="Copy link" data-demo="Visitors copy the link to share it anywhere."><svg class="ico"><use href="#i-link"/></svg></button>
+          </div>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-img"><img src="img/studio-kitchen.jpg" alt="A white kitchen with an island and pendant lights" loading="lazy" width="720" height="540"></div>
+        <div class="card-body">
+          <div class="meta">Semi-D · Cheras</div>
+          <h3>Kitchen with island and pendant lights</h3>
+          <p>Quartz tops, full-height cabinets and a breakfast bar.</p>
+          <div class="card-foot">
+            <a class="read" href="#" data-demo="On your website, this opens the full project with more photos.">See project</a>
+            <div class="share">
+            <button type="button" aria-label="Share on WhatsApp" data-demo="Visitors share this project to WhatsApp, with a proper title and picture."><svg class="ico fill"><use href="#i-wa"/></svg></button>
+            <button type="button" aria-label="Share on Facebook" data-demo="Visitors share this project to Facebook, with a proper title and picture."><svg class="ico"><use href="#i-fb"/></svg></button>
+            <button type="button" aria-label="Copy link" data-demo="Visitors copy the link to share it anywhere."><svg class="ico"><use href="#i-link"/></svg></button>
+          </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="process">
+  <div class="sec-h"><div><h2>How it works</h2><p>Four steps, one team, no surprises.</p></div></div>
+  <ol class="steps">
+    <li><h3>Consult</h3><p>We visit, listen and measure. The first consultation is free.</p></li>
+    <li><h3>Design</h3><p>You get a layout, 3D views and a clear quotation.</p></li>
+    <li><h3>Build</h3><p>Our team renovates on a fixed schedule, with weekly updates.</p></li>
+    <li><h3>Handover</h3><p>A final clean, a walkthrough, and your keys back.</p></li>
+  </ol>
+</section>
+
+<section class="band" id="quote">
+  <div class="sec">
+    <div class="contact">
+      <div>
+        <div class="sec-h"><div><h2>Get a free quote</h2><p>Tell us about your home. We'll reply within one working day to arrange a visit.</p></div></div>
+        <form class="form" data-demo-form="On your website, this enquiry goes straight to your email or WhatsApp.">
+          <label>Your name<input name="name" autocomplete="name" required></label>
+          <label>Phone<input name="phone" type="tel" autocomplete="tel" required></label>
+          <label>Property type<select name="type"><option>Condo or apartment</option><option>Terrace house</option><option>Semi-D or bungalow</option><option>Office or shop</option></select></label>
+          <label>Budget<select name="budget"><option>Below RM50k</option><option>RM50k to RM100k</option><option>RM100k to RM200k</option><option>Above RM200k</option></select></label>
+          <label class="full">What would you like to change?<textarea name="message"></textarea></label>
+          <button class="btn" type="submit">Request a free quote</button>
+        </form>
+      </div>
+      <div class="links">
+        <h3>See our work</h3>
+        <a href="#" data-demo="On your website, this opens your Instagram."><svg class="ico"><use href="#i-ig"/></svg>Instagram<small>Before &amp; after</small></a>
+        <a href="#" data-demo="On your website, this opens your Facebook page."><svg class="ico"><use href="#i-fb"/></svg>Facebook<small>Project updates</small></a>
+        <a href="#" data-demo="On your website, this opens your TikTok."><svg class="ico"><use href="#i-tt"/></svg>TikTok<small>Site visits</small></a>
+        <a href="#" data-demo="On your website, this opens a WhatsApp chat with you."><svg class="ico fill"><use href="#i-wa"/></svg>WhatsApp<small>Quick questions</small></a>
+        <div class="info"><span>Studio in Petaling Jaya, Selangor</span><span>Monday to Saturday, 9am to 6pm</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<section class="demo-end" aria-label="Get a website like this">
+  <div>
+    <div><h2>Like this website?</h2><p>JonTech Solutions builds one like it for you, with design, copywriting, SEO and your social media included.</p></div>
+    <a href="https://wa.me/60195023897?text=Hi%20JonTech%2C%20I%20saw%20your%20demo%20website%20and%20I%27d%20like%20one%20like%20this." target="_blank" rel="noopener noreferrer"><svg class="ico fill"><use href="#i-wa"/></svg>WhatsApp JonTech</a>
+  </div>
+</section>
+
+<footer class="site-foot">
+  <span>© 2026 Kemas Interior Studio</span>
+  <span>A sample website by <a href="../index.html">JonTech Solutions</a> · Photos from Unsplash</span>
+</footer>
+
+<button class="wa-float" type="button" aria-label="Chat on WhatsApp" data-demo="On your website, this button stays on every page and opens a WhatsApp chat with you."><svg class="ico fill"><use href="#i-wa"/></svg></button>
+
+<!-- This page's text in BM and 中文, keyed by the English. Shared words are in demo.js. -->
+<script id="demo-text" type="application/json">
+{
+  "keep": ["Kemas Interior Studio","KS","© 2026 Kemas Interior Studio"],
+  "text": {
+    "Services": {"ms":"Perkhidmatan","zh":"服务"},
+    "Projects": {"ms":"Projek","zh":"作品"},
+    "Process": {"ms":"Proses","zh":"流程"},
+    "Free consultation": {"ms":"Konsultasi percuma","zh":"免费咨询"},
+    "Interior design & renovation · Selangor": {"ms":"Reka bentuk dalaman & ubah suai · Selangor","zh":"室内设计与装修 · 雪兰莪"},
+    "Homes that feel like you,": {"ms":"Rumah yang mencerminkan diri anda,","zh":"打造有您风格的家，"},
+    "built without the stress": {"ms":"dibina tanpa tekanan","zh":"装修不再头痛"},
+    "Design, renovation and built-in carpentry for condos and landed homes. One team from the first sketch to the final clean-up.": {"ms":"Reka bentuk, ubah suai dan kerja kayu terbina dalam untuk kondo dan rumah bertanah. Satu pasukan dari lakaran pertama hingga pembersihan akhir.","zh":"为公寓和有地住宅提供设计、装修和定制木工。从第一张草图到最后清洁，全程一个团队负责。"},
+    "Get a free quote": {"ms":"Dapatkan sebut harga percuma","zh":"免费报价"},
+    "View projects": {"ms":"Lihat projek","zh":"查看作品"},
+    "3D design first": {"ms":"Reka bentuk 3D dahulu","zh":"先出 3D 设计"},
+    "One project manager": {"ms":"Seorang pengurus projek","zh":"专属项目经理"},
+    "Weekly photo updates": {"ms":"Kemas kini foto mingguan","zh":"每周照片进度"},
+    "Free first consultation": {"ms":"Konsultasi pertama percuma","zh":"首次咨询免费"},
+    "What we do": {"ms":"Apa yang kami buat","zh":"我们的服务"},
+    "Everything your home needs, handled by one team.": {"ms":"Semua keperluan rumah anda, diuruskan oleh satu pasukan.","zh":"家里需要的一切，一个团队全包。"},
+    "Interior design": {"ms":"Reka bentuk dalaman","zh":"室内设计"},
+    "Space planning and 3D designs, so you see it before we build it.": {"ms":"Perancangan ruang dan reka bentuk 3D, jadi anda nampak hasilnya sebelum kami bina.","zh":"空间规划和 3D 设计，动工前就能看到成品。"},
+    "Renovation": {"ms":"Ubah suai","zh":"装修"},
+    "Kitchens, bathrooms, flooring, ceilings and electrical work.": {"ms":"Dapur, bilik air, lantai, siling dan kerja elektrik.","zh":"厨房、浴室、地板、天花板和电工工程。"},
+    "Built-in carpentry": {"ms":"Kerja kayu terbina dalam","zh":"定制木工"},
+    "Wardrobes, kitchen cabinets, TV consoles and study areas.": {"ms":"Almari pakaian, kabinet dapur, konsol TV dan ruang belajar.","zh":"衣柜、厨柜、电视柜和书房。"},
+    "Project management": {"ms":"Pengurusan projek","zh":"项目管理"},
+    "One schedule, one contact person and photo updates every week.": {"ms":"Satu jadual, satu orang hubungan dan kemas kini foto setiap minggu.","zh":"一份时间表、一个联系人，每周发照片更新进度。"},
+    "Recent projects": {"ms":"Projek terkini","zh":"近期作品"},
+    "A few homes we finished this year.": {"ms":"Beberapa rumah yang kami siapkan tahun ini.","zh":"今年完成的部分作品。"},
+    "All projects": {"ms":"Semua projek","zh":"全部作品"},
+    "On your website, this opens your full portfolio.": {"ms":"Di laman web anda, ini membuka portfolio penuh anda.","zh":"在您的网站上，这会打开您完整的作品集。"},
+    "Condo · Petaling Jaya": {"ms":"Kondo · Petaling Jaya","zh":"公寓 · 八打灵再也"},
+    "Bright Scandinavian living room": {"ms":"Ruang tamu Skandinavia yang cerah","zh":"明亮的北欧风客厅"},
+    "Light oak, soft whites and a reading corner by the window.": {"ms":"Kayu oak cerah, warna putih lembut dan sudut bacaan di tepi tingkap.","zh":"浅色橡木、柔和白色，加上窗边阅读角。"},
+    "See project": {"ms":"Lihat projek","zh":"查看作品"},
+    "On your website, this opens the full project with more photos.": {"ms":"Di laman web anda, ini membuka projek penuh dengan lebih banyak foto.","zh":"在您的网站上，这会打开完整作品和更多照片。"},
+    "Terrace house · Subang Jaya": {"ms":"Rumah teres · Subang Jaya","zh":"排屋 · 梳邦再也"},
+    "Open-plan living and dining": {"ms":"Ruang tamu dan makan konsep terbuka","zh":"开放式客厅与餐厅"},
+    "We removed a wall, added built-ins and opened up the whole floor.": {"ms":"Kami buang satu dinding, tambah perabot terbina dalam dan buka seluruh ruang.","zh":"我们拆掉一面墙，加上定制柜，让整层空间更开阔。"},
+    "Semi-D · Cheras": {"ms":"Semi-D · Cheras","zh":"半独立洋房 · 蕉赖"},
+    "Kitchen with island and pendant lights": {"ms":"Dapur dengan pulau dan lampu gantung","zh":"带中岛和吊灯的厨房"},
+    "Quartz tops, full-height cabinets and a breakfast bar.": {"ms":"Permukaan kuarza, kabinet penuh ketinggian dan bar sarapan.","zh":"石英台面、顶天高柜和早餐吧台。"},
+    "How it works": {"ms":"Cara ia berfungsi","zh":"合作流程"},
+    "Four steps, one team, no surprises.": {"ms":"Empat langkah, satu pasukan, tiada kejutan.","zh":"四个步骤，一个团队，没有意外。"},
+    "Consult": {"ms":"Konsultasi","zh":"咨询"},
+    "We visit, listen and measure. The first consultation is free.": {"ms":"Kami datang, dengar dan ukur. Konsultasi pertama percuma.","zh":"我们上门了解需求、丈量尺寸，首次咨询免费。"},
+    "Design": {"ms":"Reka bentuk","zh":"设计"},
+    "You get a layout, 3D views and a clear quotation.": {"ms":"Anda dapat susun atur, paparan 3D dan sebut harga yang jelas.","zh":"您会拿到平面图、3D 效果图和清楚的报价。"},
+    "Build": {"ms":"Bina","zh":"施工"},
+    "Our team renovates on a fixed schedule, with weekly updates.": {"ms":"Pasukan kami mengubah suai mengikut jadual tetap, dengan kemas kini mingguan.","zh":"团队按固定时间表施工，每周更新进度。"},
+    "Handover": {"ms":"Serah kunci","zh":"交屋"},
+    "A final clean, a walkthrough, and your keys back.": {"ms":"Pembersihan akhir, lawatan bersama, dan kunci anda dipulangkan.","zh":"最后清洁、一起验收，钥匙交还给您。"},
+    "Tell us about your home. We'll reply within one working day to arrange a visit.": {"ms":"Ceritakan tentang rumah anda. Kami akan balas dalam satu hari bekerja untuk mengatur lawatan.","zh":"告诉我们您家的情况，我们会在一个工作日内回复并安排上门。"},
+    "Property type": {"ms":"Jenis hartanah","zh":"房屋类型"},
+    "Condo or apartment": {"ms":"Kondo atau pangsapuri","zh":"公寓"},
+    "Terrace house": {"ms":"Rumah teres","zh":"排屋"},
+    "Semi-D or bungalow": {"ms":"Semi-D atau banglo","zh":"半独立或独立洋房"},
+    "Office or shop": {"ms":"Pejabat atau kedai","zh":"办公室或店面"},
+    "Budget": {"ms":"Bajet","zh":"预算"},
+    "Below RM50k": {"ms":"Bawah RM50k","zh":"RM50k 以下"},
+    "RM50k to RM100k": {"ms":"RM50k hingga RM100k","zh":"RM50k 至 RM100k"},
+    "RM100k to RM200k": {"ms":"RM100k hingga RM200k","zh":"RM100k 至 RM200k"},
+    "Above RM200k": {"ms":"Atas RM200k","zh":"RM200k 以上"},
+    "What would you like to change?": {"ms":"Apa yang anda mahu ubah?","zh":"您想改造哪些地方？"},
+    "Request a free quote": {"ms":"Minta sebut harga percuma","zh":"索取免费报价"},
+    "See our work": {"ms":"Lihat hasil kerja kami","zh":"看看我们的作品"},
+    "Before & after": {"ms":"Sebelum & selepas","zh":"装修前后对比"},
+    "Project updates": {"ms":"Kemas kini projek","zh":"工程进度"},
+    "Site visits": {"ms":"Lawatan tapak","zh":"工地实况"},
+    "Quick questions": {"ms":"Soalan ringkas","zh":"快速咨询"},
+    "Studio in Petaling Jaya, Selangor": {"ms":"Studio di Petaling Jaya, Selangor","zh":"工作室位于雪兰莪八打灵再也"},
+    "Monday to Saturday, 9am to 6pm": {"ms":"Isnin hingga Sabtu, 9 pagi hingga 6 petang","zh":"周一至周六，上午 9 点至傍晚 6 点"}
+  }
+}
+</script>
+<script src="demo.js"></script>
+</body>
+</html>

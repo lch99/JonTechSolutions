@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!-- A made-up sample client site that shows what the JonTech website package includes. The people and
+     businesses in it aren't real, so it stays out of search results. Shared by every demo: demo.css, demo.js. -->
+<meta name="robots" content="noindex"/>
+<title>Homes with Aisyah · Demo by JonTech Solutions</title>
+<meta name="description" content="A sample property agent website with listings, buyer guides, video tours and viewing bookings."/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Homes with Aisyah: property agent · Demo by JonTech Solutions"/>
+<meta property="og:description" content="A sample property agent website with listings, buyer guides, video tours and viewing bookings."/>
+<meta property="og:image" content="https://jontech-solutions.com/demo/img/home-hero.jpg"/>
+<link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="demo.css"/>
+</head>
+<body class="theme-property">
+
+<svg style="display:none" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></symbol>
+  <symbol id="i-yt" viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></symbol>
+  <symbol id="i-tt" viewBox="0 0 24 24"><path d="M9 12a4 4 0 1 0 4 4V3c.6 2.9 2.7 5 6 5.5"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+  <symbol id="i-layout" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></symbol>
+  <symbol id="i-tool" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></symbol>
+  <symbol id="i-clip" viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></symbol>
+</svg>
+
+<div class="demo-bar">
+  <div class="demo-left">
+    <button type="button" class="demo-back" aria-label="Back to the website package" hidden><span aria-hidden="true">←</span><span class="long">Back to the website package</span><span class="short">Back</span></button>
+    <div class="demo-tag"><b>DEMO</b><span class="long">Sample website by JonTech Solutions</span><span class="short">Sample website</span></div>
+  </div>
+  <nav class="demo-tabs" aria-label="Demo websites">
+    <a href="blogger.html">Blogger</a>
+    <a href="car-sales.html">Car sales</a>
+    <a href="property.html" aria-current="page">Property</a>
+    <a href="company.html">Company</a>
+  </nav>
+  <div class="demo-right">
+    <div class="demo-lang" role="group" aria-label="Language"><button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="ms" aria-pressed="false">BM</button><button type="button" data-lang="zh" aria-pressed="false">中文</button></div>
+    <a class="demo-cta" href="https://wa.me/60195023897?text=Hi%20JonTech%2C%20I%20saw%20your%20demo%20website%20and%20I%27d%20like%20one%20like%20this." target="_blank" rel="noopener noreferrer"><span class="long">Get a website like this</span><span class="short">Get one</span></a>
+  </div>
+</div>
+
+<header class="site-head">
+  <a class="brand" href="#top"><span class="avatar">AR</span>Homes with Aisyah</a>
+  <nav class="site-nav" aria-label="Site">
+    <a href="#listings">Listings</a>
+    <a href="#guides">Guides</a>
+    <a href="#tours">Video tours</a>
+    <a class="btn small" href="#viewing">Book a viewing</a>
+  </nav>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div>
+    <div class="kicker">Property agent · KL &amp; Selangor</div>
+    <h1>Find a home you'll love, <em>with someone who knows the area</em></h1>
+    <p>Condos, landed homes and investment units. New listings every week, plus honest guides for first-time buyers.</p>
+    <div class="hero-actions">
+      <a class="btn" href="#viewing">Book a viewing</a>
+      <a class="btn ghost" href="#listings">See listings</a>
+    </div>
+    <div class="perks"><span>Buy, sell or rent</span><span>Loan referrals</span><span>Video tours</span></div>
+  </div>
+  <div class="hero-img">
+    <img src="img/home-hero.jpg" alt="A modern house with large lit windows at dusk" width="1200" height="1000">
+    <div class="hero-badge"><i></i>3 new listings this week</div>
+  </div>
+</section>
+
+<section class="sec" id="listings">
+  <div class="sec-h">
+    <div><h2>New listings</h2><p>Message me for the price, floor plan and a viewing time.</p></div>
+    <a class="more" href="#" data-demo="On your website, this opens all your listings.">All listings <svg class="ico"><use href="#i-arrow"/></svg></a>
+  </div>
+  <div class="cards">
+    <article class="card">
+      <div class="card-img"><img src="img/home-condo.jpg" alt="A modern condominium building with balconies" loading="lazy" width="720" height="540"><span class="tag">For sale</span></div>
+      <div class="card-body">
+        <div class="meta">Condo · Mont Kiara</div>
+        <h3>3-bedroom condo with city view</h3>
+        <div class="facts"><span>3 bed</span><span>2 bath</span><span>1,250 sq ft</span></div>
+        <div class="card-foot">
+          <a class="btn small" href="#" data-demo="On your website, this opens WhatsApp with this listing already in the message.">Ask for price</a>
+          <div class="share">
+            <button type="button" aria-label="Share on WhatsApp" data-demo="Visitors share this listing to WhatsApp, with a proper title and picture."><svg class="ico fill"><use href="#i-wa"/></svg></button>
+            <button type="button" aria-label="Share on Facebook" data-demo="Visitors share this listing to Facebook, with a proper title and picture."><svg class="ico"><use href="#i-fb"/></svg></button>
+            <button type="button" aria-label="Copy link" data-demo="Visitors copy the link to share it anywhere."><svg class="ico"><use href="#i-link"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="card">
+      <div class="card-img"><img src="img/home-apartment.jpg" alt="A bright furnished living room in an apartment" loading="lazy" width="720" height="540"><span class="tag">For rent</span></div>
+      <div class="card-body">
+        <div class="meta">Serviced apartment · Bangsar</div>
+        <h3>Furnished 2-bedroom near the LRT</h3>
+        <div class="facts"><span>2 bed</span><span>2 bath</span><span>950 sq ft</span></div>
+        <div class="card-foot">
+          <a class="btn small" href="#" data-demo="On your website, this opens WhatsApp with this listing already in the message.">Ask for price</a>
+          <div class="share">
+            <button type="button" aria-label="Share on WhatsApp" data-demo="Visitors share this listing to WhatsApp, with a proper title and picture."><svg class="ico fill"><use href="#i-wa"/></svg></button>
+            <button type="button" aria-label="Share on Facebook" data-demo="Visitors share this listing to Facebook, with a proper title and picture."><svg class="ico"><use href="#i-fb"/></svg></button>
+            <button type="button" aria-label="Copy link" data-demo="Visitors copy the link to share it anywhere."><svg class="ico"><use href="#i-link"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="card">
+      <div class="card-img"><img src="img/home-bungalow.jpg" alt="A white bungalow with a private pool" loading="lazy" width="720" height="540"><span class="tag">For sale</span></div>
+      <div class="card-body">
+        <div class="meta">Bungalow · Shah Alam</div>
+        <h3>Corner bungalow with private pool</h3>
+        <div class="facts"><span>5 bed</span><span>6 bath</span><span>5,800 sq ft</span></div>
+        <div class="card-foot">
+          <a class="btn small" href="#" data-demo="On your website, this opens WhatsApp with this listing already in the message.">Ask for price</a>
+          <div class="share">
+            <button type="button" aria-label="Share on WhatsApp" data-demo="Visitors share this listing to WhatsApp, with a proper title and picture."><svg class="ico fill"><use href="#i-wa"/></svg></button>
+            <button type="button" aria-label="Share on Facebook" data-demo="Visitors share this listing to Facebook, with a proper title and picture."><svg class="ico"><use href="#i-fb"/></svg></button>
+            <button type="button" aria-label="Copy link" data-demo="Visitors copy the link to share it anywhere."><svg class="ico"><use href="#i-link"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="band" id="guides">
+  <div class="sec">
+    <div class="sec-h">
+      <div><h2>Property guides</h2><p>Straight answers to the questions buyers and tenants ask me most.</p></div>
+      <a class="more" href="#" data-demo="On your website, this opens all your guides.">All guides <svg class="ico"><use href="#i-arrow"/></svg></a>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <div class="card-img"><img src="img/home-guide-living.jpg" alt="A living room with a blue sofa" loading="lazy" width="720" height="540"></div>
+        <div class="card-body">
+          <div class="meta">Buying · 6 min read</div>
+          <h3>First home in Malaysia: how much do you really need?</h3>
+          <p>Downpayment, legal fees, stamp duty and loan costs, explained simply.</p>
+          <div class="card-foot">
+            <a class="read" href="#" data-demo="On your website, this opens the full guide.">Read guide</a>
+            <div class="share">
+            <button type="button" aria-label="Share on WhatsApp" data-demo="Visitors share this guide to WhatsApp, with a proper title and picture."><svg class="ico fill"><use href="#i-wa"/></svg></button>
+            <button type="button" aria-label="Share on Facebook" data-demo="Visitors share this guide to Facebook, with a proper title and picture."><svg class="ico"><use href="#i-fb"/></svg></button>
+            <button type="button" aria-label="Copy link" data-demo="Visitors copy the link to share it anywhere."><svg class="ico"><use href="#i-link"/></svg></button>
+          </div>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-img"><img src="img/home-guide-rent.jpg" alt="A cosy apartment with plants and a sofa" loading="lazy" width="720" height="540"></div>
+        <div class="card-body">
+          <div class="meta">Renting · 4 min read</div>
+          <h3>Before you sign a tenancy agreement: a checklist</h3>
+          <p>Deposits, inventory lists and the questions to ask your landlord.</p>
+          <div class="card-foot">
+            <a class="read" href="#" data-demo="On your website, this opens the full guide.">Read guide</a>
+            <div class="share">
+            <button type="button" aria-label="Share on WhatsApp" data-demo="Visitors share this guide to WhatsApp, with a proper title and picture."><svg class="ico fill"><use href="#i-wa"/></svg></button>
+            <button type="button" aria-label="Share on Facebook" data-demo="Visitors share this guide to Facebook, with a proper title and picture."><svg class="ico"><use href="#i-fb"/></svg></button>
+            <button type="button" aria-label="Copy link" data-demo="Visitors copy the link to share it anywhere."><svg class="ico"><use href="#i-link"/></svg></button>
+          </div>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-img"><img src="img/home-guide-area.jpg" alt="A modern apartment block against a blue sky" loading="lazy" width="720" height="540"></div>
+        <div class="card-body">
+          <div class="meta">Area guide · 5 min read</div>
+          <h3>Living in Shah Alam: schools, malls and commute</h3>
+          <p>What each section is like, from someone who sells homes there.</p>
+          <div class="card-foot">
+            <a class="read" href="#" data-demo="On your website, this opens the full guide.">Read guide</a>
+            <div class="share">
+            <button type="button" aria-label="Share on WhatsApp" data-demo="Visitors share this guide to WhatsApp, with a proper title and picture."><svg class="ico fill"><use href="#i-wa"/></svg></button>
+            <button type="button" aria-label="Share on Facebook" data-demo="Visitors share this guide to Facebook, with a proper title and picture."><svg class="ico"><use href="#i-fb"/></svg></button>
+            <button type="button" aria-label="Copy link" data-demo="Visitors copy the link to share it anywhere."><svg class="ico"><use href="#i-link"/></svg></button>
+          </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="tours">
+  <div class="split">
+    <button class="video" type="button" aria-label="Play video tour: modern villa with pool" data-demo="On your website, your YouTube or TikTok video tour plays right here.">
+      <img src="img/home-video.jpg" alt="" loading="lazy" width="1100" height="620">
+      <span class="play"><svg class="ico fill"><use href="#i-play"/></svg></span>
+      <span class="video-len">6:12</span>
+    </button>
+    <div>
+      <div class="kicker">Video tours</div>
+      <h2>Walk through every home before you visit</h2>
+      <p>Each listing gets a video tour on YouTube and TikTok, so you only spend weekends viewing the homes you love.</p>
+      <div class="hero-actions">
+        <a class="btn" href="#" data-demo="On your website, this opens your YouTube channel."><svg class="ico"><use href="#i-yt"/></svg>YouTube</a>
+        <a class="btn ghost" href="#" data-demo="On your website, this opens your TikTok."><svg class="ico"><use href="#i-tt"/></svg>TikTok</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="viewing">
+  <div class="sec">
+    <div class="contact">
+      <div>
+        <div class="sec-h"><div><h2>Book a viewing</h2><p>Tell me what you're looking for, and I'll send matching homes and free viewing times.</p></div></div>
+        <form class="form" data-demo-form="On your website, this enquiry goes straight to your WhatsApp or email, so you can reply fast.">
+          <label>Your name<input name="name" autocomplete="name" required></label>
+          <label>Phone<input name="phone" type="tel" autocomplete="tel" required></label>
+          <label>I want to<select name="intent"><option>Buy</option><option>Rent</option><option>Sell my property</option><option>Invest</option></select></label>
+          <label>Preferred area<input name="area"></label>
+          <label class="full">Anything else?<textarea name="message"></textarea></label>
+          <button class="btn" type="submit">Book a viewing</button>
+        </form>
+      </div>
+      <div class="links">
+        <h3>See new listings first</h3>
+        <a href="#" data-demo="On your website, this opens a WhatsApp chat with you."><svg class="ico fill"><use href="#i-wa"/></svg>WhatsApp<small>Fastest reply</small></a>
+        <a href="#" data-demo="On your website, this opens your Instagram."><svg class="ico"><use href="#i-ig"/></svg>Instagram<small>New listings</small></a>
+        <a href="#" data-demo="On your website, this opens your TikTok."><svg class="ico"><use href="#i-tt"/></svg>TikTok<small>Video tours</small></a>
+        <a href="#" data-demo="On your website, this opens your Facebook page."><svg class="ico"><use href="#i-fb"/></svg>Facebook<small>Open houses</small></a>
+        <div class="info"><span>Serving Kuala Lumpur and Selangor</span><span>Viewings every day, by appointment</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<section class="demo-end" aria-label="Get a website like this">
+  <div>
+    <div><h2>Like this website?</h2><p>JonTech Solutions builds one like it for you, with design, copywriting, SEO and your social media included.</p></div>
+    <a href="https://wa.me/60195023897?text=Hi%20JonTech%2C%20I%20saw%20your%20demo%20website%20and%20I%27d%20like%20one%20like%20this." target="_blank" rel="noopener noreferrer"><svg class="ico fill"><use href="#i-wa"/></svg>WhatsApp JonTech</a>
+  </div>
+</section>
+
+<footer class="site-foot">
+  <span>© 2026 Homes with Aisyah</span>
+  <span>A sample website by <a href="../index.html">JonTech Solutions</a> · Photos from Unsplash</span>
+</footer>
+
+<button class="wa-float" type="button" aria-label="Chat on WhatsApp" data-demo="On your website, this button stays on every page and opens a WhatsApp chat with you."><svg class="ico fill"><use href="#i-wa"/></svg></button>
+
+<!-- This page's text in BM and 中文, keyed by the English. Shared words are in demo.js. -->
+<script id="demo-text" type="application/json">
+{
+  "keep": ["Homes with Aisyah","AR","© 2026 Homes with Aisyah"],
+  "text": {
+    "Listings": {"ms":"Senarai","zh":"房源"},
+    "Guides": {"ms":"Panduan","zh":"指南"},
+    "Video tours": {"ms":"Lawatan video","zh":"视频看房"},
+    "Book a viewing": {"ms":"Tempah lawatan","zh":"预约看房"},
+    "Property agent · KL & Selangor": {"ms":"Ejen hartanah · KL & Selangor","zh":"房产经纪 · 吉隆坡与雪兰莪"},
+    "Find a home you'll love,": {"ms":"Cari rumah yang anda sukai,","zh":"找到您喜欢的家，"},
+    "with someone who knows the area": {"ms":"bersama orang yang kenal kawasannya","zh":"由熟悉这一带的人陪您找"},
+    "Condos, landed homes and investment units. New listings every week, plus honest guides for first-time buyers.": {"ms":"Kondo, rumah bertanah dan unit pelaburan. Senarai baharu setiap minggu, serta panduan jujur untuk pembeli rumah pertama.","zh":"公寓、有地住宅和投资单位。每周都有新房源，还有写给首购族的实用指南。"},
+    "See listings": {"ms":"Lihat senarai","zh":"看房源"},
+    "Buy, sell or rent": {"ms":"Beli, jual atau sewa","zh":"买、卖、租都可以"},
+    "Loan referrals": {"ms":"Rujukan pinjaman","zh":"贷款转介"},
+    "3 new listings this week": {"ms":"3 senarai baharu minggu ini","zh":"本周 3 个新房源"},
+    "New listings": {"ms":"Senarai baharu","zh":"最新房源"},
+    "Message me for the price, floor plan and a viewing time.": {"ms":"Mesej saya untuk harga, pelan lantai dan masa lawatan.","zh":"价格、平面图和看房时间，欢迎发信息问我。"},
+    "All listings": {"ms":"Semua senarai","zh":"全部房源"},
+    "On your website, this opens all your listings.": {"ms":"Di laman web anda, ini membuka semua senarai anda.","zh":"在您的网站上，这会打开您所有的房源。"},
+    "For sale": {"ms":"Untuk dijual","zh":"出售"},
+    "For rent": {"ms":"Untuk disewa","zh":"出租"},
+    "Condo · Mont Kiara": {"ms":"Kondo · Mont Kiara","zh":"公寓 · 满家乐"},
+    "3-bedroom condo with city view": {"ms":"Kondo 3 bilik dengan pemandangan bandar","zh":"3 房城市景观公寓"},
+    "3 bed": {"ms":"3 bilik","zh":"3 房"},
+    "2 bath": {"ms":"2 bilik air","zh":"2 卫"},
+    "1,250 sq ft": {"ms":"1,250 kaki persegi","zh":"1,250 平方英尺"},
+    "On your website, this opens WhatsApp with this listing already in the message.": {"ms":"Di laman web anda, ini membuka WhatsApp dengan senarai ini sudah dalam mesej.","zh":"在您的网站上，这会打开 WhatsApp，并自动带上这个房源的资料。"},
+    "Serviced apartment · Bangsar": {"ms":"Pangsapuri servis · Bangsar","zh":"服务式公寓 · 孟沙"},
+    "Furnished 2-bedroom near the LRT": {"ms":"2 bilik berperabot berhampiran LRT","zh":"靠近轻快铁的 2 房全配套单位"},
+    "2 bed": {"ms":"2 bilik","zh":"2 房"},
+    "950 sq ft": {"ms":"950 kaki persegi","zh":"950 平方英尺"},
+    "Bungalow · Shah Alam": {"ms":"Banglo · Shah Alam","zh":"独立洋房 · 莎阿南"},
+    "Corner bungalow with private pool": {"ms":"Banglo lot tepi dengan kolam peribadi","zh":"带私人泳池的边角独立洋房"},
+    "5 bed": {"ms":"5 bilik","zh":"5 房"},
+    "6 bath": {"ms":"6 bilik air","zh":"6 卫"},
+    "5,800 sq ft": {"ms":"5,800 kaki persegi","zh":"5,800 平方英尺"},
+    "Property guides": {"ms":"Panduan hartanah","zh":"房产指南"},
+    "Straight answers to the questions buyers and tenants ask me most.": {"ms":"Jawapan terus untuk soalan yang paling kerap ditanya oleh pembeli dan penyewa.","zh":"买家和租客最常问的问题，一次说清楚。"},
+    "All guides": {"ms":"Semua panduan","zh":"全部指南"},
+    "On your website, this opens all your guides.": {"ms":"Di laman web anda, ini membuka semua panduan anda.","zh":"在您的网站上，这会打开您所有的指南。"},
+    "Buying · 6 min read": {"ms":"Membeli · 6 minit bacaan","zh":"买房 · 阅读 6 分钟"},
+    "First home in Malaysia: how much do you really need?": {"ms":"Rumah pertama di Malaysia: berapa sebenarnya yang anda perlukan?","zh":"在马来西亚买第一间房，到底需要多少钱？"},
+    "Downpayment, legal fees, stamp duty and loan costs, explained simply.": {"ms":"Wang pendahuluan, yuran guaman, duti setem dan kos pinjaman, diterangkan dengan mudah.","zh":"首期、律师费、印花税和贷款费用，一次讲明白。"},
+    "Read guide": {"ms":"Baca panduan","zh":"阅读指南"},
+    "On your website, this opens the full guide.": {"ms":"Di laman web anda, ini membuka panduan penuh.","zh":"在您的网站上，这会打开完整指南。"},
+    "Renting · 4 min read": {"ms":"Menyewa · 4 minit bacaan","zh":"租房 · 阅读 4 分钟"},
+    "Before you sign a tenancy agreement: a checklist": {"ms":"Sebelum tandatangan perjanjian sewa: senarai semak","zh":"签租约前必看清单"},
+    "Deposits, inventory lists and the questions to ask your landlord.": {"ms":"Deposit, senarai inventori dan soalan untuk tuan rumah anda.","zh":"押金、物品清单，以及该问房东的问题。"},
+    "Area guide · 5 min read": {"ms":"Panduan kawasan · 5 minit bacaan","zh":"地区指南 · 阅读 5 分钟"},
+    "Living in Shah Alam: schools, malls and commute": {"ms":"Tinggal di Shah Alam: sekolah, pusat beli-belah dan perjalanan","zh":"住在莎阿南：学校、商场和交通"},
+    "What each section is like, from someone who sells homes there.": {"ms":"Gambaran setiap seksyen, daripada orang yang menjual rumah di sana.","zh":"每个区是什么样子，由在那里卖房的人告诉你。"},
+    "Play video tour: modern villa with pool": {"ms":"Main lawatan video: vila moden dengan kolam","zh":"播放视频看房：带泳池的现代别墅"},
+    "On your website, your YouTube or TikTok video tour plays right here.": {"ms":"Di laman web anda, lawatan video YouTube atau TikTok anda dimainkan terus di sini.","zh":"在您的网站上，您的 YouTube 或 TikTok 看房视频会直接在这里播放。"},
+    "Walk through every home before you visit": {"ms":"Lihat setiap rumah sebelum anda melawat","zh":"看房前，先在线走一圈"},
+    "Each listing gets a video tour on YouTube and TikTok, so you only spend weekends viewing the homes you love.": {"ms":"Setiap senarai ada lawatan video di YouTube dan TikTok, jadi hujung minggu anda hanya untuk melawat rumah yang anda suka.","zh":"每个房源都有 YouTube 和 TikTok 看房视频，周末只需去看真正喜欢的房子。"},
+    "Tell me what you're looking for, and I'll send matching homes and free viewing times.": {"ms":"Beritahu saya apa yang anda cari, dan saya akan hantar rumah yang sesuai serta masa lawatan yang ada.","zh":"告诉我您想找什么样的房子，我会发给您合适的房源和可看房时间。"},
+    "I want to": {"ms":"Saya mahu","zh":"我想要"},
+    "Buy": {"ms":"Beli","zh":"买房"},
+    "Rent": {"ms":"Sewa","zh":"租房"},
+    "Sell my property": {"ms":"Jual hartanah saya","zh":"卖房"},
+    "Invest": {"ms":"Melabur","zh":"投资"},
+    "Preferred area": {"ms":"Kawasan pilihan","zh":"希望的地区"},
+    "See new listings first": {"ms":"Lihat senarai baharu dahulu","zh":"抢先看新房源"},
+    "Open houses": {"ms":"Rumah terbuka","zh":"开放看房"},
+    "Serving Kuala Lumpur and Selangor": {"ms":"Berkhidmat di Kuala Lumpur dan Selangor","zh":"服务范围：吉隆坡和雪兰莪"},
+    "Viewings every day, by appointment": {"ms":"Lawatan setiap hari, dengan temu janji","zh":"每天都可预约看房"}
+  }
+}
+</script>
+<script src="demo.js"></script>
+</body>
+</html>

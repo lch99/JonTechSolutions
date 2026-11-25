@@ -177,7 +177,7 @@ const ids = s => [...stripScripts(s).matchAll(/\sid="([^"]+)"/g)].map(m => m[1])
 // 10. Scripts parse
 {
   const bad = [];
-  const files = ['assets/theme.js', 'assets/i18n.js', 'assets/ai.js', 'assets/motion.js', 'assets/offer.js', 'tools/build-i18n.mjs', 'tools/indexnow.mjs', 'tools/private-pages.mjs', 'worker/src/index.js', 'worker/src/knowledge.js'];
+  const files = ['assets/theme.js', 'assets/i18n.js', 'assets/ai.js', 'assets/motion.js', 'assets/offer.js', 'demo/demo.js', 'tools/build-i18n.mjs', 'tools/indexnow.mjs', 'tools/private-pages.mjs', 'worker/src/index.js', 'worker/src/knowledge.js'];
   for (const f of files) {
     try { execFileSync('node', ['--check', path.join(ROOT, f)], { stdio: 'pipe' }); } catch (e) { bad.push(`${f}: ${String(e.stderr).split('\n')[0]}`); }
   }
@@ -218,6 +218,33 @@ const ids = s => [...stripScripts(s).matchAll(/\sid="([^"]+)"/g)].map(m => m[1])
     try { execFileSync('node', [path.join(ROOT, 'tools/private-pages.mjs'), '--check'], { stdio: 'pipe' }); } catch (e) { bad.push(...String(e.stderr).trim().split('\n')); }
   } else info += ', sources not on this computer';
   check('private pages are encrypted, unlisted and not indexed', bad, info);
+}
+
+// 12. Demo websites (demo/*.html): made-up client sites the private brochure links to
+{
+  const bad = [];
+  const dir = path.join(ROOT, 'demo');
+  const demos = fs.existsSync(dir) ? fs.readdirSync(dir).filter(f => f.endsWith('.html')).map(f => `demo/${f}`) : [];
+  const sitemap = read('sitemap.xml');
+  let refs = 0;
+  for (const p of demos) {
+    const s = read(p);
+    // the people and businesses in them are not real, so search engines must not list them
+    if (!/<meta name="robots" content="noindex/.test(s)) bad.push(`${p}: not marked noindex`);
+    if (sitemap.includes(p)) bad.push(`${p}: listed in sitemap.xml`);
+    if (/offers\//.test(s)) bad.push(`${p}: links to a private page`);
+    const own = ids(s);
+    for (const m of stripScripts(s).matchAll(/\s(?:href|src)="([^"]+)"/g)) {
+      const url = m[1];
+      if (/^(https?:|mailto:|tel:)/.test(url) || url === '#') continue;
+      refs++;
+      if (url.startsWith('#')) { if (!own.includes(url.slice(1))) bad.push(`${p}: "${url}" has no target`); continue; }
+      const target = path.posix.normalize(path.posix.join('demo', url.split(/[?#]/)[0]));
+      if (!fs.existsSync(path.join(ROOT, target))) bad.push(`${p}: "${url}" → missing ${target}`);
+    }
+  }
+  for (const p of PAGES) if (/demo\//.test(html[p])) bad.push(`${p}: links to the demos, which are only for the brochure`);
+  check('demo websites are not indexed, unlisted, and their links and images resolve', bad, `${demos.length} pages, ${refs} references`);
 }
 
 let failed = 0;

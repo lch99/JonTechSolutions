@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!-- A made-up sample client site that shows what the JonTech website package includes. The people and
+     businesses in it aren't real, so it stays out of search results. Shared by every demo: demo.css, demo.js. -->
+<meta name="robots" content="noindex"/>
+<title>Drive with Daniel · Demo by JonTech Solutions</title>
+<meta name="description" content="A sample car sales agent website with featured cars, WhatsApp enquiries and trade-in quotes."/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Drive with Daniel: car sales advisor · Demo by JonTech Solutions"/>
+<meta property="og:description" content="A sample car sales agent website with featured cars, WhatsApp enquiries and trade-in quotes."/>
+<meta property="og:image" content="https://jontech-solutions.com/demo/img/car-hero.jpg"/>
+<link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="demo.css"/>
+</head>
+<body class="theme-car">
+
+<svg style="display:none" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></symbol>
+  <symbol id="i-yt" viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></symbol>
+  <symbol id="i-tt" viewBox="0 0 24 24"><path d="M9 12a4 4 0 1 0 4 4V3c.6 2.9 2.7 5 6 5.5"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+  <symbol id="i-layout" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></symbol>
+  <symbol id="i-tool" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></symbol>
+  <symbol id="i-clip" viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></symbol>
+</svg>
+
+<div class="demo-bar">
+  <div class="demo-left">
+    <button type="button" class="demo-back" aria-label="Back to the website package" hidden><span aria-hidden="true">←</span><span class="long">Back to the website package</span><span class="short">Back</span></button>
+    <div class="demo-tag"><b>DEMO</b><span class="long">Sample website by JonTech Solutions</span><span class="short">Sample website</span></div>
+  </div>
+  <nav class="demo-tabs" aria-label="Demo websites">
+    <a href="blogger.html">Blogger</a>
+    <a href="car-sales.html" aria-current="page">Car sales</a>
+    <a href="property.html">Property</a>
+    <a href="company.html">Company</a>
+  </nav>
+  <div class="demo-right">
+    <div class="demo-lang" role="group" aria-label="Language"><button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="ms" aria-pressed="false">BM</button><button type="button" data-lang="zh" aria-pressed="false">中文</button></div>
+    <a class="demo-cta" href="https://wa.me/60195023897?text=Hi%20JonTech%2C%20I%20saw%20your%20demo%20website%20and%20I%27d%20like%20one%20like%20this." target="_blank" rel="noopener noreferrer"><span class="long">Get a website like this</span><span class="short">Get one</span></a>
+  </div>
+</div>
+
+<header class="site-head">
+  <a class="brand" href="#top"><span class="avatar">DW</span>Drive with Daniel</a>
+  <nav class="site-nav" aria-label="Site">
+    <a href="#cars">Cars</a>
+    <a href="#promo">Promotions</a>
+    <a href="#tradein">Trade-in</a>
+    <a class="btn small wa" href="#" data-demo="On your website, this opens a WhatsApp chat with you."><svg class="ico fill"><use href="#i-wa"/></svg>WhatsApp me</a>
+  </nav>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div>
+    <div class="kicker">Car sales advisor · Klang Valley</div>
+    <h1>Your next car, <em>minus the hassle</em></h1>
+    <p>New and recond cars, loan help and the best trade-in price I can get you. Send me a message and I'll reply with today's prices and promos.</p>
+    <div class="hero-actions">
+      <a class="btn" href="#" data-demo="On your website, this opens WhatsApp with &quot;Hi Daniel, can I have the latest price?&quot; already typed."><svg class="ico fill"><use href="#i-wa"/></svg>WhatsApp for price</a>
+      <a class="btn ghost" href="#cars">See cars</a>
+    </div>
+    <div class="perks"><span>Loan help</span><span>Trade-in welcome</span><span>Delivery in Klang Valley</span></div>
+  </div>
+  <div class="hero-img">
+    <img src="img/car-hero.jpg" alt="A blue coupe parked outside a building" width="1200" height="1000">
+    <div class="hero-badge"><i></i>Online now · fast replies</div>
+  </div>
+</section>
+
+<section class="sec" id="cars">
+  <div class="sec-h">
+    <div><h2>Featured cars</h2><p>Ask me about colours, stock and this month's rebates.</p></div>
+    <a class="more" href="#" data-demo="On your website, this opens your full car list.">All cars <svg class="ico"><use href="#i-arrow"/></svg></a>
+  </div>
+  <div class="cards">
+    <article class="card">
+      <div class="card-img"><img src="img/car-hatch.jpg" alt="Front of a red sporty hatchback" loading="lazy" width="720" height="540"><span class="tag">Hot pick</span></div>
+      <div class="card-body">
+        <div class="meta">Hatchback · 2024</div>
+        <h3>Sporty turbo hatchback</h3>
+        <div class="facts"><span>1.6L turbo</span><span>6 airbags</span><span>Apple CarPlay</span></div>
+        <div class="card-foot">
+          <a class="btn small" href="#" data-demo="On your website, this opens WhatsApp with this car already in the message.">Ask for price</a>
+          <div class="share">
+            <button type="button" aria-label="Share on WhatsApp" data-demo="Visitors share this car to WhatsApp, with a proper title and picture."><svg class="ico fill"><use href="#i-wa"/></svg></button>
+            <button type="button" aria-label="Share on Facebook" data-demo="Visitors share this car to Facebook, with a proper title and picture."><svg class="ico"><use href="#i-fb"/></svg></button>
+            <button type="button" aria-label="Copy link" data-demo="Visitors copy the link to share it anywhere."><svg class="ico"><use href="#i-link"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="card">
+      <div class="card-img"><img src="img/car-city.jpg" alt="A small light-blue city car on a street" loading="lazy" width="720" height="540"><span class="tag">First car</span></div>
+      <div class="card-body">
+        <div class="meta">City car · 2024</div>
+        <h3>Compact city car</h3>
+        <div class="facts"><span>Easy parking</span><span>Low fuel use</span><span>4 seats</span></div>
+        <div class="card-foot">
+          <a class="btn small" href="#" data-demo="On your website, this opens WhatsApp with this car already in the message.">Ask for price</a>
+          <div class="share">
+            <button type="button" aria-label="Share on WhatsApp" data-demo="Visitors share this car to WhatsApp, with a proper title and picture."><svg class="ico fill"><use href="#i-wa"/></svg></button>
+            <button type="button" aria-label="Share on Facebook" data-demo="Visitors share this car to Facebook, with a proper title and picture."><svg class="ico"><use href="#i-fb"/></svg></button>
+            <button type="button" aria-label="Copy link" data-demo="Visitors copy the link to share it anywhere."><svg class="ico"><use href="#i-link"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="card">
+      <div class="card-img"><img src="img/car-suv.jpg" alt="A white seven-seat SUV on a desert road" loading="lazy" width="720" height="540"><span class="tag">Family</span></div>
+      <div class="card-body">
+        <div class="meta">SUV · 7 seats</div>
+        <h3>Seven-seat family SUV</h3>
+        <div class="facts"><span>7 seats</span><span>Big boot</span><span>Balik kampung ready</span></div>
+        <div class="card-foot">
+          <a class="btn small" href="#" data-demo="On your website, this opens WhatsApp with this car already in the message.">Ask for price</a>
+          <div class="share">
+            <button type="button" aria-label="Share on WhatsApp" data-demo="Visitors share this car to WhatsApp, with a proper title and picture."><svg class="ico fill"><use href="#i-wa"/></svg></button>
+            <button type="button" aria-label="Share on Facebook" data-demo="Visitors share this car to Facebook, with a proper title and picture."><svg class="ico"><use href="#i-fb"/></svg></button>
+            <button type="button" aria-label="Copy link" data-demo="Visitors copy the link to share it anywhere."><svg class="ico"><use href="#i-link"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="sec" id="promo" style="padding-top:0">
+  <div class="promo">
+    <div><h2>Year-end deals are here</h2><p>Ask me about rebates, free tinting and service packages on selected models.</p></div>
+    <a class="btn" href="#" data-demo="On your website, this opens WhatsApp so buyers can ask about the promo.">Ask about promos</a>
+  </div>
+</section>
+
+<section class="band" id="tradein">
+  <div class="sec">
+    <div class="contact">
+      <div>
+        <div class="sec-h"><div><h2>Trade in or book a test drive</h2><p>Tell me what you drive now and what you're looking for. I'll come back with a quote.</p></div></div>
+        <form class="form" data-demo-form="On your website, this enquiry goes straight to your WhatsApp or email, so you can reply fast.">
+          <label>Your name<input name="name" autocomplete="name" required></label>
+          <label>Phone<input name="phone" type="tel" autocomplete="tel" required></label>
+          <label>Car you're interested in<select name="car"><option>Sporty turbo hatchback</option><option>Compact city car</option><option>Seven-seat family SUV</option><option>Not sure yet</option></select></label>
+          <label>Your current car (optional)<input name="current"></label>
+          <label class="full">Anything else?<textarea name="message"></textarea></label>
+          <button class="btn" type="submit">Get my quote</button>
+        </form>
+      </div>
+      <div class="links">
+        <h3>Follow new arrivals</h3>
+        <a href="#" data-demo="On your website, this opens your TikTok."><svg class="ico"><use href="#i-tt"/></svg>TikTok<small>Walkaround videos</small></a>
+        <a href="#" data-demo="On your website, this opens your Instagram."><svg class="ico"><use href="#i-ig"/></svg>Instagram<small>New stock</small></a>
+        <a href="#" data-demo="On your website, this opens your Facebook page."><svg class="ico"><use href="#i-fb"/></svg>Facebook<small>Promos</small></a>
+        <a href="#" data-demo="On your website, this opens a WhatsApp chat with you."><svg class="ico fill"><use href="#i-wa"/></svg>WhatsApp<small>Fastest reply</small></a>
+        <div class="info"><span>Showroom visits in Shah Alam, Selangor</span><span>Every day, 9am to 7pm</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<section class="demo-end" aria-label="Get a website like this">
+  <div>
+    <div><h2>Like this website?</h2><p>JonTech Solutions builds one like it for you, with design, copywriting, SEO and your social media included.</p></div>
+    <a href="https://wa.me/60195023897?text=Hi%20JonTech%2C%20I%20saw%20your%20demo%20website%20and%20I%27d%20like%20one%20like%20this." target="_blank" rel="noopener noreferrer"><svg class="ico fill"><use href="#i-wa"/></svg>WhatsApp JonTech</a>
+  </div>
+</section>
+
+<footer class="site-foot">
+  <span>© 2026 Drive with Daniel</span>
+  <span>A sample website by <a href="../index.html">JonTech Solutions</a> · Photos from Unsplash</span>
+</footer>
+
+<button class="wa-float" type="button" aria-label="Chat on WhatsApp" data-demo="On your website, this button stays on every page and opens a WhatsApp chat with you."><svg class="ico fill"><use href="#i-wa"/></svg></button>
+
+<!-- This page's text in BM and 中文, keyed by the English. Shared words are in demo.js. -->
+<script id="demo-text" type="application/json">
+{
+  "keep": ["Drive with Daniel","DW","© 2026 Drive with Daniel","Apple CarPlay"],
+  "text": {
+    "Cars": {"ms":"Kereta","zh":"车款"},
+    "Promotions": {"ms":"Promosi","zh":"优惠"},
+    "Trade-in": {"ms":"Tukar beli","zh":"旧车换新"},
+    "WhatsApp me": {"ms":"WhatsApp saya","zh":"WhatsApp 我"},
+    "Car sales advisor · Klang Valley": {"ms":"Penasihat jualan kereta · Lembah Klang","zh":"汽车销售顾问 · 巴生谷"},
+    "Your next car,": {"ms":"Kereta anda yang seterusnya,","zh":"您的下一辆车，"},
+    "minus the hassle": {"ms":"tanpa kerumitan","zh":"买得轻松"},
+    "New and recond cars, loan help and the best trade-in price I can get you. Send me a message and I'll reply with today's prices and promos.": {"ms":"Kereta baharu dan recond, bantuan pinjaman dan harga tukar beli terbaik yang boleh saya dapatkan. Hantar mesej dan saya akan balas dengan harga dan promosi hari ini.","zh":"新车和 recond 车、贷款协助，还有我能为您争取到的最好旧车换新价。发信息给我，我会回复今天的价格和优惠。"},
+    "On your website, this opens WhatsApp with \"Hi Daniel, can I have the latest price?\" already typed.": {"ms":"Di laman web anda, ini membuka WhatsApp dengan \"Hai Daniel, boleh saya dapatkan harga terkini?\" sudah ditaip.","zh":"在您的网站上，这会打开 WhatsApp，并自动填好“Hi Daniel，可以给我最新价格吗？”。"},
+    "WhatsApp for price": {"ms":"WhatsApp untuk harga","zh":"WhatsApp 问价格"},
+    "See cars": {"ms":"Lihat kereta","zh":"看车款"},
+    "Loan help": {"ms":"Bantuan pinjaman","zh":"贷款协助"},
+    "Trade-in welcome": {"ms":"Tukar beli dialu-alukan","zh":"欢迎旧车换新"},
+    "Delivery in Klang Valley": {"ms":"Penghantaran di Lembah Klang","zh":"巴生谷内送车"},
+    "Online now · fast replies": {"ms":"Dalam talian · balas pantas","zh":"在线 · 快速回复"},
+    "Featured cars": {"ms":"Kereta pilihan","zh":"精选车款"},
+    "Ask me about colours, stock and this month's rebates.": {"ms":"Tanya saya tentang warna, stok dan rebat bulan ini.","zh":"颜色、现货和本月回扣，欢迎问我。"},
+    "All cars": {"ms":"Semua kereta","zh":"全部车款"},
+    "On your website, this opens your full car list.": {"ms":"Di laman web anda, ini membuka senarai penuh kereta anda.","zh":"在您的网站上，这会打开您的完整车款列表。"},
+    "Hot pick": {"ms":"Pilihan hangat","zh":"热门"},
+    "Hatchback · 2024": {"ms":"Hatchback · 2024","zh":"掀背车 · 2024"},
+    "Sporty turbo hatchback": {"ms":"Hatchback turbo sporty","zh":"运动型涡轮掀背车"},
+    "1.6L turbo": {"ms":"1.6L turbo","zh":"1.6L 涡轮"},
+    "6 airbags": {"ms":"6 beg udara","zh":"6 个安全气囊"},
+    "On your website, this opens WhatsApp with this car already in the message.": {"ms":"Di laman web anda, ini membuka WhatsApp dengan kereta ini sudah dalam mesej.","zh":"在您的网站上，这会打开 WhatsApp，并自动带上这款车的资料。"},
+    "First car": {"ms":"Kereta pertama","zh":"第一辆车"},
+    "City car · 2024": {"ms":"Kereta bandar · 2024","zh":"城市小车 · 2024"},
+    "Compact city car": {"ms":"Kereta bandar kompak","zh":"小巧城市车"},
+    "Easy parking": {"ms":"Mudah parkir","zh":"好停车"},
+    "Low fuel use": {"ms":"Jimat minyak","zh":"省油"},
+    "4 seats": {"ms":"4 tempat duduk","zh":"4 座"},
+    "Family": {"ms":"Keluarga","zh":"家庭"},
+    "SUV · 7 seats": {"ms":"SUV · 7 tempat duduk","zh":"SUV · 7 座"},
+    "Seven-seat family SUV": {"ms":"SUV keluarga 7 tempat duduk","zh":"7 座家庭 SUV"},
+    "7 seats": {"ms":"7 tempat duduk","zh":"7 座"},
+    "Big boot": {"ms":"But besar","zh":"大后车厢"},
+    "Balik kampung ready": {"ms":"Sedia balik kampung","zh":"回乡好帮手"},
+    "Year-end deals are here": {"ms":"Tawaran akhir tahun sudah tiba","zh":"年底优惠来了"},
+    "Ask me about rebates, free tinting and service packages on selected models.": {"ms":"Tanya saya tentang rebat, tinted percuma dan pakej servis untuk model terpilih.","zh":"指定车款有回扣、免费贴膜和保养配套，欢迎问我。"},
+    "Ask about promos": {"ms":"Tanya tentang promosi","zh":"询问优惠"},
+    "On your website, this opens WhatsApp so buyers can ask about the promo.": {"ms":"Di laman web anda, ini membuka WhatsApp supaya pembeli boleh bertanya tentang promosi.","zh":"在您的网站上，这会打开 WhatsApp，让买家直接询问优惠。"},
+    "Trade in or book a test drive": {"ms":"Tukar beli atau tempah pandu uji","zh":"旧车换新或预约试驾"},
+    "Tell me what you drive now and what you're looking for. I'll come back with a quote.": {"ms":"Beritahu saya kereta anda sekarang dan apa yang anda cari. Saya akan beri sebut harga.","zh":"告诉我您现在开什么车、想找什么车，我会给您报价。"},
+    "Car you're interested in": {"ms":"Kereta yang anda minati","zh":"感兴趣的车款"},
+    "Not sure yet": {"ms":"Belum pasti","zh":"还没决定"},
+    "Your current car (optional)": {"ms":"Kereta semasa anda (pilihan)","zh":"您现在的车（可不填）"},
+    "Get my quote": {"ms":"Dapatkan sebut harga","zh":"获取报价"},
+    "Follow new arrivals": {"ms":"Ikuti stok baharu","zh":"关注新到车款"},
+    "Walkaround videos": {"ms":"Video sekeliling kereta","zh":"看车视频"},
+    "New stock": {"ms":"Stok baharu","zh":"新到现货"},
+    "Promos": {"ms":"Promosi","zh":"优惠"},
+    "Showroom visits in Shah Alam, Selangor": {"ms":"Lawatan bilik pameran di Shah Alam, Selangor","zh":"可到雪兰莪莎阿南展厅看车"},
+    "Every day, 9am to 7pm": {"ms":"Setiap hari, 9 pagi hingga 7 malam","zh":"每天上午 9 点至晚上 7 点"}
+  }
+}
+</script>
+<script src="demo.js"></script>
+</body>
+</html>

@@ -72,9 +72,14 @@ for (const file of OFFERS) {
     await page.reload();
     await expect(page.locator('main h1'), 'reopening keeps the page unlocked and in the chosen language').toBeVisible();
     await expect(page.locator('html')).toHaveAttribute('lang', 'ms');
+    // Its links to the demo websites all open
+    const demos = await page.locator('main a[href*="demo/"]').evaluateAll(links => [...new Set(links.map(a => a.href))]);
+    expect(demos.length, 'links to the demos').toBeGreaterThan(0);
+    expect(await page.locator('main a[href*="demo/"][target]').count(), 'the demos open in the same tab').toBe(0);
+    for (const href of demos) expect((await page.request.get(href)).status(), href).toBe(200);
   });
 
-  test(`${url} saves as a one-page A4 PDF in every language`, async ({ page }, info) => {
+  test(`${url} saves as a two-page A4 PDF (front and back) in every language`, async ({ page }, info) => {
     test.skip(info.project.name !== 'chrome', 'only Chrome can save a PDF here');
     test.skip(!KEYS[name], `no key for ${name} on this computer`);
     await open(page, `${url}#${KEYS[name]}`);
@@ -82,9 +87,9 @@ for (const file of OFFERS) {
     for (const lang of ['en', 'ms', 'zh']) {
       await page.locator(`.lang-switch a[data-lang="${lang}"]`).click();
       await expect(page.locator('html')).toHaveAttribute('lang', { en: 'en', ms: 'ms', zh: 'zh-CN' }[lang]);
-      // The print stylesheet lets an overlong brochure spill onto a second page, so a count of 1 means it all fits
+      // The print stylesheet lets an overlong page spill onto an extra page, so a count of 2 means it all fits
       const pdf = (await page.pdf({ preferCSSPageSize: true, printBackground: true })).toString('latin1');
-      expect((pdf.match(/\/Type\s*\/Page(?![s\w])/g) || []).length, `${lang}: pages`).toBe(1);
+      expect((pdf.match(/\/Type\s*\/Page(?![s\w])/g) || []).length, `${lang}: pages`).toBe(2);
     }
   });
 

@@ -743,41 +743,124 @@ nav{view-transition-name:site-nav}
 .brochure-wrap{background:var(--grey);padding:5.5rem 1.25rem 4rem}
 .brochure-actions{max-width:820px;margin:0 auto 1rem;display:flex;justify-content:flex-end;flex-wrap:wrap;gap:0.6rem}
 .brochure-actions button{font-family:inherit;cursor:pointer}
-.brochure{max-width:820px;margin:0 auto;background:var(--paper);border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.08),0 0 0 1px var(--hairline)}
-.bro-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.6rem 3rem 0;font-weight:600;letter-spacing:-0.02em}
-.bro-head em{font-style:normal;color:var(--red)}
-.bro-site{font-size:0.78rem;font-weight:500;letter-spacing:0;color:var(--muted)}
-.bro-hero{padding:2rem 3rem 1.9rem}
-.bro-hero h1{font-size:clamp(2rem,5vw,2.75rem);font-weight:600;letter-spacing:-0.03em;line-height:1.1;margin-bottom:0.75rem}
-.bro-hero h1 em{font-style:normal;color:var(--red)}
-.bro-hero p{color:var(--muted);font-size:0.98rem;max-width:580px;margin-bottom:1.2rem}
+.brochure{max-width:820px;margin:0 auto;background:var(--paper);border-radius:22px;overflow:hidden;box-shadow:0 24px 70px rgba(0,0,0,0.1),0 0 0 1px var(--hairline)}
+
+/* Top: dark in both themes, with the brand's red glow */
+.bro-top{position:relative;isolation:isolate;overflow:hidden;background:var(--panel);color:#fff;padding:1.5rem 2.75rem 2.25rem}
+.bro-top::before{content:"";position:absolute;z-index:-1;width:620px;height:620px;right:-180px;top:-240px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(255,90,31,0.38),rgba(212,45,8,0.12) 45%,transparent 70%)}
+.bro-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;font-weight:600;letter-spacing:-0.02em}
+.bro-head em{font-style:normal;color:#ff6b52}
+.bro-mark{display:inline-block;width:30px;height:30px;margin-right:0.55rem;vertical-align:middle;background:url(assets/logo-mark-dark.png) center/contain no-repeat}
+.bro-site{font-size:0.78rem;font-weight:500;letter-spacing:0;color:rgba(255,255,255,0.6)}
+.bro-hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,0.9fr);gap:2.25rem;align-items:center;margin-top:1.9rem}
+.bro-eyebrow{font-size:0.82rem;font-weight:600;color:#ff6b52;margin-bottom:0.65rem}
+.bro-hero h1{font-size:clamp(2.1rem,5vw,2.85rem);font-weight:700;letter-spacing:-0.035em;line-height:1.06;margin-bottom:0.85rem}
+.bro-hero h1 em{font-style:normal;color:#ff6b52;white-space:nowrap}
+.bro-hero p{color:rgba(255,255,255,0.7);font-size:0.94rem;line-height:1.6;margin-bottom:1.15rem}
+.bro-from{display:inline-flex;align-items:baseline;gap:0.4rem;background:var(--red-fill);border-radius:100px;padding:0.38rem 1rem;font-size:0.82rem;font-weight:500;margin-bottom:1.15rem}
+.bro-from b{font-size:1.15rem;font-weight:700;letter-spacing:-0.02em}
 .bro-for{display:flex;flex-wrap:wrap;align-items:center;gap:0.4rem}
-.bro-for > span:first-child{font-size:0.78rem;color:var(--muted);margin-right:0.3rem}
-.bro-chip{background:var(--grey);border:1px solid var(--border);border-radius:100px;padding:0.26rem 0.75rem;font-size:0.76rem;font-weight:500}
-.bro-block{padding:1.6rem 3rem;border-top:1px solid var(--border)}
-.bro-h{font-size:0.82rem;font-weight:600;color:var(--red);margin-bottom:1rem}
-.bro-list{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0.85rem 2rem}
-.bro-list li{display:flex;gap:0.7rem;align-items:flex-start}
-.bro-tick{flex-shrink:0;width:20px;height:20px;margin-top:0.1rem;border-radius:50%;background:var(--red-fill);color:#fff;font-size:0.68rem;font-weight:700;display:flex;align-items:center;justify-content:center}
-.bro-list b,.bro-addon b{display:block;font-size:0.9rem;font-weight:600;letter-spacing:-0.01em;line-height:1.4}
-.bro-list li span:not(.bro-tick),.bro-addon span{display:block;font-size:0.8rem;color:var(--muted);line-height:1.5}
-.bro-plans,.bro-addons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
-.bro-plan{border:1px solid var(--border);border-radius:16px;padding:1.3rem 1.5rem}
-.bro-plan-name{font-size:0.85rem;font-weight:600;margin-bottom:0.4rem}
-.bro-price{display:flex;flex-wrap:wrap;align-items:baseline;gap:0.1rem 0.45rem;font-size:2.4rem;font-weight:600;letter-spacing:-0.03em;line-height:1.15}
-.bro-addon-price small{margin-left:0.3rem}
+.bro-for > span:first-child{font-size:0.76rem;color:rgba(255,255,255,0.6);margin-right:0.25rem}
+.bro-chip{border:1px solid rgba(255,255,255,0.18);background:rgba(255,255,255,0.06);border-radius:100px;padding:0.24rem 0.7rem;font-size:0.74rem;font-weight:500}
+/* each chip opens the matching demo website (demo/) */
+a.bro-chip{color:inherit;text-decoration:none;transition:background 0.2s,border-color 0.2s}
+a.bro-chip:hover{background:rgba(255,255,255,0.16);border-color:rgba(255,255,255,0.4)}
+
+/* Sample sites on a laptop-style window and a phone: drawn shapes, no pictures */
+.bro-devices{position:relative;padding:0 1.75rem 1.5rem 0}
+.bro-browser{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 22px 50px rgba(0,0,0,0.45)}
+.bro-bar{display:flex;align-items:center;gap:5px;padding:7px 10px;background:#f1f1f3;border-bottom:1px solid #e3e3e6}
+.bro-bar i{width:7px;height:7px;border-radius:50%;background:#ff5f57}
+.bro-bar i:nth-child(2){background:#febc2e}
+.bro-bar i:nth-child(3){background:#28c840}
+.bro-bar span{flex:1;margin-left:8px;background:#fff;border-radius:6px;padding:1px 8px;font-size:9px;color:#6e6e73;text-align:center}
+.bro-screen{padding:10px;display:grid;gap:7px}
+.bro-shot{height:76px;border-radius:7px;background:linear-gradient(135deg,#ff8a4c,#d42d08 60%,#8f1d05)}
+.bro-line{display:block;height:6px;border-radius:4px;background:#e4e4e8}
+.bro-line.head{height:9px;background:#1d1d1f}
+.bro-line.w45{width:45%}
+.bro-line.w60{width:60%}
+.bro-line.w75{width:75%}
+.bro-line.w85{width:85%}
+.bro-row{display:flex;align-items:center;justify-content:space-between;gap:6px}
+.bro-wa{display:inline-flex;align-items:center;justify-content:center;width:46px;height:16px;border-radius:100px;background:#25d366;color:#fff}
+.bro-wa svg{width:9px;height:9px}
+/* social media buttons: Instagram, Facebook, TikTok */
+.bro-socials{display:flex;gap:4px}
+.bro-socials i{width:13px;height:13px;border-radius:50%;background:linear-gradient(45deg,#f9a825,#e1306c 55%,#833ab4)}
+.bro-socials i:nth-child(2){background:#1877f2}
+.bro-socials i:nth-child(3){background:#111}
+.bro-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.bro-tiles i{height:24px;border-radius:5px;background:#f1f1f3}
+.bro-phone{position:absolute;right:0;bottom:0;width:36%;background:#fff;border:5px solid #2c2c30;border-radius:18px;padding:13px 7px 9px;display:grid;gap:6px;box-shadow:0 16px 40px rgba(0,0,0,0.55)}
+.bro-phone::before{content:"";position:absolute;top:4px;left:50%;width:30%;height:4px;border-radius:4px;background:#2c2c30;transform:translateX(-50%)}
+.bro-phone .bro-shot{height:54px;background:linear-gradient(135deg,#9fb7ff,#4c6ef5 55%,#364fc7)}
+.bro-phone .bro-socials{justify-content:center}
+.bro-phone .bro-wa{width:100%}
+
+.bro-sec{padding:1.5rem 2.75rem}
+.bro-sec{border-top:1px solid var(--border)}
+.bro-top + .bro-sec{border-top:0}
+.bro-h{font-size:1.12rem;font-weight:700;letter-spacing:-0.02em;margin-bottom:0.95rem;display:flex;align-items:center;gap:0.6rem}
+.bro-h::before{content:"";width:18px;height:3px;border-radius:2px;background:var(--red-fill);flex-shrink:0}
+
+/* Why a website when you already have social media */
+.bro-why{background:var(--tint)}
+.bro-why-sub{color:var(--muted);font-size:0.88rem;line-height:1.55;margin:-0.35rem 0 1rem;max-width:620px}
+.bro-reasons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0.75rem}
+.bro-reason{display:flex;gap:0.8rem;align-items:flex-start;background:var(--paper);border-radius:16px;padding:1rem 1.1rem}
+.bro-reason b{display:block;font-size:0.92rem;font-weight:700;letter-spacing:-0.01em;margin-bottom:0.2rem}
+.bro-reason p{font-size:0.8rem;color:var(--muted);line-height:1.5}
+
+/* What's included, in groups */
+.bro-groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0.75rem}
+.bro-group{background:var(--grey);border-radius:16px;padding:1rem 1.15rem 1.1rem}
+.bro-group h3{display:flex;align-items:center;gap:0.65rem;font-size:0.95rem;font-weight:700;letter-spacing:-0.01em;margin-bottom:0.65rem}
+.bro-ico{display:flex;align-items:center;justify-content:center;flex-shrink:0;width:32px;height:32px;border-radius:10px;background:var(--paper);color:var(--red)}
+.bro-ico svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.bro-checks{list-style:none;display:grid;gap:0.4rem}
+.bro-checks li{display:flex;align-items:flex-start;gap:0.55rem;font-size:0.82rem;line-height:1.4}
+.bro-checks li::before{content:"";flex-shrink:0;width:15px;height:15px;margin-top:0.12rem;border-radius:50%;background:var(--red-fill) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/9px no-repeat}
+
+.bro-plans{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0.9rem}
+.bro-plan{border:1px solid var(--border);border-radius:16px;padding:1.25rem 1.4rem}
+.bro-plan.dark{background:var(--panel);border-color:var(--panel);color:#fff;box-shadow:0 0 0 1px var(--hairline)}
+.bro-plan-name{font-size:0.82rem;font-weight:600;color:var(--red);margin-bottom:0.3rem}
+.bro-plan.dark .bro-plan-name{color:#ff6b52}
+.bro-plan-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:0.4rem 0.75rem;margin-bottom:0.3rem}
+.bro-plan-top .bro-plan-name{margin-bottom:0}
+.bro-save{background:var(--red-fill);color:#fff;border-radius:100px;padding:0.2rem 0.65rem;font-size:0.72rem;font-weight:600;white-space:nowrap}
+.bro-price{display:flex;flex-wrap:wrap;align-items:baseline;gap:0.1rem 0.45rem;font-size:2.5rem;font-weight:700;letter-spacing:-0.04em;line-height:1.12}
 .bro-price small,.bro-addon-price small{font-size:0.85rem;font-weight:500;letter-spacing:0;color:var(--muted)}
-.bro-terms{list-style:none;margin-top:0.8rem;font-size:0.84rem;color:var(--muted)}
-.bro-terms li{padding:0.4rem 0;border-top:1px solid var(--border)}
-.bro-note{margin-top:0.85rem;font-size:0.8rem;color:var(--muted)}
-.bro-addon{display:flex;align-items:center;justify-content:space-between;gap:1rem;background:var(--grey);border-radius:14px;padding:1rem 1.25rem}
-.bro-addon-price{font-size:1.4rem;font-weight:600;letter-spacing:-0.02em;white-space:nowrap;text-align:right}
-.bro-foot{background:var(--panel);color:#fff;padding:1.5rem 3rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem 2rem}
-.bro-foot-h{font-size:1.05rem;font-weight:600;letter-spacing:-0.01em}
-.bro-contacts{display:flex;flex-wrap:wrap;gap:0.6rem 1.75rem;font-size:0.84rem}
-.bro-contacts a{color:#fff;text-decoration:none}
+.bro-plan.dark .bro-price small{color:rgba(255,255,255,0.65)}
+.bro-terms{list-style:none;margin-top:0.75rem;display:grid;gap:0.35rem;font-size:0.82rem;color:var(--muted)}
+.bro-plan.dark .bro-terms{color:rgba(255,255,255,0.75)}
+.bro-terms li{display:flex;align-items:flex-start;gap:0.55rem}
+.bro-terms li::before{content:"";width:5px;height:5px;margin-top:0.55em;border-radius:50%;background:var(--red);flex-shrink:0}
+.bro-plan.dark .bro-terms li::before{background:#ff6b52}
+/* Add-ons: one strip under the plans */
+.bro-extras{display:grid;grid-template-columns:auto minmax(0,1fr) minmax(0,1fr);align-items:center;gap:0.75rem 1.5rem;margin-top:0.9rem;padding:0.9rem 1.25rem;border-radius:16px;background:var(--tint)}
+.bro-extras h3{font-size:0.9rem;font-weight:700;line-height:1.25}
+.bro-extras h3 small{display:block;font-size:0.72rem;font-weight:500;color:var(--muted)}
+.bro-addon{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-left:1.5rem;border-left:1px solid var(--border)}
+.bro-addon b{display:block;font-size:0.86rem;font-weight:600;letter-spacing:-0.01em}
+.bro-addon div > span{display:block;font-size:0.74rem;color:var(--muted);line-height:1.4}
+.bro-addon-price{font-size:1.3rem;font-weight:700;letter-spacing:-0.03em;white-space:nowrap;text-align:right}
+.bro-addon-price small{margin-left:0.25rem}
+
+/* Bottom: the brand red, with every line of text in full white so it stays readable */
+.bro-foot{background:var(--red-fill);color:#fff;padding:1.5rem 2.75rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem 2rem}
+.bro-foot-h{font-size:1.3rem;font-weight:700;letter-spacing:-0.02em;line-height:1.2}
+.bro-foot-sub{font-size:0.82rem;margin-top:0.25rem}
+.bro-contacts{display:flex;flex-wrap:wrap;gap:0.75rem 2rem;margin-top:1rem}
+.bro-contacts a{color:#fff;text-decoration:none;font-size:0.86rem;font-weight:600}
 .bro-contacts a:hover{text-decoration:underline}
-.bro-contacts span{display:block;font-size:0.7rem;color:rgba(255,255,255,0.6)}
+.bro-contacts a span{display:block;font-size:0.66rem;font-weight:500;letter-spacing:0.04em;text-transform:uppercase}
+.bro-qr{flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:0.45rem;font-size:0.7rem;font-weight:600;line-height:1.3;text-align:center}
+.bro-qr svg{display:block;width:88px;height:88px;padding:6px;border-radius:10px;background:#fff}
+/* avoid a single word or character left alone on the last line, where the browser can */
+.bro-hero p,.bro-why-sub,.bro-reason p,.bro-checks li,.bro-terms li,.bro-addon,.bro-foot-sub{text-wrap:pretty}
+
 .offer-lock{max-width:560px;min-height:100svh;margin:0 auto;padding:7rem 1.25rem 4rem;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
 .offer-lock-icon{font-size:2.2rem;margin-bottom:1.25rem}
 .offer-lock h1{font-size:clamp(1.9rem,5vw,2.6rem);font-weight:600;letter-spacing:-0.03em;line-height:1.15;margin-bottom:1rem}
@@ -785,33 +868,51 @@ nav{view-transition-name:site-nav}
 .offer-lock .btn-main{margin-top:1.5rem}
 /* While the page unlocks the lock stays out of sight; offer.js shows it only if the key is missing or wrong */
 @media(scripting:enabled){.offer-lock:not(.show){visibility:hidden}}
+
 @media(max-width:700px){
   .brochure-wrap{padding:4.25rem 0.75rem 3rem}
   /* side by side when both labels fit on one line, otherwise one per row */
   .brochure-actions > *{flex:1 1 auto;justify-content:center;white-space:nowrap}
   .brochure{border-radius:16px}
-  .bro-head,.bro-hero,.bro-block,.bro-foot{padding-left:1.4rem;padding-right:1.4rem}
-  .bro-site{display:none}
-  .bro-list,.bro-plans,.bro-addons{grid-template-columns:1fr}
+  .bro-top{padding:1.3rem 1.3rem 1.75rem}
+  .bro-site,.bro-qr{display:none}
+  .bro-hero{grid-template-columns:1fr;gap:1.75rem;margin-top:1.5rem}
+  .bro-devices{max-width:380px}
+  .bro-sec,.bro-foot{padding-left:1.3rem;padding-right:1.3rem}
+  .bro-reasons,.bro-groups,.bro-plans,.bro-extras{grid-template-columns:1fr}
+  .bro-addon{padding:0.75rem 0 0;border-left:0;border-top:1px solid var(--border)}
 }
-/* Printed, or saved as PDF: just the sheet, filling one A4 page, in the light theme (assets/theme.js) */
+
+/* Printed, or saved as PDF: just the brochure, as two A4 pages (front and back), in the light theme (assets/theme.js) */
 @media print{
   @page{size:A4;margin:0}
   nav,.mobile-menu,body > footer,.brochure-actions,body::before{display:none!important}
   body{background:#fff}
   .brochure-wrap{padding:0;background:none}
-  /* overflow stays visible, so anything too long spills onto a second page, which the tests catch, instead of being cut off */
-  .brochure{max-width:none;width:210mm;height:296mm;overflow:visible;border-radius:0;box-shadow:none;display:flex;flex-direction:column}
-  .bro-head{padding-top:1.3rem}
-  .bro-hero{padding:1.4rem 3rem}
-  .bro-block{padding:1.1rem 3rem}
-  .bro-list{gap:0.55rem 2rem}
-  .bro-plan{padding:1rem 1.3rem}
-  .bro-price{font-size:2.1rem}
-  .bro-terms{margin-top:0.55rem}
-  .bro-terms li{padding:0.3rem 0}
-  .bro-note{margin-top:0.6rem}
-  .bro-addon{padding:0.8rem 1.1rem}
-  .bro-foot{margin-top:auto}
+  .brochure{max-width:none;width:210mm;overflow:visible;border-radius:0;box-shadow:none}
+  /* Each page is at least one sheet tall and nothing in it may shrink: anything too long makes a third page,
+     which the tests catch */
+  .bro-page{min-height:296mm;display:flex;flex-direction:column;break-after:page}
+  .bro-page:last-child{break-after:auto}
+  .bro-page > *{flex-shrink:0}
+  .bro-page > .bro-sec:first-child{border-top:0}
+  /* Front: the dark cover fills what the reasons leave, with the headline centred in it */
+  .bro-page:first-child .bro-top{flex-grow:1;display:flex;flex-direction:column}
+  .bro-page:first-child .bro-hero{margin:auto 0}
+  .bro-page:first-child .bro-hero h1{font-size:3.1rem}
+  .bro-why{padding-top:1.75rem;padding-bottom:2rem}
+  /* Back: a little tighter, so the longest language (BM) still fits, with the contact strip at the bottom */
+  .bro-page:last-child .bro-sec{padding-top:1.3rem;padding-bottom:1.3rem}
+  .bro-page:last-child .bro-h{margin-bottom:0.8rem}
+  .bro-group{padding:0.9rem 1.05rem 0.95rem}
+  .bro-group h3{margin-bottom:0.55rem}
+  .bro-checks{gap:0.32rem}
+  .bro-plan{padding:1.1rem 1.3rem}
+  .bro-extras{margin-top:0.75rem}
+  .bro-foot{margin-top:auto;padding-top:1.25rem;padding-bottom:1.25rem}
+  /* Soft glows and shadows come out of a PDF as dark rectangles, so print draws the devices with outlines instead */
+  .bro-top::before{display:none}
+  .bro-browser,.bro-phone,.bro-plan.dark{box-shadow:none}
+  .bro-browser{outline:1px solid rgba(255,255,255,0.25)}
   .brochure,.brochure *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
